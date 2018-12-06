@@ -1,0 +1,19 @@
+<div>
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+  <span class="checkbox">
+    <input type="checkbox" [(ngModel)]="searchParameters.title" (ngModelChange)="search(searchBox.value)" />
+    <label>In Title</label>
+  </span>
+  <span class="checkbox">
+    <input type="checkbox" [(ngModel)]="searchParameters.code" (ngModelChange)="search(searchBox.value)" />
+    <label>In Code</label>
+  </span>
+  <span class="checkbox">
+    <input type="checkbox" [(ngModel)]="searchParameters.tags" (ngModelChange)="search(searchBox.value)" />
+    <label>In Tags</label>
+  </span>
+  <span class="checkbox">
+    <input type="checkbox" [(ngModel)]="searchParameters.notes" (ngModelChange)="search(searchBox.value)" />
+    <label>In Notes</label>
+  </span>
+</div>

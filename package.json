@@ -1,5 +1,5 @@
 {
-  "name": "snippet-storer",
+  "name": "project-name",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -7,9 +7,15 @@
     "start": "ng serve",
     "build": "ng build --prod",
     "test": "ng test",
+    "e2e": "ng e2e",
+    "format:fix": "pretty-quick --staged",
+    "precommit": "run-s format:fix lint",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "format:check": "prettier --config ./.prettierrc --list-different \"src/{app,environments,assets}/**/*{.ts,.js,.json,.css,.scss}\""
   },
+  "pre-commit": [
+    "precommit"
+  ],
   "private": true,
   "dependencies": {
     "@angular/animations": "^5.2.0",
@@ -43,6 +49,6 @@
     "protractor": "~5.1.2",
     "ts-node": "~4.1.0",
     "tslint": "~5.9.1",
-    "typescript": "~2.5.3"
+    "typescript": "~2.4.2"
   }
 }

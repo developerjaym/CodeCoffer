@@ -1,0 +1,21 @@
+.snippet-box {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  min-height: 50vh;
+  padding-top: 5px;
+}
+
+textarea {
+  height: 15vh;
+  max-width: 50vw;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.delete-button {
+  text-align: right;
+  align-self: right;
+}

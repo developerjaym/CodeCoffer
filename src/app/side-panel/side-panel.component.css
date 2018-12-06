@@ -1,0 +1,15 @@
+.ascii {
+    font-size: 5px;
+    background-color: var(--main-bg-color);
+    color: var(--main-fg-color);
+    padding-bottom: 4px;
+    padding-top: 12px;
+    height: 44px;
+    min-width: 160px;
+    border: none;
+    resize: none;
+    
+}
+:focus {
+    border: none;
+}

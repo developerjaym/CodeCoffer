@@ -1,0 +1,7 @@
+<div *ngIf="snippet.active && snippet.showing" class="snippet-box">
+  <input type="text" class="title" [(ngModel)]="snippet.title">
+  <input type="text" [(ngModel)]="snippet.tags">
+  <textarea class="code-area" [(ngModel)]="snippet.code"></textarea>
+  <textarea [(ngModel)]="snippet.notes"></textarea>
+  <button (click)="delete(snippet.id)" class="delete-button">Delete</button>
+</div>

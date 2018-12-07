@@ -7,6 +7,13 @@
   --secondary-bg-color: green; 
   --secondary-fg-color: black;
 }
+
+.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
 body, input, button, textarea {
   font-family: monospace;
   font-size: 1.2em;

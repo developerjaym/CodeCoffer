@@ -1,10 +1,10 @@
-div {
-    display: flex;
-    align-items: left;
-    flex-direction: row;
-    max-height: 100vh;
-    max-width: 100vw;
-  }
+.home {
+  display: flex;
+  align-items: left;
+  flex-direction: row;
+  /* max-height: 100vh; */
+  max-width: 100vw;
+} 
   app-middle-panel {
     width: 80vw;
     height: 100%;
@@ -19,14 +19,8 @@ div {
     display: flex;
     align-items: left;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 100%;
     max-width: 15vw;
     min-width: 160px;
-    position: absolute;
-    top: 0;
-  }
-  #side {
-    top: 0;
-    position: sticky;
   }
   

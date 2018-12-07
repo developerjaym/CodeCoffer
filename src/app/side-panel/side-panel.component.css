@@ -13,3 +13,9 @@
 :focus {
     border: none;
 }
+
+.panel {
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+}

@@ -30,8 +30,9 @@ export class SnippetService {
     this.snippetsSubject.next(this.snippets);
   }
 
-  deleteSnippet(snippetId: number): void {
-    this.snippets = this.storage.removeSnippet(snippetId);
+  deleteSnippet(snippetId: string): void {
+    this.storage.removeSnippet(snippetId);
+    this.snippets = this.snippets.filter(snippet => snippet.id !== snippetId);
     this.snippetsSubject.next(this.snippets);
   }
 
@@ -58,7 +59,7 @@ export class SnippetService {
   }
 
   sortSnippets(): void {
-    this.snippets.sort((a, b) => a.showing && b.showing ? b.id - a.id : +b.showing - +a.showing);
+    this.snippets.sort((a, b) => a.showing && b.showing ? b.timestamp - a.timestamp : +b.showing - +a.showing);
   }
 
   saveSnippets(): void {

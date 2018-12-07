@@ -16,7 +16,7 @@ export class SnippetBoxComponent implements OnInit {
 
   getSnippet(): void {}
 
-  delete(snippetId: number) {
+  delete(snippetId: string) {
     this.snippetService.deleteSnippet(snippetId);
   }
 }

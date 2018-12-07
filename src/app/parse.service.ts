@@ -18,7 +18,8 @@ export class ParseService {
       snippet.code = snippetElement.getElementsByTagName("code")[0].textContent;
       snippet.notes = snippetElement.getElementsByTagName("notes")[0].textContent;
       snippet.title = snippetElement.getElementsByTagName("title")[0].textContent;
-      snippet.id = Date.parse(snippetElement.getElementsByTagName("timestamp")[0].textContent);
+      snippet.timestamp = Date.parse(snippetElement.getElementsByTagName("timestamp")[0].textContent);
+      snippet.id = snippetElement.getElementsByTagName("id")[0].textContent;
       const tags = [];
 
       for (let t = 0; t < snippetElement.getElementsByTagName("tag").length; t++) {

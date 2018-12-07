@@ -40,13 +40,12 @@ export class StorageService {
     this.set('snippets', snippets);
   }
 
-  removeSnippet(id: number): Snippet[] {
+  removeSnippet(id: string): Snippet[] {
     const snippets = this.getSnippets();
     return this.set('snippets', snippets.filter(snippet => snippet.id !== id));
   }
 
   saveSnippets(snippets: Snippet[]): void {
-    console.log(JSON.stringify(snippets));
     this.set('snippets', snippets);
   }
 

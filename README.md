@@ -31,9 +31,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
  2) Perhaps give line numbers to code text area
  3) General style improvements
  4) Download/upload json files
- 5) Convert old xml from desktop app to json
+
  6) A back end
  
  8) Ability to copy to clipboard
  9) Fix left margins of many things
- 10) Use more ascii art
+
+ 11) Perhaps use IndexedDB

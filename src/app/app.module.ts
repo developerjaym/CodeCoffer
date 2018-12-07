@@ -11,6 +11,7 @@ import { SnippetBoxComponent } from './snippet-box/snippet-box.component';
 import { SnippetService } from './snippet.service';
 import { HttpClientModule } from '@angular/common/http';
 import { StorageService } from './storage.service';
+import { ParseService } from './parse.service';
 import { AboutComponent } from './about/about.component';
 import { ExportComponent } from './export/export.component';
 import { ImportComponent } from './import/import.component';
@@ -31,7 +32,7 @@ const appRoutes: Routes = [
     { enableTracing: false,
     useHash: true } // <-- debugging purposes only
   ),],
-  providers: [SnippetService, StorageService],
+  providers: [ParseService, SnippetService, StorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

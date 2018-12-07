@@ -58,7 +58,7 @@ export class SnippetService {
   }
 
   sortSnippets(): void {
-    this.snippets.sort((a, b) => b.id - a.id);
+    this.snippets.sort((a, b) => a.showing && b.showing ? b.id - a.id : +b.showing - +a.showing);
   }
 
   saveSnippets(): void {

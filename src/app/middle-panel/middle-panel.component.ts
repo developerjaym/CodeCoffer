@@ -15,9 +15,8 @@ export class MiddlePanelComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.snippetService.getSnippetList().pipe(
-      tap(console.log)
-    ).subscribe(snippetList => this.snippets = snippetList);
+    this.snippetService.getSnippetList()
+    .subscribe(snippetList => this.snippets = snippetList);
   }
 
   addSnippet() {

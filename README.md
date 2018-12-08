@@ -1,39 +1,31 @@
-# SnippetStorer
+# CodeCoffer
+ This is a simple tool anyone can use for storing code snippets or other notes. 
+ Here's a quick user guide:
+ 1) Press the '+' button in the top middle to create a new snippet. 
+ 2) Give the new snippet a title.
+ 3) Give the new snippet some tags. Separate tags with commas. (Example: java, zoneddatetime )
+ 4) Paste your code snippet into the code area.
+ 5) Write some notes in the notes area.
+ 6) Search for snippets with the text field on the left.
+    a) Use the options below to restrict your search (in order to search snippets with particular tags or titles, for example).
+    b) If you clear the text in the search text field, then all snippets will be visible.
+ 7) Your snippets will be saved to your browser's local storage every 200 seconds automatically.
+    a) You can press the 'save' button to save sooner.
+ 8) You can export your snippet list or import others' snippets, as well.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
+## Current TODO List
+ 1) Use code editor in snippet box
+ 2) General style improvements
+ 3) A back end for saving and sharing
+ 4) Add some functionality
+    a) Copy code snippet to clipboard
+    b) Export single snippet
+    c) Clone snippet
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-
-## Current TODO List
- 1) Make code text area when it more lines are added
- 2) Perhaps give line numbers to code text area
- 3) General style improvements
- 4) Download/upload json files
-
- 6) A back end
- 
- 8) Ability to copy to clipboard
 
 

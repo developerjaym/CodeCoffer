@@ -9,7 +9,6 @@ import { MiddlePanelComponent } from './middle-panel/middle-panel.component';
 import { SearchBoxComponent } from './search-box/search-box.component';
 import { SnippetBoxComponent } from './snippet-box/snippet-box.component';
 import { SnippetService } from './snippet.service';
-import { HttpClientModule } from '@angular/common/http';
 import { StorageService } from './storage.service';
 import { ParseService } from './parse.service';
 import { AboutComponent } from './about/about.component';
@@ -27,7 +26,7 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [AppComponent, AboutComponent, ExportComponent, ImportComponent, HomeComponent, SidePanelComponent, MiddlePanelComponent, SearchBoxComponent, SnippetBoxComponent, HomeComponent],
-  imports: [BrowserModule, CommonModule, FormsModule, HttpClientModule, RouterModule.forRoot(
+  imports: [BrowserModule, CommonModule, FormsModule, RouterModule.forRoot(
     appRoutes,
     { enableTracing: false,
     useHash: true } // <-- debugging purposes only

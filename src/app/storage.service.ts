@@ -35,7 +35,7 @@ export class StorageService {
   addSnippet(snippet: Snippet): void {
     const snippets = this.getSnippets();
     if(!snippets.includes(snippet)) {
-      snippets.push(snippet);
+      snippets.unshift(snippet);
     }
     this.set('snippets', snippets);
   }

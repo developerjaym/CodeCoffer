@@ -9,9 +9,9 @@
     height: 100%;
     display: flex;
     align-items: center;
-    align-content: center;
+    align-content: space-between;
     flex-direction: column;
-    margin-left: 1vw;
+    margin-left: 4px;
   }
   app-side-panel {
     display: flex;

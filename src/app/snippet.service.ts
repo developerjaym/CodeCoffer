@@ -25,8 +25,8 @@ export class SnippetService {
 
   addSnippet(snippet: Snippet): void {
     this.storage.addSnippet(snippet);
-    this.snippets.push(snippet);
-    this.sortSnippets();
+    this.snippets.unshift(snippet);
+    // this.sortSnippets();
     this.snippetsSubject.next(this.snippets);
   }
 

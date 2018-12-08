@@ -1,12 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+/* Root - with Variables */
 
 :root {
   --main-bg-color: black; 
   --main-fg-color: rgb(0, 160, 0);
 
-  --secondary-bg-color: green; 
+  --secondary-bg-color: rgb(0, 128, 0); 
   --secondary-fg-color: black;
+
+  --main-font-size: 1em;
 }
+
+/*Custom Classes*/
 
 .sticky {
   position: sticky;
@@ -14,9 +18,39 @@
   z-index: 1;
 }
 
+.dangerous {
+}
+
+
+.display-textarea {
+  min-height: 500px;
+  min-width: 800px;
+  height: 50vh;
+  width: 50vw;
+}
+
+.snippet-box {
+  border-style: none;
+  border-color: var(--secondary-bg-color);
+  border-width: 1px;
+}
+
+
+/*Custom Tags*/
+
+app-export, app-import, app-about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100vw;
+  width: 100%;
+}
+
+/*Tags*/
+
 body, input, button, textarea {
   font-family: monospace;
-  font-size: 1.2em;
+  font-size: calc(0.2em + var(--main-font-size));
 }
 html {
   background-color: var(--main-bg-color);
@@ -41,54 +75,54 @@ button, .checkbox, label {
   border-width: 0 0 1px 0;
   border-color: var(--main-fg-color);
 }
-button:hover {
-  background-color: var(--secondary-bg-color);
-  color: var(--secondary-fg-color);
-}
 input, textarea {
   padding: 1vw 1vw 1vw 0.1vw;
-  border-width: 1px;
-  border-style: dashed;
+  border-width: 0px 0px 1px 0px;
+  border-style: solid;
   caret-color: var(--secondary-fg-color);
   border-color: var(--secondary-fg-color);
   background-color: var(--secondary-bg-color);
   color: var(--secondary-fg-color);
 }
+
+/*Pseudo Classes, etc*/
+
+button:hover {
+  background-color: var(--secondary-bg-color);
+  color: var(--secondary-fg-color);
+}
 ::selection {
   color: var(--main-bg-color);
-  background: var(--main-fg-color);;
+  background: var(--main-fg-color);
 }
 
 input::selection, textarea::selection {
   color: var(--secondary-bg-color);
-  background: var(--secondary-fg-color);;
+  background: var(--secondary-fg-color);
 }
 
 :focus {
-  border-color: var(--secondary-fg-color);
-  border-width: 2px;
+  background-color: var(--secondary-fg-color);
+  color: var(--secondary-bg-color);
+}
+
+input:focus, textarea:focus {
+  background-color: var(--secondary-fg-color);
+  color: var(--secondary-bg-color);
   border-style: solid;
+  border-width: 1px;
+  border-color: var(--secondary-bg-color);
+  caret-color: var(--secondary-bg-color);
 }
 
-app-export, app-import, app-about {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 100vw;
-  width: 100%;
-  height: 90vh;
-}
-
-.display-textarea {
-  min-height: 500px;
-  min-width: 700px;
-  height: 50vh;
-  width: 50vw;
+input:focus::selection, textarea:focus::selection {
+  color: var(--secondary-fg-color);
+  background: var(--secondary-bg-color);
 }
 
 button:focus {
-  background: var(--main-bg-color);
-  color: var(--main-fg-color);
+  background: var(--main-fg-color);
+  color: var(--main-bg-color);
 }
 
 /* width */
@@ -104,4 +138,9 @@ button:focus {
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: var(--main-fg-color);
+}
+
+/* Corner */
+::-webkit-scrollbar-corner {
+  background: var(--main-bg-color);
 }

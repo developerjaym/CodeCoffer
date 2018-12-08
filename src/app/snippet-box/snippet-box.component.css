@@ -1,14 +1,16 @@
 .snippet-box {
   display: flex;
   flex-direction: column;
-  width: 50vw;
+  width: 55vw;
   min-height: 50vh;
-  padding-top: 5px;
+  margin-top: 4px;
+  margin-bottom: 16px;
 }
 
 textarea {
   height: 15vh;
-  max-width: 50vw;
+  min-width: 100%;
+  max-width: 100%;
 }
 
 .title {
@@ -17,5 +19,7 @@ textarea {
 
 .delete-button {
   text-align: right;
-  align-self: right;
+  align-self: flex-end;
+  width: fit-content;
+  padding: 4px;
 }

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Snippet } from './snippet';
 @Injectable()
 export class StorageService {
-
+  private SNIPPET_KEY: string = 'snippets';
   constructor() { }
 
   contains(key: string): boolean {
@@ -19,34 +19,34 @@ export class StorageService {
   }
 
   getUniqueID(): string {
-    if(this.contains('id')) {
+    if (this.contains('id')) {
       return this.get('id');
     }
     return this.set('id', this.makeId(12));
   }
 
   getSnippets(): Snippet[] {
-    if(this.contains('snippets')) {
-      return this.get('snippets');
+    if (this.contains(this.SNIPPET_KEY)) {
+      return this.get(this.SNIPPET_KEY);
     }
-    return this.set('snippets', []);
+    return this.set(this.SNIPPET_KEY, []);
   }
 
   addSnippet(snippet: Snippet): void {
     const snippets = this.getSnippets();
-    if(!snippets.includes(snippet)) {
+    if (!snippets.includes(snippet)) {
       snippets.unshift(snippet);
     }
-    this.set('snippets', snippets);
+    this.set(this.SNIPPET_KEY, snippets);
   }
 
   removeSnippet(id: string): Snippet[] {
     const snippets = this.getSnippets();
-    return this.set('snippets', snippets.filter(snippet => snippet.id !== id));
+    return this.set(this.SNIPPET_KEY, snippets.filter(snippet => snippet.id !== id));
   }
 
   saveSnippets(snippets: Snippet[]): void {
-    this.set('snippets', snippets);
+    this.set(this.SNIPPET_KEY, snippets);
   }
 
   setName(newName: string): string {

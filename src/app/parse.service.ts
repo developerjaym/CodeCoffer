@@ -9,7 +9,7 @@ export class ParseService {
   parse(xmlString: string): Snippet[] {
     const parser = new DOMParser();
     const xmlDoc = parser.parseFromString(xmlString, "text/xml");
-    let snippets: Snippet[] = [];
+    const snippets: Snippet[] = [];
     for (let i = 0; i < xmlDoc.getElementsByTagName("snippet").length; i++) {
       const snippetElement = xmlDoc.getElementsByTagName("snippet")[i];
       const snippet = new Snippet();

@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { Snippet } from './snippet';
 import { SearchParameters } from './searchParameters';
 import { StorageService } from './storage.service';
-import { Observable } from 'rxjs/Observable';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class SnippetService {
@@ -26,7 +25,6 @@ export class SnippetService {
   addSnippet(snippet: Snippet): void {
     this.storage.addSnippet(snippet);
     this.snippets.unshift(snippet);
-    // this.sortSnippets();
     this.snippetsSubject.next(this.snippets);
   }
 
@@ -50,7 +48,7 @@ export class SnippetService {
         } else {
           snippet.showing = false;
         }
-        if(!term) {
+        if (!term) {
           snippet.showing = true;
         }
       }
@@ -63,7 +61,7 @@ export class SnippetService {
   }
 
   saveSnippets(): void {
-      this.storage.saveSnippets(this.snippets);
+    this.storage.saveSnippets(this.snippets);
   }
 
   import(snippets: Snippet[]): void {

@@ -28,10 +28,13 @@ const appRoutes: Routes = [
   declarations: [AppComponent, AboutComponent, ExportComponent, ImportComponent, HomeComponent, SidePanelComponent, MiddlePanelComponent, SearchBoxComponent, SnippetBoxComponent, HomeComponent],
   imports: [BrowserModule, CommonModule, FormsModule, RouterModule.forRoot(
     appRoutes,
-    { enableTracing: false,
-    useHash: true } // <-- debugging purposes only
-  ),],
+    {
+      enableTracing: false, // <-- debugging purposes only
+      useHash: true
+    }
+  ),
+  ],
   providers: [ParseService, SnippetService, StorageService],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

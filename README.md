@@ -35,6 +35,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
  6) A back end
  
  8) Ability to copy to clipboard
- 9) Fix left margins of many things
 
- 11) Perhaps use IndexedDB
+

@@ -2,3 +2,12 @@ div {
   display: flex;
   flex-direction: column;
 }
+
+button {
+  border: none;
+  padding: 2px;
+}
+
+.unchecked {
+  text-decoration: line-through;
+}

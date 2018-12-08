@@ -8,9 +8,18 @@
 }
 
 textarea {
-  height: 15vh;
   min-width: 100%;
   max-width: 100%;
+}
+
+.notes-area {
+  min-height: 100px;
+  height: 15vh;
+}
+
+.code-area {
+  min-height: 100px;
+  height: 20vh;
 }
 
 .title {

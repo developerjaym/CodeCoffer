@@ -46,6 +46,10 @@ app-export, app-import, app-about {
   width: 100%;
 }
 
+app-search-box {
+  margin-top: 12px;
+}
+
 /*Tags*/
 
 body, input, button, textarea {

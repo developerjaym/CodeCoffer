@@ -1,7 +1,7 @@
-#add-button, app-drag-drop {
+.add-button {
   text-align: center;
   z-index: 1;
   top: 0px;
   position: sticky;
-  width: 50%;
+  width: calc(var(--snippet-width)/2);;
 }

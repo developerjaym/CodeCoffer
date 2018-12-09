@@ -12,6 +12,7 @@
     align-content: space-between;
     flex-direction: column;
     margin-left: 4px;
+    background-color: var(--main-bg-color);
   }
   app-side-panel {
     display: flex;
@@ -20,5 +21,6 @@
     min-height: 100%;
     max-width: 15vw;
     min-width: 160px;
+    background-color: var(--main-bg-color);
   }
   

@@ -1,13 +1,16 @@
 /* Root - with Variables */
 
 :root {
-  --main-bg-color: black; 
-  --main-fg-color: rgb(0, 160, 0);
+  --main-bg-color: rgb(224, 224, 224); 
+  --main-fg-color: rgb(35, 135, 66);
 
-  --secondary-bg-color: rgb(0, 128, 0); 
-  --secondary-fg-color: black;
+  --secondary-bg-color: rgb(35, 135, 66); 
+  --secondary-fg-color: rgb(244, 244, 244);
 
   --main-font-size: 1em;
+
+  --snippet-width: 55vw;
+  --snippet-height: 60vh;
 }
 
 /*Custom Classes*/
@@ -17,10 +20,6 @@
   top: 0;
   z-index: 1;
 }
-
-.dangerous {
-}
-
 
 .display-textarea {
   min-height: 500px;

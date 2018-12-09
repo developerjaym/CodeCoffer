@@ -3,5 +3,7 @@
   <input type="text" [(ngModel)]="snippet.tags">
   <textarea class="code-area" [(ngModel)]="snippet.code"></textarea>
   <textarea class="notes-area" [(ngModel)]="snippet.notes"></textarea>
-  <button (click)="delete(snippet.id)" class="delete-button">Delete</button>
+  <div class="options-area">
+    <button (click)="delete()" class="option-button">Delete</button>
+  </div>
 </div>

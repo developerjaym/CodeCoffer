@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "snippet-storer": {
+    "code-coffer": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -53,18 +53,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "snippet-storer:build"
+            "browserTarget": "code-coffer:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "snippet-storer:build:production"
+              "browserTarget": "code-coffer:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "snippet-storer:build"
+            "browserTarget": "code-coffer:build"
           }
         },
         "test": {
@@ -98,7 +98,7 @@
         }
       }
     },
-    "snippet-storer-e2e": {
+    "code-coffer-e2e": {
       "root": "e2e",
       "sourceRoot": "e2e",
       "projectType": "application",
@@ -107,7 +107,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "snippet-storer:serve"
+            "devServerTarget": "code-coffer:serve"
           }
         },
         "lint": {
@@ -124,7 +124,7 @@
       }
     }
   },
-  "defaultProject": "snippet-storer",
+  "defaultProject": "code-coffer",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",

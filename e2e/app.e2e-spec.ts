@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('snippet-storer App', () => {
+describe('CodeCoffer App', () => {
   let page: AppPage;
 
   beforeEach(() => {

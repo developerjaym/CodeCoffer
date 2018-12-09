@@ -1,11 +1,7 @@
-<div>
+<div class="search-area" role="search">
   <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
-  <button [ngClass]="searchParameters.title ? '' : 'unchecked'" (click)="searchParameters.title = !searchParameters.title; search(searchBox.value)">In
-    Title</button>
-  <button [ngClass]="searchParameters.code ? '' : 'unchecked'" (click)="searchParameters.code = !searchParameters.code; search(searchBox.value)">In
-    Code</button>
-  <button [ngClass]="searchParameters.tags ? '' : 'unchecked'" (click)="searchParameters.tags = !searchParameters.tags; search(searchBox.value)">In
-    Tags</button>
-  <button [ngClass]="searchParameters.notes ? '' : 'unchecked'" (click)="searchParameters.notes = !searchParameters.notes; search(searchBox.value)">In
-    Notes</button>
+  <app-strike-through-box [label]="'In Title'" [(ngModel)]="searchParameters.title" (ngModelChange)="search(searchBox.value)"></app-strike-through-box>
+  <app-strike-through-box [label]="'In Code'" [(ngModel)]="searchParameters.code" (ngModelChange)="search(searchBox.value)"></app-strike-through-box>
+  <app-strike-through-box [label]="'In Tags'" [(ngModel)]="searchParameters.tags" (ngModelChange)="search(searchBox.value)"></app-strike-through-box>
+  <app-strike-through-box [label]="'In Notes'" [(ngModel)]="searchParameters.notes" (ngModelChange)="search(searchBox.value)"></app-strike-through-box>
 </div>

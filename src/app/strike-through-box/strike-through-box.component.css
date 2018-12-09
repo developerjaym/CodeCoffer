@@ -1,0 +1,9 @@
+button {
+    border: none;
+    padding: 2px;
+    width: 100%;
+}
+  
+.unchecked {
+    text-decoration: line-through;
+}

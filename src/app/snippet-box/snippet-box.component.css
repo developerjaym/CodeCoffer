@@ -1,13 +1,13 @@
 .snippet-box {
   display: flex;
   flex-direction: column;
-  width: 55vw;
-  min-height: 60vh;
+  width: var(--snippet-width);
+  min-height: var(--snippet-height);
   margin-top: 4px;
   margin-bottom: 16px;
 }
 
-textarea {
+textarea, input {
   min-width: 100%;
   max-width: 100%;
   resize: vertical;
@@ -15,19 +15,25 @@ textarea {
 
 .notes-area {
   min-height: 144px;
-  height: 15vh;
+  height: calc(var(--snippet-height)/4);
 }
 
 .code-area {
   min-height: 288px;
-  height: 30vh;
+  height: calc(var(--snippet-height)/2);
 }
 
 .title {
   font-weight: bold;
 }
 
-.delete-button {
+.options-area {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.option-button {
   text-align: right;
   align-self: flex-end;
   width: fit-content;

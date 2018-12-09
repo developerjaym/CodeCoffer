@@ -7,16 +7,26 @@ import { SnippetService } from '../snippet.service';
   styleUrls: ['./snippet-box.component.css']
 })
 export class SnippetBoxComponent implements OnInit {
+
   @Input() snippet: Snippet;
   constructor(private snippetService: SnippetService) {}
 
   ngOnInit() {
-    this.getSnippet();
   }
 
-  getSnippet(): void {}
+  delete() {
+    this.snippetService.deleteSnippet(this.snippet.id);
+  }
 
-  delete(snippetId: string) {
-    this.snippetService.deleteSnippet(snippetId);
+  copy() {
+
+  }
+
+  export() {
+
+  }
+
+  clone() {
+
   }
 }

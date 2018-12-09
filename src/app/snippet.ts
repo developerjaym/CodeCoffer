@@ -5,7 +5,6 @@ export class Snippet {
   tags: string;
   code: string;
   notes: string;
-  active: boolean;
   showing: boolean;
 
   constructor(
@@ -22,7 +21,6 @@ export class Snippet {
     this.tags = tags;
     this.code = code;
     this.notes = notes;
-    this.active = true; //for non-deleted snippets
     this.showing = true; //for search result
   }
 }

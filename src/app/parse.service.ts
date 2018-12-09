@@ -13,7 +13,6 @@ export class ParseService {
     for (let i = 0; i < xmlDoc.getElementsByTagName("snippet").length; i++) {
       const snippetElement = xmlDoc.getElementsByTagName("snippet")[i];
       const snippet = new Snippet();
-      snippet.active = true;
       snippet.showing = true;
       snippet.code = snippetElement.getElementsByTagName("code")[0].textContent;
       snippet.notes = snippetElement.getElementsByTagName("notes")[0].textContent;

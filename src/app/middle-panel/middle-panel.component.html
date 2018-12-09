@@ -1,4 +1,4 @@
 <button class="add-button" (click)="addSnippet()">+</button>
 <div *ngFor="let snippet of snippets">
-    <app-snippet-box  *ngIf="snippet.active && snippet.showing" [snippet]="snippet"></app-snippet-box>
+    <app-snippet-box  *ngIf="snippet.showing" [snippet]="snippet"></app-snippet-box>
 </div>

@@ -15,6 +15,7 @@ import { AboutComponent } from './about/about.component';
 import { ExportComponent } from './export/export.component';
 import { ImportComponent } from './import/import.component';
 import { HomeComponent } from './home/home.component';
+import { FiledragDirective } from './filedrag.directive';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -25,7 +26,7 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, AboutComponent, ExportComponent, ImportComponent, HomeComponent, SidePanelComponent, MiddlePanelComponent, SearchBoxComponent, SnippetBoxComponent, HomeComponent],
+  declarations: [AppComponent, AboutComponent, ExportComponent, ImportComponent, HomeComponent, SidePanelComponent, MiddlePanelComponent, SearchBoxComponent, SnippetBoxComponent, HomeComponent, FiledragDirective],
   imports: [BrowserModule, CommonModule, FormsModule, RouterModule.forRoot(
     appRoutes,
     {

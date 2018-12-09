@@ -16,7 +16,6 @@ export class SearchBoxComponent implements OnInit {
 
   ngOnInit() {}
 
-  // Push a search term into the observable stream.
   search(term: string): void {
     this.snippetService.search(term, this.searchParameters);
   }

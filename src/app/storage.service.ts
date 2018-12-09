@@ -2,28 +2,8 @@ import { Injectable } from '@angular/core';
 import { Snippet } from './snippet';
 @Injectable()
 export class StorageService {
-  private SNIPPET_KEY: string = 'snippets';
+  private readonly SNIPPET_KEY: string = 'snippets';
   constructor() { }
-
-  contains(key: string): boolean {
-    return !!localStorage.getItem(key);
-  }
-
-  get(key: string): any {
-    return JSON.parse(localStorage.getItem(key));
-  }
-
-  set(key: string, value: any): any {
-    localStorage.setItem(key, JSON.stringify(value));
-    return value;
-  }
-
-  getUniqueID(): string {
-    if (this.contains('id')) {
-      return this.get('id');
-    }
-    return this.set('id', this.makeId(12));
-  }
 
   getSnippets(): Snippet[] {
     if (this.contains(this.SNIPPET_KEY)) {
@@ -49,17 +29,16 @@ export class StorageService {
     this.set(this.SNIPPET_KEY, snippets);
   }
 
-  setName(newName: string): string {
-    return this.set('name', newName);
+  private contains(key: string): boolean {
+    return !!localStorage.getItem(key);
   }
 
-  private makeId(length: number = 12): string {
-    let text = "";
-    const possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  private get(key: string): any {
+    return JSON.parse(localStorage.getItem(key));
+  }
 
-    for (let i = 0; i < length; i++)
-      text += possible.charAt(Math.floor(Math.random() * possible.length));
-
-    return text;
+  private set(key: string, value: any): any {
+    localStorage.setItem(key, JSON.stringify(value));
+    return value;
   }
 }

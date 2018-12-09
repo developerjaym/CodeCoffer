@@ -64,6 +64,10 @@ h1 {
   color: var(--main-fg-color);
 }
 
+a {
+  color: var(--main-fg-color);
+}
+
 input,
 button,
 textarea {

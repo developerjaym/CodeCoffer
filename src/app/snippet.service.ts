@@ -7,15 +7,15 @@ import { Observable, BehaviorSubject } from 'rxjs';
 @Injectable()
 export class SnippetService {
   private snippets: Snippet[];
-
   private snippetsSubject: BehaviorSubject<Snippet[]>;
   private timerId: any;
+  private readonly SAVE_INTERVAL = 200000;
 
   constructor(private storage: StorageService) {
     this.snippets = this.storage.getSnippets();
     this.sortSnippets();
     this.snippetsSubject = new BehaviorSubject<Snippet[]>(this.snippets);
-    this.timerId = setInterval(() => this.saveSnippets(), 200000);
+    this.timerId = setInterval(() => this.saveSnippets(), this.SAVE_INTERVAL);
   }
 
   getSnippetList(): Observable<Snippet[]> {
@@ -34,26 +34,36 @@ export class SnippetService {
     this.snippetsSubject.next(this.snippets);
   }
 
-  search(term: string, searchParams: SearchParameters) {
+  search(query: string, searchParams: SearchParameters) {
+    query = query.trim();
+    const searchResultsMap: Map<Snippet, number> = new Map<Snippet, number>();
+    const terms: string[] = query.toLocaleUpperCase().split(',').map(str => str.trim());
+    terms.forEach(term => 
     this.snippets.forEach(snippet => {
-      if (snippet.active) {
-        if (snippet.title.includes(term) && searchParams.title) {
-          snippet.showing = true;
-        } else if (this.getTags(snippet.tags).some(tag => tag === term) && searchParams.tags) {
-          snippet.showing = true;
-        } else if (snippet.code.includes(term) && searchParams.code) {
-          snippet.showing = true;
-        } else if (snippet.notes.includes(term) && searchParams.notes) {
-          snippet.showing = true;
-        } else {
-          snippet.showing = false;
-        }
-        if (!term) {
-          snippet.showing = true;
-        }
-      }
-    });
-    this.sortSnippets();
+        let score = searchResultsMap.has(snippet) ? searchResultsMap.get(snippet) : 0;
+        if (snippet.title.toLocaleUpperCase().includes(term) && searchParams.title) {
+          score++;
+        } if (this.getTags(snippet.tags.toLocaleUpperCase()).some(tag => tag === term) && searchParams.tags) {
+          score++;
+        } if (snippet.code.toLocaleUpperCase().includes(term) && searchParams.code) {
+          score++;
+        } if (snippet.notes.toLocaleUpperCase().includes(term) && searchParams.notes) {
+          score++;
+        } 
+        searchResultsMap.set(snippet, score);
+    }));
+
+    this.snippets.forEach(snippet => {
+      const hasPositiveSearchScore = searchResultsMap.has(snippet) && searchResultsMap.get(snippet) > 0;
+      snippet.showing = hasPositiveSearchScore || query.length === 0;
+    })
+    if (query.length > 0) {
+      this.snippets.sort((a, b) => a.showing && b.showing ? 
+      searchResultsMap.get(b) - searchResultsMap.get(a) 
+      : +b.showing - +a.showing);
+    } else {
+      this.sortSnippets();
+    }
   }
 
   sortSnippets(): void {

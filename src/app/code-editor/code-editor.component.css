@@ -1,0 +1,23 @@
+.code-editor {
+    display: flex;
+    flex-direction: row;
+    min-width: 100%;
+}
+
+.code-editor textarea {
+    font-size: 14px;
+    line-height: 16px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    resize: none;
+    min-height: 100%;
+}
+
+.line-number-area {
+    padding-left: 1px;
+    padding-right: 0;
+}
+
+.code-area {
+    width: 100%;
+}

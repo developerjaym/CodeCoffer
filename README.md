@@ -14,13 +14,13 @@
  8) You can export your snippet list or import others' snippets, as well.
 
 ## Current TODO List
- 1) Use code editor in snippet box
- 2) General style improvements
- 3) A back end for saving and sharing
- 4) Add some functionality
-    a) Copy code snippet to clipboard
-    b) Export single snippet
-    c) Clone snippet
+ 1) Improve UI
+ 2) Add a back end for saving and sharing
+ 3) Add some functionality
+    3a) Copy code snippet to clipboard
+    3b) Export single snippet
+    3c) Clone snippet
+ 4) Find a way to improve performance
 
 ## Development server
 

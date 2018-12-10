@@ -10,8 +10,8 @@ export class Snippet {
   constructor(
     id: number = 0,
     title: string = 'title',
-    tags: string = 'javascript',
-    code: string = '()=>{}',
+    tags: string = 'tags',
+    code: string = '',
     notes: string = 'notes',
     timestamp: number = Date.now()
   ) {

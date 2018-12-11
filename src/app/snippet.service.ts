@@ -40,6 +40,7 @@ export class SnippetService {
   addSnippet(snippet: Snippet): void {
     this.storage.addSnippet(snippet);
     this.snippets.unshift(snippet);
+    window.scrollTo(0, 0);
     this.snippetsSubject.next(this.sliceSnippets());
   }
 

@@ -1,5 +1,5 @@
 <div class="search-area" role="search">
-  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" spellcheck="false"/>
   <app-strike-through-box [label]="'In Title'" [(ngModel)]="searchParameters.title" (ngModelChange)="search(searchBox.value)"></app-strike-through-box>
   <app-strike-through-box [label]="'In Code'" [(ngModel)]="searchParameters.code" (ngModelChange)="search(searchBox.value)"></app-strike-through-box>
   <app-strike-through-box [label]="'In Tags'" [(ngModel)]="searchParameters.tags" (ngModelChange)="search(searchBox.value)"></app-strike-through-box>

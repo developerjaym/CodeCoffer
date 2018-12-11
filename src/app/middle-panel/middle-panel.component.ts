@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Snippet } from '../snippet';
 import { SnippetService } from '../snippet.service';
-import { map, tap } from 'rxjs/operators';
+import { map, tap, debounce, debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-middle-panel',

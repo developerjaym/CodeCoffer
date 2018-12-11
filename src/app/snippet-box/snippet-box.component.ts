@@ -9,7 +9,9 @@ import { SnippetService } from '../snippet.service';
 export class SnippetBoxComponent implements OnInit {
 
   @Input() snippet: Snippet;
-  constructor(private snippetService: SnippetService) {}
+  
+  constructor(private snippetService: SnippetService) {
+  }
 
   ngOnInit() {
   }

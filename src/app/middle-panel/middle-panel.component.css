@@ -1,7 +1,7 @@
-.add-button {
+.middle-panel-button {
   text-align: center;
   z-index: 1;
   top: 0px;
   position: sticky;
-  width: calc(var(--snippet-width)/2);;
+  width: calc(var(--snippet-width)/2);
 }

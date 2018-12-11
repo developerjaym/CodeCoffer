@@ -49,6 +49,14 @@ app-search-box {
   margin-top: 12px;
 }
 
+app-snippet-box {
+  display: flex;
+  flex-direction: column;
+  width: var(--snippet-width);
+  margin-top: 4px;
+  margin-bottom: 16px;
+}
+
 /*Tags*/
 
 body, input, button, textarea {

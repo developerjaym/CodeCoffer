@@ -15,7 +15,7 @@ export class ExportComponent implements OnInit {
   constructor(private service: SnippetService, private router: Router) { }
 
   ngOnInit() {
-    this.service.getSnippetList().subscribe(snippets => this.exportedJson = JSON.stringify(snippets));
+    this.exportedJson = JSON.stringify(this.service.getAllSnippets());
   }
 
   back(): void {

@@ -1,7 +1,7 @@
 # CodeCoffer
  This is a simple tool anyone can use for storing code snippets or other notes. 
  Here's a quick user guide:
- 1) Press the '+' button in the top middle to create a new snippet. 
+ 1) Press the 'Create New Snippet' button in the top middle to create a new snippet. 
  2) Give the new snippet a title.
  3) Give the new snippet some tags. Separate tags with commas. (Example: java, zoneddatetime )
  4) Paste your code snippet into the code area.
@@ -11,16 +11,8 @@
     b) If you clear the text in the search text field, then all snippets will be visible.
  7) Your snippets will be saved to your browser's local storage every 200 seconds automatically.
     a) You can press the 'save' button to save sooner.
+    b) Your snippets will be saved when you leave the page.
  8) You can export your snippet list or import others' snippets, as well.
-
-## Current TODO List
- 1) Improve UI
- 2) Add a back end for saving and sharing
- 3) Add some functionality
-    3a) Copy code snippet to clipboard
-    3b) Export single snippet
-    3c) Clone snippet
- 4) Find a way to improve performance
 
 ## Development server
 

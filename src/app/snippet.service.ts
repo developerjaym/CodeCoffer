@@ -10,28 +10,43 @@ export class SnippetService {
   private snippetsSubject: BehaviorSubject<Snippet[]>;
   private timerId: any;
   private readonly SAVE_INTERVAL = 200000;
+  private readonly DEFAULT_PAGE_SIZE = 12;
 
   constructor(private storage: StorageService) {
     this.snippets = this.storage.getSnippets();
     this.sortSnippets();
-    this.snippetsSubject = new BehaviorSubject<Snippet[]>(this.snippets);
+    this.snippetsSubject = new BehaviorSubject<Snippet[]>(this.sliceSnippets());
     this.timerId = setInterval(() => this.saveSnippets(), this.SAVE_INTERVAL);
   }
 
+  /**
+   * To get the currently visible snippets, subscribe to this.
+   */
   getSnippetList(): Observable<Snippet[]> {
     return this.snippetsSubject.asObservable();
+  }
+
+  /**
+   * To get all snippets, invoke this method.
+   */
+  getAllSnippets(): Snippet[] {
+    return this.snippets;
+  }
+
+  loadRemainingSnippets(): void {
+    this.snippetsSubject.next(this.snippets);
   }
 
   addSnippet(snippet: Snippet): void {
     this.storage.addSnippet(snippet);
     this.snippets.unshift(snippet);
-    this.snippetsSubject.next(this.snippets);
+    this.snippetsSubject.next(this.sliceSnippets());
   }
 
   deleteSnippet(snippetId: string): void {
     this.storage.removeSnippet(snippetId);
     this.snippets = this.snippets.filter(snippet => snippet.id !== snippetId);
-    this.snippetsSubject.next(this.snippets);
+    this.snippetsSubject.next(this.sliceSnippets());
   }
 
   search(query: string, searchParams: SearchParameters) {
@@ -64,6 +79,7 @@ export class SnippetService {
     } else {
       this.sortSnippets();
     }
+    this.snippetsSubject.next(this.sliceSnippets());
   }
 
   sortSnippets(): void {
@@ -78,13 +94,22 @@ export class SnippetService {
     this.snippets.push(...snippets);
     this.sortSnippets();
     this.saveSnippets();
+    this.snippetsSubject.next(this.sliceSnippets());
   }
 
   clear(): void {
     clearInterval(this.timerId);
   }
 
+  hasMoreSnippets(index: number): boolean {
+    return this.snippets.filter(snippet => snippet.showing).length > index;
+  }
+
   private getTags(tags: string): Array<string> {
     return tags.split(',').map(s => s.trim());
+  }
+
+  private sliceSnippets(): Snippet[] {
+    return this.snippets.slice(0, this.DEFAULT_PAGE_SIZE);
   }
 }

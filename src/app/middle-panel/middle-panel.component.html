@@ -1,4 +1,5 @@
-<button class="add-button" (click)="addSnippet()" [title]="'Add Snippet'">+</button>
+<button class="middle-panel-button" (click)="addSnippet()" [title]="'Create New Snippet'">Create New Snippet</button>
 <div *ngFor="let snippet of snippets">
     <app-snippet-box  *ngIf="snippet.showing" [snippet]="snippet"></app-snippet-box>
 </div>
+<button *ngIf="hasMoreSnippetsToLoad" class="middle-panel-button" (click)="loadMoreSnippets()" [title]="'View Remaining Snippets'">View Remaining Snippets</button>

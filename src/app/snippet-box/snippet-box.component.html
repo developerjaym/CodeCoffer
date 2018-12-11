@@ -1,10 +1,7 @@
-<div class="snippet-box">
-  <input type="text" class="title" [(ngModel)]="snippet.title" [title]="'Snippet Title'">
-  <input type="text" [(ngModel)]="snippet.tags" [title]="'Snippet Tags'">
-  <!-- <textarea class="code-area" [(ngModel)]="snippet.code" [title]="'Snippet Code'"></textarea> -->
-  <app-code-editor [(ngModel)]="snippet.code" [title]="'Snippet Code'"></app-code-editor>
-  <textarea class="notes-area" [(ngModel)]="snippet.notes" [title]="'Snippet Notes'"></textarea>
-  <div class="options-area">
-    <button (click)="delete()" class="option-button" [title]="'Delete Snippet'">Delete</button>
-  </div>
+<input type="text" class="title" [(ngModel)]="snippet.title" [title]="'Snippet Title'" name="title">
+<input type="text" [(ngModel)]="snippet.tags" [title]="'Snippet Tags'" name="tags">
+<app-code-editor [(ngModel)]="snippet.code" [title]="'Snippet Code'"></app-code-editor>
+<textarea class="notes-area" [(ngModel)]="snippet.notes" [title]="'Snippet Notes'" name="notes"></textarea>
+<div class="options-area">
+  <button (click)="delete()" class="option-button delete-button" [title]="'Delete Snippet'">Delete</button>
 </div>

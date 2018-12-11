@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Snippet } from '../snippet';
 import { SnippetService } from '../snippet.service';
-import { tap } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-middle-panel',
@@ -10,16 +10,28 @@ import { tap } from 'rxjs/operators';
 })
 export class MiddlePanelComponent implements OnInit {
   snippets: Snippet[];
+  index: number;
+  hasMoreSnippetsToLoad: boolean;
 
   constructor(private snippetService: SnippetService) {
   }
 
   ngOnInit() {
     this.snippetService.getSnippetList()
-    .subscribe(snippetList => this.snippets = snippetList);
+    .pipe(
+      tap(snippetList => this.snippets = snippetList),
+      map(snippetList => snippetList.length),
+      tap(length => this.hasMoreSnippetsToLoad = this.snippetService.hasMoreSnippets(length)),
+      tap(length => this.index = length)
+    )
+    .subscribe();
   }
 
   addSnippet() {
     this.snippetService.addSnippet(new Snippet());
+  }
+
+  loadMoreSnippets() {
+    this.snippetService.loadRemainingSnippets();
   }
 }

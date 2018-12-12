@@ -18,6 +18,7 @@ import { HomeComponent } from './home/home.component';
 import { FiledragDirective } from './filedrag.directive';
 import { StrikeThroughBoxComponent } from './strike-through-box/strike-through-box.component';
 import { CodeEditorComponent } from './code-editor/code-editor.component';
+import { HotKeyService } from './hot-key.service';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -37,7 +38,7 @@ const appRoutes: Routes = [
     }
   ),
   ],
-  providers: [ParseService, SnippetService, StorageService],
+  providers: [HotKeyService, ParseService, SnippetService, StorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

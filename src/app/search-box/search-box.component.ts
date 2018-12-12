@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { SearchParameters } from '../searchParameters';
 import { SnippetService } from '../snippet.service';
+import { HotKeyService } from '../hot-key.service';
+import { HotKey } from '../hot-key.enum';
 
 @Component({
   selector: 'app-search-box',
@@ -10,11 +12,28 @@ import { SnippetService } from '../snippet.service';
 export class SearchBoxComponent implements OnInit {
   searchParameters: SearchParameters;
 
-  constructor(private snippetService: SnippetService) {
+  @ViewChild('searchBox')
+  searchBox: ElementRef;
+
+  constructor(private hotKeyService: HotKeyService, private snippetService: SnippetService) {
     this.searchParameters = new SearchParameters();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.hotKeyService.pull().subscribe(hotKey => {
+      switch (hotKey) {
+        case HotKey.SEARCH:
+          this.focusSearch();
+          break;
+        default:
+          break;
+      }
+    })
+  }
+
+  focusSearch(): void {
+    this.searchBox.nativeElement.focus();
+  }
 
   search(term: string): void {
     this.snippetService.search(term, this.searchParameters);

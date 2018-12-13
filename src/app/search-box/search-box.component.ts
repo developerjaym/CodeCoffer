@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild, OnDestroy, Renderer2 } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, OnDestroy } from '@angular/core';
 import { SearchParameters } from '../searchParameters';
 import { SnippetService } from '../snippet.service';
 import { HotKeyService } from '../hot-key.service';
@@ -20,8 +20,7 @@ export class SearchBoxComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[];
 
   constructor(private hotKeyService: HotKeyService, 
-    private snippetService: SnippetService,
-    private renderer: Renderer2) {
+    private snippetService: SnippetService) {
     this.searchParameters = new SearchParameters();
   }
 
@@ -33,6 +32,9 @@ export class SearchBoxComponent implements OnInit, OnDestroy {
     this.subscriptions = [];
     this.freshlyLoaded = true;
     this.subscriptions.push(
+      this.snippetService.getSearchParameters().subscribe(searchParameters => 
+        this.searchParameters = searchParameters),
+
       this.hotKeyService.pull().subscribe(hotKey => {
         switch (hotKey) {
           case HotKey.SEARCH:
@@ -43,8 +45,6 @@ export class SearchBoxComponent implements OnInit, OnDestroy {
         }
       })
     );
-
-    this.renderer.setAttribute(this.searchBox.nativeElement, 'value', 'test');
   }
 
   focusSearch(): void {
@@ -53,7 +53,7 @@ export class SearchBoxComponent implements OnInit, OnDestroy {
 
   search(term: string): void {
     if (!this.freshlyLoaded) {
-      this.snippetService.search(term, this.searchParameters);
+      this.snippetService.search(this.searchParameters);
     }
     this.freshlyLoaded = false;
   }

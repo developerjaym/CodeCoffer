@@ -3,12 +3,13 @@ import { Snippet } from './snippet';
 import { SearchParameters } from './searchParameters';
 import { StorageService } from './storage.service';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { ActivatedRoute, Router } from '@angular/router';
+import { distinctUntilChanged } from 'rxjs/operators';
 
 @Injectable()
 export class SnippetService {
   private snippets: Snippet[];
   private snippetsSubject: BehaviorSubject<Snippet[]>;
+  private searchSubject: BehaviorSubject<SearchParameters>;
   private timerId: any;
   private readonly SAVE_INTERVAL = 200000;
   private readonly DEFAULT_PAGE_SIZE = 12;
@@ -17,9 +18,13 @@ export class SnippetService {
     this.snippets = this.storage.getSnippets();
     this.sortSnippets();
     this.snippetsSubject = new BehaviorSubject<Snippet[]>(this.sliceSnippets());
+    this.searchSubject = new BehaviorSubject<SearchParameters>(new SearchParameters());
     this.timerId = setInterval(() => this.saveSnippets(), this.SAVE_INTERVAL);
   }
-
+  getSearchParameters(): Observable<SearchParameters> {
+    return this.searchSubject.asObservable().pipe(distinctUntilChanged());
+  }
+  
   /**
    * To get the currently visible snippets, subscribe to this.
    */
@@ -51,8 +56,9 @@ export class SnippetService {
     this.snippetsSubject.next(this.sliceSnippets());
   }
 
-  search(query: string, searchParams: SearchParameters) {
-    query = query.trim();
+  search(searchParams: SearchParameters) {
+    this.searchSubject.next(searchParams);
+    const query = searchParams.query.trim();
     const searchResultsMap: Map<Snippet, number> = new Map<Snippet, number>();
     const terms: string[] = query.toLocaleUpperCase().split(',').map(str => str.trim());
     terms.forEach(term => 

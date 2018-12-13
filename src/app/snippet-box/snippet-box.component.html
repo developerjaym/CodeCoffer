@@ -3,5 +3,6 @@
 <app-code-editor [(ngModel)]="snippet.code" [title]="'Snippet Code'"></app-code-editor>
 <textarea class="notes-area" [(ngModel)]="snippet.notes" [title]="'Snippet Notes'" name="notes"></textarea>
 <div class="options-area">
+    <button (click)="export()" class="option-button export-button" [title]="'Export Snippet'">Export</button>
   <button (click)="delete()" class="option-button delete-button" [title]="'Delete Snippet'">Delete</button>
 </div>

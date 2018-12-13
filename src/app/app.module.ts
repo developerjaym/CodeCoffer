@@ -19,10 +19,12 @@ import { FiledragDirective } from './filedrag.directive';
 import { StrikeThroughBoxComponent } from './strike-through-box/strike-through-box.component';
 import { CodeEditorComponent } from './code-editor/code-editor.component';
 import { HotKeyService } from './hot-key.service';
+import { ExportGuardService } from './export-guard.service';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'about', component: AboutComponent },
+  { path: 'export/:snippetId', component: ExportComponent, canActivate: [ExportGuardService] },
   { path: 'export', component: ExportComponent },
   { path: 'import', component: ImportComponent },
   { path: '**', redirectTo: '' }
@@ -38,7 +40,7 @@ const appRoutes: Routes = [
     }
   ),
   ],
-  providers: [HotKeyService, ParseService, SnippetService, StorageService],
+  providers: [ExportGuardService, HotKeyService, ParseService, SnippetService, StorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -43,6 +43,10 @@ export class SnippetService {
     this.snippetsSubject.next(this.snippets);
   }
 
+  getSnippetById(snippetId: string): Snippet {
+    return this.snippets.find(snippet => snippet.id === snippetId);
+  }
+
   addSnippet(snippet: Snippet): void {
     this.storage.addSnippet(snippet);
     this.snippets.unshift(snippet);

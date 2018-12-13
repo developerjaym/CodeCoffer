@@ -20,7 +20,7 @@
     flex-direction: column;
     min-height: 100%;
     max-width: 15vw;
-    min-width: 160px;
+    min-width: 180px;
     background-color: var(--main-bg-color);
   }
   

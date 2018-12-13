@@ -22,7 +22,7 @@ export class ImportComponent {
   }
 
   saveXml(): void {
-    this.service.import(this.parser.parse(this.importedXml));
+    this.service.import(...this.parser.parse(this.importedXml));
     this.back();
   }
 

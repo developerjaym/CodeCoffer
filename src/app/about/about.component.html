@@ -1,5 +1,5 @@
 <button (click)="back()"><---<< Return to Snippets</button>
-<textarea class="display-textarea" readonly>
+<textarea class="display-textarea" readonly spellcheck="false">
 8""""8                  8""""8                             
 8    " eeeee eeeee eeee 8    " eeeee eeee eeee eeee eeeee  
 8e     8  88 8   8 8    8e     8  88 8    8    8    8   8  
@@ -10,6 +10,33 @@
       Author:           Jay M
       CodeCoffer:       0.0.1
       Copyright:        Jay Mansmann ©2018
+
+This is a simple tool anyone can use for storing code snippets or other notes. 
+Here's a quick user guide:
+1) Press the 'Create New Snippet' button in the top middle to create a new snippet. 
+2) Give the new snippet a title.
+3) Give the new snippet some tags. Separate tags with commas. 
+      (Example: java, zoneddatetime )
+4) Paste your code snippet into the code area.
+5) Write some notes in the notes area.
+6) Search for snippets with the text field on the left.
+      a) Use the options below to restrict your search 
+            (in order to search snippets with particular tags or titles, for example).
+      b) If you clear the text in the search text field, then all snippets will be visible.
+7) Your snippets will be saved to your browser's local storage every 200 seconds automatically.
+      a) You can press the 'save' button to save sooner.
+      b) Your snippets will be saved when you leave the page.
+8) You can export your snippet list or import others' snippets, as well.
+9) For the power user, there are several hotkeys.
+      a) ctrl+alt+s = saved
+      b) ctrl+alt+n = create new snippet
+      c) ctrl+alt+e = export all snippets
+      d) ctrl+alt+i = go to import page
+      e) ctrl+alt+f = give focus to search bar
+      f) ctrl+alt+v = view remaining snippets 
+            (if you scroll to the bottom of the snippet list, you will see that option's button)
+          
+
 </textarea>
 <a href="https://app.termly.io/document/privacy-policy/3d3dd65c-85d6-4852-90cd-2a457c50ee2d">Privacy Policy</a>
 <a href="https://github.com/developerjaym/CodeCoffer">GitHub</a>

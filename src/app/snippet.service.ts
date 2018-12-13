@@ -102,7 +102,8 @@ export class SnippetService {
     this.storage.saveSnippets(this.snippets);
   }
 
-  import(snippets: Snippet[]): void {
+  import(...snippets: Snippet[]): void {
+    snippets.forEach(snippet => snippet.id = this.createId());
     this.snippets.push(...snippets);
     this.sortSnippets();
     this.saveSnippets();
@@ -123,5 +124,9 @@ export class SnippetService {
 
   private sliceSnippets(): Snippet[] {
     return this.snippets.slice(0, this.DEFAULT_PAGE_SIZE);
+  }
+
+  private createId(): string {
+    return String(Math.floor(Math.random() * 1000000000) + 1);
   }
 }

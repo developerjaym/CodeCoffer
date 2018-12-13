@@ -9,7 +9,7 @@ export class ExportGuardService {
 
   constructor(private snippetService: SnippetService) { }
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+  canActivate(route: ActivatedRouteSnapshot): boolean {
     return Boolean(this.snippetService.getSnippetById(route.params['snippetId']));
   }
 }

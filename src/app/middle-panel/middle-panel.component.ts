@@ -1,45 +1,56 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Snippet } from '../snippet';
 import { SnippetService } from '../snippet.service';
-import { map, tap, debounce, debounceTime } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { HotKeyService } from '../hot-key.service';
 import { HotKey } from '../hot-key.enum';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-middle-panel',
   templateUrl: './middle-panel.component.html',
   styleUrls: ['./middle-panel.component.css']
 })
-export class MiddlePanelComponent implements OnInit {
+export class MiddlePanelComponent implements OnInit, OnDestroy {
   snippets: Snippet[];
   index: number;
   hasMoreSnippetsToLoad: boolean;
 
+  private subscriptions: Subscription[];
+
   constructor(private hotKeyService: HotKeyService, private snippetService: SnippetService) {
   }
 
-  ngOnInit() {
-    this.snippetService.getSnippetList()
-    .pipe(
-      tap(snippetList => this.snippets = snippetList),
-      map(snippetList => snippetList.length),
-      tap(length => this.hasMoreSnippetsToLoad = this.snippetService.hasMoreSnippets(length)),
-      tap(length => this.index = length)
-    )
-    .subscribe();
+  ngOnDestroy() {
+    this.subscriptions.forEach(subscription => subscription.unsubscribe());
+  }
 
-    this.hotKeyService.pull().subscribe(hotKey => {
-      switch (hotKey) {
-        case HotKey.CREATE_NEW_SNIPPET:
-          this.addSnippet();
-          break;
-        case HotKey.VIEW_REMAINING_SNIPPETS:
-          this.loadMoreSnippets();
-          break;
-        default:
-          break;
-      }
-    })
+  ngOnInit() {
+    this.subscriptions = [];
+
+    this.subscriptions.push(
+      this.snippetService.getSnippetList()
+      .pipe(
+        tap(snippetList => this.snippets = snippetList),
+        map(snippetList => snippetList.length),
+        tap(length => this.hasMoreSnippetsToLoad = this.snippetService.hasMoreSnippets(length)),
+        tap(length => this.index = length)
+      )
+      .subscribe(),
+
+      this.hotKeyService.pull().subscribe(hotKey => {
+        switch (hotKey) {
+          case HotKey.CREATE_NEW_SNIPPET:
+            this.addSnippet();
+            break;
+          case HotKey.VIEW_REMAINING_SNIPPETS:
+            this.loadMoreSnippets();
+            break;
+          default:
+            break;
+        }
+      })
+    );
   }
 
   addSnippet() {

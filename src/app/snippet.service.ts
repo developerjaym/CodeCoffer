@@ -3,6 +3,7 @@ import { Snippet } from './snippet';
 import { SearchParameters } from './searchParameters';
 import { StorageService } from './storage.service';
 import { Observable, BehaviorSubject } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Injectable()
 export class SnippetService {
@@ -83,7 +84,7 @@ export class SnippetService {
     this.snippetsSubject.next(this.sliceSnippets());
   }
 
-  sortSnippets(): void {
+  private sortSnippets(): void {
     this.snippets.sort((a, b) => a.showing && b.showing ? b.timestamp - a.timestamp : +b.showing - +a.showing);
   }
 

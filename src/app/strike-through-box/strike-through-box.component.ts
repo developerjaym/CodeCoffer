@@ -26,8 +26,10 @@ export class StrikeThroughBoxComponent implements OnInit, ControlValueAccessor {
   }
 
   writeValue(value) {
-    this.value = value;
-    this.onChange(value);
+    if (this.value !== value && this.isDefined(value) && this.isDefined(this.value)) {
+      this.onChange(value);
+      this.value = value;
+    }
   }
 
   registerOnChange(fn) { 
@@ -35,4 +37,8 @@ export class StrikeThroughBoxComponent implements OnInit, ControlValueAccessor {
   }
 
   registerOnTouched(fn) { }
+
+  private isDefined(v: any) {
+    return v !== undefined && v !== null;
+  }
 }

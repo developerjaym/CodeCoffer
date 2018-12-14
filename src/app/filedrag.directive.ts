@@ -9,8 +9,7 @@ import { ParseService } from './parse.service';
 export class FiledragDirective {
 
   dragHappening = false;
-  constructor(private el: ElementRef, private parser: ParseService, private service: SnippetService) {
-    this.el.nativeElement
+  constructor(private parser: ParseService, private service: SnippetService) {
    }
 
   @HostListener('drop', ['$event'])
@@ -19,11 +18,10 @@ export class FiledragDirective {
     ev.stopPropagation();
     ev.preventDefault();
     this.dragHappening = false;
-    if(!files) {
-      console.error("No files found.");
+    if (!files) {
       return;
     }
-    for(let i = 0; i < files.length; i++) {
+    for (let i = 0; i < files.length; i++) {
       this.readFile(files.item(i));
     }
   }
@@ -45,7 +43,7 @@ export class FiledragDirective {
   }
 
   private readFile(droppedFile: File): void {
-    if(droppedFile.size > 500000) {
+    if (droppedFile.size > 500000) {
       console.error("File size limit exceeded by " + droppedFile.name);
       return;
     }
@@ -55,7 +53,7 @@ export class FiledragDirective {
     read.readAsText(droppedFile);
     
     read.onloadend =  () => {
-      if(droppedFile.name.toLocaleLowerCase().endsWith('.coff')) {
+      if (droppedFile.name.toLocaleLowerCase().endsWith('.coff')) {
         //import xml
         const newSnippets: Snippet[] = this.parser.parse(read.result.toString());
         newSnippets.forEach(snippet => this.service.addSnippet(snippet));

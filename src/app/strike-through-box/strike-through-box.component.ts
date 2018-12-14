@@ -18,7 +18,7 @@ export class StrikeThroughBoxComponent implements OnInit, ControlValueAccessor {
 
   value: boolean = false;
 
-  onChange = (v: boolean)=>{};
+  onChange = (v: boolean) => {};
 
   constructor() { }
 

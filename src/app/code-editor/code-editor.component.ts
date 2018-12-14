@@ -70,7 +70,7 @@ export class CodeEditorComponent implements OnInit, ControlValueAccessor {
       return 1;
     }
     else {
-      let count = this.lines.split('\n').length + 1;
+      const count = this.lines.split('\n').length + 1;
       return count < this.MIN_LINES ? this.MIN_LINES : count;
     }
   }

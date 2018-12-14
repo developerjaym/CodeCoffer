@@ -51,7 +51,7 @@ export class SearchBoxComponent implements OnInit, OnDestroy {
     this.searchBox.nativeElement.focus();
   }
 
-  search(term: string): void {
+  search(): void {
     if (!this.freshlyLoaded) {
       this.snippetService.search(this.searchParameters);
     }

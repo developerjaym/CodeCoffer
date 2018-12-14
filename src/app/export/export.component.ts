@@ -22,7 +22,7 @@ export class ExportComponent implements OnInit {
     )
     .subscribe(
       snippetId => {
-        if(snippetId) {
+        if (snippetId) {
           this.exportedJson = JSON.stringify(this.service.getSnippetById(snippetId));
         }
         else {

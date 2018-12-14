@@ -30,13 +30,13 @@ export class MiddlePanelComponent implements OnInit, OnDestroy {
 
     this.subscriptions.push(
       this.snippetService.getSnippetList()
-      .pipe(
-        tap(snippetList => this.snippets = snippetList),
-        map(snippetList => snippetList.length),
-        tap(length => this.hasMoreSnippetsToLoad = this.snippetService.hasMoreSnippets(length)),
-        tap(length => this.index = length)
-      )
-      .subscribe(),
+        .pipe(
+          tap(snippetList => this.snippets = snippetList),
+          map(snippetList => snippetList.length),
+          tap(length => this.hasMoreSnippetsToLoad = this.snippetService.hasMoreSnippets(length)),
+          tap(length => this.index = length)
+        )
+        .subscribe(),
 
       this.hotKeyService.pull().subscribe(hotKey => {
         switch (hotKey) {

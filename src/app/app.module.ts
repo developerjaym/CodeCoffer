@@ -20,6 +20,7 @@ import { StrikeThroughBoxComponent } from './strike-through-box/strike-through-b
 import { CodeEditorComponent } from './code-editor/code-editor.component';
 import { HotKeyService } from './hot-key.service';
 import { ExportGuardService } from './export-guard.service';
+import { FocusDirective } from './focus.directive';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -31,7 +32,7 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, AboutComponent, ExportComponent, ImportComponent, HomeComponent, SidePanelComponent, MiddlePanelComponent, SearchBoxComponent, SnippetBoxComponent, HomeComponent, FiledragDirective, StrikeThroughBoxComponent, CodeEditorComponent],
+  declarations: [AppComponent, AboutComponent, ExportComponent, ImportComponent, HomeComponent, SidePanelComponent, MiddlePanelComponent, SearchBoxComponent, SnippetBoxComponent, HomeComponent, FiledragDirective, StrikeThroughBoxComponent, CodeEditorComponent, FocusDirective],
   imports: [BrowserModule, CommonModule, FormsModule, RouterModule.forRoot(
     appRoutes,
     {

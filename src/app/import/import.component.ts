@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { SnippetService } from '../snippet.service';
 import { ParseService } from '../parse.service';
-import { Snippet } from '../snippet';
 
 @Component({
   selector: 'app-import',
@@ -22,7 +21,7 @@ export class ImportComponent {
   }
 
   saveXml(): void {
-    this.service.import(...this.parser.parse(this.importedXml));
+    this.service.import(this.parser.parse(this.importedXml));
     this.back();
   }
 

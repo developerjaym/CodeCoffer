@@ -1,7 +1,7 @@
 <button (click)="back()"><---<< Return to Snippets</button>
 
 <label>Paste JSON below</label>
-<textarea [(ngModel)]="importedJson" class="display-textarea" spellcheck="false"></textarea>
+<textarea [(ngModel)]="importedJson" class="display-textarea" spellcheck="false" appFocus></textarea>
 <button (click)="save()">Load These Snippets</button>
 
 <label>Paste XML below</label>

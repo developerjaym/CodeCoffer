@@ -48,6 +48,7 @@ export class SnippetService {
   }
 
   addSnippet(snippet: Snippet): void {
+    snippet.id = this.createId();
     this.storage.addSnippet(snippet);
     this.snippets.unshift(snippet);
     window.scrollTo(0, 0);
@@ -102,7 +103,8 @@ export class SnippetService {
     this.storage.saveSnippets(this.snippets);
   }
 
-  import(...snippets: Snippet[]): void {
+  import(imported: any): void {
+    const snippets: Snippet[] = imported instanceof Array ? imported : [imported];
     snippets.forEach(snippet => snippet.id = this.createId());
     this.snippets.push(...snippets);
     this.sortSnippets();

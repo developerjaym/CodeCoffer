@@ -2,6 +2,8 @@ import { Directive, HostListener, ElementRef } from '@angular/core';
 import { SnippetService } from './snippet.service';
 import { Snippet } from './snippet';
 import { ParseService } from './parse.service';
+import { ToastService } from './toast.service';
+import { Toast } from './toast.enum';
 
 @Directive({
   selector: '[appFiledrag]'
@@ -9,7 +11,7 @@ import { ParseService } from './parse.service';
 export class FiledragDirective {
 
   dragHappening = false;
-  constructor(private parser: ParseService, private service: SnippetService) {
+  constructor(private parser: ParseService, private service: SnippetService, private toastService: ToastService) {
    }
 
   @HostListener('drop', ['$event'])
@@ -44,7 +46,7 @@ export class FiledragDirective {
 
   private readFile(droppedFile: File): void {
     if (droppedFile.size > 500000) {
-      console.error("File size limit exceeded by " + droppedFile.name);
+      this.toastService.push(Toast.IMPORT_TOO_BIG);
       return;
     }
 

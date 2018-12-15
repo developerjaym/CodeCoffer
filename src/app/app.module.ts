@@ -21,6 +21,8 @@ import { CodeEditorComponent } from './code-editor/code-editor.component';
 import { HotKeyService } from './hot-key.service';
 import { ExportGuardService } from './export-guard.service';
 import { FocusDirective } from './focus.directive';
+import { ToastComponent } from './toast/toast.component';
+import { ToastService } from './toast.service';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -32,7 +34,7 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, AboutComponent, ExportComponent, ImportComponent, HomeComponent, SidePanelComponent, MiddlePanelComponent, SearchBoxComponent, SnippetBoxComponent, HomeComponent, FiledragDirective, StrikeThroughBoxComponent, CodeEditorComponent, FocusDirective],
+  declarations: [AppComponent, AboutComponent, ExportComponent, ImportComponent, HomeComponent, SidePanelComponent, MiddlePanelComponent, SearchBoxComponent, SnippetBoxComponent, HomeComponent, FiledragDirective, StrikeThroughBoxComponent, CodeEditorComponent, FocusDirective, ToastComponent],
   imports: [BrowserModule, CommonModule, FormsModule, RouterModule.forRoot(
     appRoutes,
     {
@@ -41,7 +43,7 @@ const appRoutes: Routes = [
     }
   ),
   ],
-  providers: [ExportGuardService, HotKeyService, ParseService, SnippetService, StorageService],
+  providers: [ExportGuardService, HotKeyService, ParseService, SnippetService, StorageService, ToastService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,6 +4,8 @@ import { SearchParameters } from './searchParameters';
 import { StorageService } from './storage.service';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { distinctUntilChanged } from 'rxjs/operators';
+import { ToastService } from './toast.service';
+import { Toast } from './toast.enum';
 
 @Injectable()
 export class SnippetService {
@@ -14,7 +16,7 @@ export class SnippetService {
   private readonly SAVE_INTERVAL = 200000;
   private readonly DEFAULT_PAGE_SIZE = 12;
 
-  constructor(private storage: StorageService) {
+  constructor(private storage: StorageService, private toastService: ToastService) {
     this.snippets = this.storage.getSnippets();
     this.sortSnippets();
     this.snippetsSubject = new BehaviorSubject<Snippet[]>(this.sliceSnippets());
@@ -53,12 +55,14 @@ export class SnippetService {
     this.snippets.unshift(snippet);
     window.scrollTo(0, 0);
     this.snippetsSubject.next(this.sliceSnippets());
+    this.toastService.push(Toast.SNIPPET_ADDED);
   }
 
   deleteSnippet(snippetId: string): void {
     this.storage.removeSnippet(snippetId);
     this.snippets = this.snippets.filter(snippet => snippet.id !== snippetId);
     this.snippetsSubject.next(this.sliceSnippets());
+    this.toastService.push(Toast.SNIPPET_DELETED);
   }
 
   search(searchParams: SearchParameters) {
@@ -93,6 +97,7 @@ export class SnippetService {
       this.sortSnippets();
     }
     this.snippetsSubject.next(this.sliceSnippets());
+    this.toastService.push(Toast.SEARCH_COMPLETED);
   }
 
   private sortSnippets(): void {
@@ -101,6 +106,7 @@ export class SnippetService {
 
   saveSnippets(): void {
     this.storage.saveSnippets(this.snippets);
+    this.toastService.push(Toast.SAVE_SUCCEEDED);
   }
 
   import(imported: any): void {
@@ -110,6 +116,7 @@ export class SnippetService {
     this.sortSnippets();
     this.saveSnippets();
     this.snippetsSubject.next(this.sliceSnippets());
+    this.toastService.push(Toast.IMPORT_SUCCEEDED);
   }
 
   clear(): void {

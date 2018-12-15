@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { SnippetService } from '../snippet.service';
 import { ParseService } from '../parse.service';
+import { ToastService } from '../toast.service';
+import { Toast } from '../toast.enum';
 
 @Component({
   selector: 'app-import',
@@ -13,16 +15,29 @@ export class ImportComponent {
   importedJson: string = '';
   importedXml: string = '';
 
-  constructor(private parser: ParseService, private service: SnippetService, private router: Router) { }
+  importedSnippets: string = '';
+
+  constructor(private parser: ParseService, private service: SnippetService, private toastService: ToastService, private router: Router) { }
 
   save(): void {
-    this.service.import(JSON.parse(this.importedJson));
+    if(this.importedSnippets.startsWith('<')) {
+      this.saveXml(this.importedSnippets);
+    }
+    else if(this.importedSnippets.startsWith('[') || this.importedSnippets.startsWith('{')) {
+      this.saveJson(this.importedSnippets);
+    }
+    else if(this.importedSnippets.length > 0) {
+      this.toastService.push(Toast.IMPORT_FAILED);
+    }
     this.back();
   }
 
-  saveXml(): void {
-    this.service.import(this.parser.parse(this.importedXml));
-    this.back();
+  private saveJson(json: string): void {
+    this.service.import(JSON.parse(json));
+  }
+
+  private saveXml(xml: string): void {
+    this.service.import(this.parser.parse(xml));
   }
 
   back(): void {

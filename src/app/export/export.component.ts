@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { StorageService } from '../storage.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SnippetService } from '../snippet.service';
 import { map } from 'rxjs/operators';
+import { CopyService } from '../copy.service';
 
 @Component({
   selector: 'app-export',
@@ -13,7 +13,7 @@ export class ExportComponent implements OnInit {
 
   exportedJson: string;
 
-  constructor(private service: SnippetService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private copyService: CopyService, private service: SnippetService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.activatedRoute.params
@@ -30,11 +30,14 @@ export class ExportComponent implements OnInit {
         }
       }
     )
-    // this.exportedJson = JSON.stringify(this.service.getAllSnippets());
   }
 
   back(): void {
     this.router.navigate(['']);
   }
 
+  copy(): void {
+    this.copyService.copy(this.exportedJson);
+    this.back();
+  }
 }

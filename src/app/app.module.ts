@@ -23,6 +23,7 @@ import { ExportGuardService } from './export-guard.service';
 import { FocusDirective } from './focus.directive';
 import { ToastComponent } from './toast/toast.component';
 import { ToastService } from './toast.service';
+import { CopyService } from './copy.service';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -43,7 +44,7 @@ const appRoutes: Routes = [
     }
   ),
   ],
-  providers: [ExportGuardService, HotKeyService, ParseService, SnippetService, StorageService, ToastService],
+  providers: [CopyService, ExportGuardService, HotKeyService, ParseService, SnippetService, StorageService, ToastService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

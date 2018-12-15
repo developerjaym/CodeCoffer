@@ -1,4 +1,6 @@
 export enum Toast {
+    COPY_FAILED = "Copy Failed",
+    COPY_SUCCEEDED = "Copy Succeeded",
     SAVE_SUCCEEDED = "Save Succeeded",
     SAVING = "Saving...",
     SAVE_FAILED = "Save Failed",

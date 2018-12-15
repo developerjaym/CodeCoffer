@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Snippet } from '../snippet';
 import { SnippetService } from '../snippet.service';
 import { Router } from '@angular/router';
+import { CopyService } from '../copy.service';
 @Component({
   selector: 'app-snippet-box',
   templateUrl: './snippet-box.component.html',
@@ -11,7 +12,7 @@ export class SnippetBoxComponent implements OnInit {
 
   @Input() snippet: Snippet;
   
-  constructor(private snippetService: SnippetService, private router: Router) {
+  constructor(private copyService: CopyService, private snippetService: SnippetService, private router: Router) {
   }
 
   ngOnInit() {
@@ -22,7 +23,7 @@ export class SnippetBoxComponent implements OnInit {
   }
 
   copy() {
-
+    this.copyService.copy(this.snippet.code);
   }
 
   export() {

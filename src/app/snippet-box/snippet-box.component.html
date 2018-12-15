@@ -4,5 +4,6 @@
 <textarea class="notes-area" [(ngModel)]="snippet.notes" [title]="'Snippet Notes'" name="notes"></textarea>
 <div class="options-area">
     <button (click)="export()" class="option-button export-button" [title]="'Export Snippet'">Export</button>
+    <button (click)="copy()" class="option-button export-button copy-button" [title]="'Copy Code'">Copy Code</button>
   <button (click)="delete()" class="option-button delete-button" [title]="'Delete Snippet'">Delete</button>
 </div>

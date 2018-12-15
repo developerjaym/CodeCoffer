@@ -1,0 +1,36 @@
+{
+  "name": "CodeCoffer",
+  "short_name": "CodeCoffer",
+  "theme_color": "rgb(35, 135, 66)",
+  "background_color": "rgb(244, 244, 244)",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "index.html",
+  "icons": [
+    {
+      "src": "assets/present_box.png_64x64.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/present_box.png_128x128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/present_box.png_192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/present_box.png_256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/present_box.png_512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

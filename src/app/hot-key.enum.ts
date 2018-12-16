@@ -4,5 +4,6 @@ export enum HotKey {
     IMPORT,
     EXPORT,
     CREATE_NEW_SNIPPET,
-    VIEW_REMAINING_SNIPPETS
+    VIEW_REMAINING_SNIPPETS,
+    UNDO
 }

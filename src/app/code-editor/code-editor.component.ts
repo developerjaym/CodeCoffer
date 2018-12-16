@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, forwardRef, ElementRef, Renderer2, ViewChild } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { CopyService } from '../copy.service';
 @Component({
   selector: 'app-code-editor',
   templateUrl: './code-editor.component.html',
@@ -31,7 +32,7 @@ export class CodeEditorComponent implements OnInit, ControlValueAccessor {
   private readonly LINE_HEIGHT = 16;
   private readonly MIN_LINES = 18;
 
-  constructor( private renderer: Renderer2 ) { }
+  constructor(private copyService: CopyService, private renderer: Renderer2 ) { }
 
   ngOnInit() {
     this.renderer.setStyle(this.lineNumbers.nativeElement, 'font-size', this.FONT_SIZE);
@@ -54,6 +55,10 @@ export class CodeEditorComponent implements OnInit, ControlValueAccessor {
   }
 
   registerOnTouched(fn) { }
+
+  copy() {
+    this.copyService.copy(this.value);
+  }
 
   private getLines(): string {
     if (!this.value) {

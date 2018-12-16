@@ -3,25 +3,35 @@ import { Snippet } from './snippet';
 import { SearchParameters } from './searchParameters';
 import { StorageService } from './storage.service';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { distinctUntilChanged } from 'rxjs/operators';
+import { distinctUntilChanged, filter, tap, map } from 'rxjs/operators';
 import { ToastService } from './toast.service';
 import { Toast } from './toast.enum';
+import { HotKeyService } from './hot-key.service';
+import { HotKey } from './hot-key.enum';
 
 @Injectable()
 export class SnippetService {
   private snippets: Snippet[];
+  private deletedSnippets: Snippet[];
   private snippetsSubject: BehaviorSubject<Snippet[]>;
   private searchSubject: BehaviorSubject<SearchParameters>;
   private timerId: any;
   private readonly SAVE_INTERVAL = 200000;
   private readonly DEFAULT_PAGE_SIZE = 12;
 
-  constructor(private storage: StorageService, private toastService: ToastService) {
+  constructor(private hotKeyService: HotKeyService, private storage: StorageService, private toastService: ToastService) {
     this.snippets = this.storage.getSnippets();
+    this.deletedSnippets = [];
     this.sortSnippets();
     this.snippetsSubject = new BehaviorSubject<Snippet[]>(this.sliceSnippets());
     this.searchSubject = new BehaviorSubject<SearchParameters>(new SearchParameters());
     this.timerId = setInterval(() => this.saveSnippets(), this.SAVE_INTERVAL);
+    this.hotKeyService.pull().pipe(
+      filter(hotKey => hotKey === HotKey.UNDO),
+      map(undoCommand => this.undoDelete()),
+      filter(Boolean)
+
+    ).subscribe(success => this.toastService.push(Toast.SNIPPET_RESTORED));
   }
   getSearchParameters(): Observable<SearchParameters> {
     return this.searchSubject.asObservable().pipe(distinctUntilChanged());
@@ -59,6 +69,7 @@ export class SnippetService {
   }
 
   deleteSnippet(snippetId: string): void {
+    this.deletedSnippets.unshift(...(this.snippets.filter(snippet => snippet.id === snippetId)));
     this.storage.removeSnippet(snippetId);
     this.snippets = this.snippets.filter(snippet => snippet.id !== snippetId);
     this.snippetsSubject.next(this.sliceSnippets());
@@ -125,6 +136,14 @@ export class SnippetService {
 
   hasMoreSnippets(index: number): boolean {
     return this.snippets.filter(snippet => snippet.showing).length > index;
+  }
+
+  undoDelete(): boolean {
+    if(this.deletedSnippets.length > 0) {
+      this.addSnippet(this.deletedSnippets.shift());
+      return true;
+    }
+    return false;
   }
 
   private getTags(tags: string): Array<string> {

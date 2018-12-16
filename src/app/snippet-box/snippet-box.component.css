@@ -14,15 +14,22 @@ textarea, input {
 
 .title {
   font-weight: bold;
+  flex-grow: 2;
 }
 
 .options-area {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+  background-color: var(--secondary-bg-color);
+  /* border-width: 0 0 1px 0; */
+  border-color: var(--secondary-fg-color);
+  /* border-style: solid; */
 }
 
 .option-button {
-  width: fit-content;
-  padding: 4px;
+  max-width: 44px;
+  max-height: 44px;
+  margin: 0 8px 0 8px;
 }

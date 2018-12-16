@@ -2,10 +2,13 @@
 
 :root {
   --main-bg-color: rgb(244, 244, 244); 
-  --main-fg-color: rgb(35, 135, 66);
+  --main-fg-color: rgb(9, 9, 9);
 
-  --secondary-bg-color: rgb(35, 135, 66); 
-  --secondary-fg-color: rgb(244, 244, 244);
+  --secondary-bg-color: rgb(244, 244, 244); 
+  --secondary-fg-color: rgb(9, 9, 9);
+
+  --accent-bg-color: rgb(35, 135, 66);
+  --accent-fg-color: rgb(244, 244, 244);
 
   --main-font-size: 1em;
 
@@ -28,12 +31,13 @@
   width: 50vw;
 }
 
-.snippet-box {
-  border-style: none;
-  border-color: var(--secondary-bg-color);
-  border-width: 1px;
+.svg-button{
+  border: none;
 }
 
+.code {
+  font-family: monospace;
+}
 
 /*Custom Tags*/
 
@@ -55,13 +59,20 @@ app-snippet-box {
   width: var(--snippet-width);
   margin-top: 4px;
   margin-bottom: 16px;
+  padding: 8px;
+  border-radius: 4px;
+  background-color: var(--secondary-bg-color);
+  
+  border-style: solid;
+  border-width: 2px;
+  border-color: black;
 }
 
 /*Tags*/
 
 body, input, button, textarea {
-  font-family: monospace;
-  font-size: calc(0.2em + var(--main-font-size));
+   font-family: Arial, Helvetica, sans-serif;
+  font-size: calc(0.1em + var(--main-font-size));
 }
 html {
   background-color: var(--main-bg-color);
@@ -87,8 +98,9 @@ button, .checkbox, label {
   padding: 1vw 1vw 1vw 0.1vw;
   text-align: left;
   transition: background, color 0.1s;
-  border-width: 0 0 1px 0;
+  border-width: 1px 1px 1px 1px;
   border-color: var(--main-fg-color);
+  border-radius: 4px;
 }
 input, textarea {
   padding: 1vw 1vw 1vw 0.1vw;
@@ -102,42 +114,44 @@ input, textarea {
 
 /*Pseudo Classes, etc*/
 
-button:hover {
-  background-color: var(--secondary-bg-color);
-  color: var(--secondary-fg-color);
+button:hover, .svg-button:hover {
+  background-color: var(--accent-bg-color);
+  color: var(--accent-fg-color);
 }
 ::selection {
-  color: var(--main-bg-color);
-  background: var(--main-fg-color);
+  background-color: var(--accent-bg-color);
+  color: var(--accent-fg-color);
 }
 
 input::selection, textarea::selection {
-  color: var(--secondary-bg-color);
-  background: var(--secondary-fg-color);
+  background-color: var(--accent-bg-color);
+  color: var(--accent-fg-color);
 }
 
 :focus {
-  background-color: var(--secondary-fg-color);
-  color: var(--secondary-bg-color);
+  background-color: var(--accent-bg-color);
+  color: var(--accent-fg-color);
 }
 
 input:focus, textarea:focus {
-  background-color: var(--secondary-fg-color);
-  color: var(--secondary-bg-color);
   border-style: solid;
   border-width: 1px;
-  border-color: var(--secondary-bg-color);
-  caret-color: var(--secondary-bg-color);
+  border-color: var(--accent-bg-color);
+  caret-color: var(--accent-fg-color);
+  background-color: var(--accent-bg-color);
+  color: var(--accent-fg-color);
 }
 
 input:focus::selection, textarea:focus::selection {
-  color: var(--secondary-fg-color);
-  background: var(--secondary-bg-color);
+  color: var(--secondary-bg-color);
+  background-color: var(--secondary-fg-color);
+  /* --accent-bg-color: rgb(35, 135, 66);
+  --accent-fg-color: rgb(244, 244, 244); */
 }
 
-button:focus {
-  background: var(--main-fg-color);
-  color: var(--main-bg-color);
+button:focus, .svg-button:focus {
+  background-color: var(--accent-bg-color);
+  color: var(--accent-fg-color);
 }
 
 /* width */
@@ -152,10 +166,10 @@ button:focus {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: var(--main-fg-color);
   border-style: solid;
   border-width: 1px;
-  border-color: var(--main-bg-color);
+  background-color: var(--accent-bg-color);
+  border-color: var(--accent-fg-color);
 }
 
 /* Corner */

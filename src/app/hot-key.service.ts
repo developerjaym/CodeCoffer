@@ -15,7 +15,10 @@ export class HotKeyService {
 
   push(keyEvent: KeyboardEvent): void {
     let hotKey: HotKey;
-    if (keyEvent.altKey && keyEvent.ctrlKey) {
+    if(keyEvent.ctrlKey && keyEvent.key === 'z') {
+      this.hotKeySubject.next(HotKey.UNDO);
+    }
+    else if (keyEvent.altKey && keyEvent.ctrlKey) {
       switch (keyEvent.key) {
         case "s": // save
           hotKey = HotKey.SAVE;
@@ -34,6 +37,9 @@ export class HotKeyService {
           break;
         case "v": // view more
           hotKey = HotKey.VIEW_REMAINING_SNIPPETS
+          break;
+        case "z": // undo a delete
+          hotKey = HotKey.UNDO
           break;
         default:
           return;

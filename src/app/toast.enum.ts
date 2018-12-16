@@ -9,6 +9,7 @@ export enum Toast {
     IMPORT_TOO_BIG = "File Too Big!",
     SNIPPET_ADDED = "Snippet Added",
     SNIPPET_DELETED = "Snippet Deleted",
+    SNIPPET_RESTORED = "Snippet Restored",
     SEARCH_COMPLETED = "Search Completed",
     WELCOME = "Welcome",
     EMPTY = ''

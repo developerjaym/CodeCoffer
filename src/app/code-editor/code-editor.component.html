@@ -1,5 +1,5 @@
 <div class="code-editor">
-  <textarea class="line-number-area" role="contentinfo" #lineNumbers disabled>{{lines}}</textarea>
-  <textarea class="code-area" [title]="title" [(ngModel)]="value" (ngModelChange)="writeValue(value)" #codeEditor wrap="off"
+  <textarea aria-label="Line Numbers" class="line-number-area" role="contentinfo" #lineNumbers disabled>{{lines}}</textarea>
+  <textarea aria-label="Code" class="code-area" [title]="title" [(ngModel)]="value" (ngModelChange)="writeValue(value)" #codeEditor wrap="off"
     spellcheck="false"></textarea>
 </div>

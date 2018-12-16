@@ -1,5 +1,5 @@
 <div class="options-area">
-  <input type="text" class="title" [(ngModel)]="snippet.title" [title]="'Snippet Title'" name="title" spellcheck="false">
+  <input type="text" aria-label="Title" class="title" [(ngModel)]="snippet.title" [title]="'Snippet Title'" name="title" spellcheck="false">
   <!-- <input type="image" src="assets/copy.svg" (click)="copy()" class="svg-button option-button" [title]="'Copy Code to Clipboard'">
   <input type="image" src="assets/share.svg" (click)="export()" class="svg-button option-button" [title]="'Export Snippet'">
   <input type="image" src="assets/delete.svg" (click)="delete()" class="svg-button option-button" [title]="'Delete Snippet'"> -->
@@ -7,6 +7,6 @@
   <button (click)="export()" class="svg-button option-button" [title]="'Export Snippet'">Export</button>
   <button (click)="delete()" class="svg-button option-button" [title]="'Delete Snippet'">Delete</button>
 </div>
-  <input type="text" class="title" [(ngModel)]="snippet.tags" [title]="'Snippet Tags'" name="tags" spellcheck="false">
+  <input type="text" aria-label="Tags" class="title" [(ngModel)]="snippet.tags" [title]="'Snippet Tags'" name="tags" spellcheck="false">
 <app-code-editor [(ngModel)]="snippet.code" [title]="'Snippet Code'"></app-code-editor>
-<textarea class="notes-area" [(ngModel)]="snippet.notes" [title]="'Snippet Notes'" name="notes"></textarea>
+<textarea aria-label="Notes" class="notes-area" [(ngModel)]="snippet.notes" [title]="'Snippet Notes'" name="notes"></textarea>

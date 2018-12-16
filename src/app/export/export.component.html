@@ -1,5 +1,5 @@
 <button (click)="back()" [title]="'Return to Snippets'">⇐ Return to Snippets</button>
-<textarea class="display-textarea" spellcheck="false">
+<textarea aria-label="Exported JSON" class="display-textarea" spellcheck="false">
 {{exportedJson}}
 </textarea>
 <button (click)="copy()" class="copy-button" [title]="'Copy Code to Clipboard and Return to Snippets'" appFocus>Copy and Return</button>

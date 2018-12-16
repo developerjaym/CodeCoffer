@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastService } from '../toast.service';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
-import { Toast } from '../toast.enum';
 
 @Component({
   selector: 'app-toast',
@@ -17,9 +15,5 @@ export class ToastComponent implements OnInit {
 
   ngOnInit() {
     this.message$ = this.toastService.pull();
-  }
-
-  cancel() {
-    this.toastService.push(Toast.EMPTY);
   }
 }

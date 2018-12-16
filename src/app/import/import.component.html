@@ -1,5 +1,4 @@
-<button (click)="back()"><---<< Return to Snippets</button>
-
+<button (click)="back()" [title]="'Return to Snippets'">⇐ Return to Snippets</button>
 <label>Paste CodeCoffer XML/JSON below</label>
 <textarea [(ngModel)]="importedSnippets" class="display-textarea" spellcheck="false"></textarea>
-<button (click)="save()">Load These Snippets</button>
+<button (click)="save()" [title]="'Import and Return to Snippets'" appFocus>Import and Return to Snippets</button>

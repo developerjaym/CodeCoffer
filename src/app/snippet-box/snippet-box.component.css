@@ -23,13 +23,19 @@ textarea, input {
   justify-content: space-between;
   align-items: center;
   background-color: var(--secondary-bg-color);
-  /* border-width: 0 0 1px 0; */
   border-color: var(--secondary-fg-color);
-  /* border-style: solid; */
 }
 
 .option-button {
-  max-width: 44px;
-  max-height: 44px;
+  width: fit-content;
+  height: 44px;
+  text-align: center;
+  vertical-align: center;
+  padding: 0 8px 0 8px;
+  border-radius: 4px;
+
+  /*Fix svg support on server*/
+  /* max-width: 44px; */
+  /* max-height: 44px; */
   margin: 0 8px 0 8px;
 }

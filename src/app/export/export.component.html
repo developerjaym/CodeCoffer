@@ -1,5 +1,6 @@
-<button (click)="back()"><---<< Return to Snippets</button>
-<textarea class="display-textarea" spellcheck="false" appFocus>
+<button (click)="back()" [title]="'Return to Snippets'">⇐ Return to Snippets</button>
+<textarea class="display-textarea" spellcheck="false">
 {{exportedJson}}
 </textarea>
-<button (click)="copy()" class="copy-button">Copy and Return</button>
+<button (click)="copy()" class="copy-button" [title]="'Copy Code to Clipboard and Return to Snippets'" appFocus>Copy and Return</button>
+<!-- <input type="image" src="assets/copy.svg" (click)="copy()" class="svg-button option-button" [title]="'Copy Code to Clipboard'"> -->

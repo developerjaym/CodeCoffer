@@ -1,0 +1,5 @@
+.toast {
+    background-color: var(--accent-bg-color);
+    color: var(--accent-fg-color);
+    transition: background-color 0.5s, color 0.5s;
+}

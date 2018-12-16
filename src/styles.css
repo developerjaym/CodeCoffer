@@ -21,14 +21,13 @@
 .sticky {
   position: sticky;
   top: 0;
-  z-index: 1;
 }
 
 .display-textarea {
   min-height: 500px;
   min-width: 800px;
   height: 50vh;
-  width: 50vw;
+  width: 90vw;
 }
 
 .svg-button{
@@ -95,21 +94,22 @@ textarea {
 button, .checkbox, label {
   background-color: var(--main-bg-color);
   color: var(--main-fg-color);
-  padding: 1vw 1vw 1vw 0.1vw;
+  padding: 16px 16px 16px 8px;
   text-align: left;
-  transition: background, color 0.1s;
+  transition: background-color 0.2s, color 0.2s;
   border-width: 1px 1px 1px 1px;
   border-color: var(--main-fg-color);
   border-radius: 4px;
 }
 input, textarea {
-  padding: 1vw 1vw 1vw 0.1vw;
+  padding: 16px 16px 16px 8px;
   border-width: 0px 0px 1px 0px;
   border-style: solid;
   caret-color: var(--secondary-fg-color);
   border-color: var(--secondary-fg-color);
   background-color: var(--secondary-bg-color);
   color: var(--secondary-fg-color);
+  transition: background-color 0.2s, color 0.2s;
 }
 
 /*Pseudo Classes, etc*/

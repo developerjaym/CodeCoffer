@@ -120,7 +120,7 @@ export class SnippetService {
     this.toastService.push(Toast.SAVE_SUCCEEDED);
   }
 
-  import(imported: any): void {
+  import(imported: Snippet | Array<Snippet>): void {
     const snippets: Snippet[] = imported instanceof Array ? imported : [imported];
     snippets.forEach(snippet => snippet.id = this.createId());
     this.snippets.push(...snippets);

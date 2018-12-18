@@ -24,6 +24,7 @@ import { FocusDirective } from './focus.directive';
 import { ToastComponent } from './toast/toast.component';
 import { ToastService } from './toast.service';
 import { CopyService } from './copy.service';
+import { DownloadService } from './download.service';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -44,7 +45,7 @@ const appRoutes: Routes = [
     }
   ),
   ],
-  providers: [CopyService, ExportGuardService, HotKeyService, ParseService, SnippetService, StorageService, ToastService],
+  providers: [CopyService, DownloadService, ExportGuardService, HotKeyService, ParseService, SnippetService, StorageService, ToastService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

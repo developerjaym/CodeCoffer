@@ -2,5 +2,5 @@
 <textarea aria-label="Exported JSON" class="display-textarea" spellcheck="false">
 {{exportedJson}}
 </textarea>
-<button (click)="copy()" class="copy-button" [title]="'Copy Code to Clipboard and Return to Snippets'" appFocus>Copy and Return</button>
-<!-- <input type="image" src="assets/copy.svg" (click)="copy()" class="svg-button option-button" [title]="'Copy Code to Clipboard'"> -->
+<button (click)="copy()" class="copy-button" [title]="'Copy Code to Clipboard and Return to Snippets'">Copy and Return</button>
+<a #downloadButton (click)="download()" class="download-button" [title]="'Download Code'" appFocus>Download</a>

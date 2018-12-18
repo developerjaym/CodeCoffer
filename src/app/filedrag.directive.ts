@@ -56,9 +56,14 @@ export class FiledragDirective {
     
     read.onloadend =  () => {
       if (droppedFile.name.toLocaleLowerCase().endsWith('.coff')) {
-        //import xml
+        //import CodeCoffer xml (from the old desktop app)
         const newSnippets: Snippet[] = this.parser.parse(read.result.toString());
         newSnippets.forEach(snippet => this.service.addSnippet(snippet));
+      }
+      else if (droppedFile.name.toLocaleLowerCase().endsWith('.jcoff')) {
+        //import CodeCoffer JSON
+        const newSnippets: Snippet[] = JSON.parse(read.result.toString());
+        this.service.import(newSnippets);
       }
       else {
         //import lone snippet

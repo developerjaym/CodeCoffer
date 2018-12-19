@@ -24,7 +24,6 @@ textarea, input {
   background-color: var(--secondary-bg-color);
   border-color: var(--secondary-fg-color);
   padding-top: var(--padding-narrow);
-
 }
 
 .option-button {

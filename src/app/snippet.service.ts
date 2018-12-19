@@ -150,7 +150,7 @@ export class SnippetService {
   }
 
   private sliceSnippets(): Snippet[] {
-    return this.snippets.slice(0, this.DEFAULT_PAGE_SIZE);
+    return this.snippets.slice(0, this.DEFAULT_PAGE_SIZE).filter(snippet => snippet.showing);
   }
 
   private createId(): string {

@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Snippet } from '../snippet';
 import { SnippetService } from '../snippet.service';
-import { map, tap } from 'rxjs/operators';
+import { map, tap, filter } from 'rxjs/operators';
 import { HotKeyService } from '../hot-key.service';
 import { HotKey } from '../hot-key.enum';
 import { Subscription } from 'rxjs';
@@ -31,6 +31,7 @@ export class MiddlePanelComponent implements OnInit, OnDestroy {
     this.subscriptions.push(
       this.snippetService.getSnippetList()
         .pipe(
+          map(snippets => snippets.filter(snippet => snippet.showing)),
           tap(snippetList => this.snippets = snippetList),
           map(snippetList => snippetList.length),
           tap(length => this.hasMoreSnippetsToLoad = this.snippetService.hasMoreSnippets(length)),

@@ -31,11 +31,8 @@ textarea, input {
   height: 44px;
   text-align: center;
   vertical-align: center;
-  padding: 0 8px 0 8px;
-  border-radius: 4px;
-
-  /*Fix svg support on server*/
-  /* max-width: 44px; */
-  /* max-height: 44px; */
-  margin: 0 8px 0 8px;
+  padding: var(--padding-narrow);
+  border-radius: var(--border-radius);
+  margin: 0 var(--margin-narrow) 0 var(--margin-narrow);
+  border-width: 0;
 }

@@ -25,6 +25,7 @@ import { ToastComponent } from './toast/toast.component';
 import { ToastService } from './toast.service';
 import { CopyService } from './copy.service';
 import { DownloadService } from './download.service';
+import { TitleComponent } from './title/title.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -36,7 +37,7 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, AboutComponent, ExportComponent, ImportComponent, HomeComponent, SidePanelComponent, MiddlePanelComponent, SearchBoxComponent, SnippetBoxComponent, HomeComponent, FiledragDirective, StrikeThroughBoxComponent, CodeEditorComponent, FocusDirective, ToastComponent],
+  declarations: [AppComponent, AboutComponent, ExportComponent, ImportComponent, HomeComponent, SidePanelComponent, MiddlePanelComponent, SearchBoxComponent, SnippetBoxComponent, HomeComponent, FiledragDirective, StrikeThroughBoxComponent, CodeEditorComponent, FocusDirective, ToastComponent, TitleComponent],
   imports: [BrowserModule, CommonModule, FormsModule, RouterModule.forRoot(
     appRoutes,
     {

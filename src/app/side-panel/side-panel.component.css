@@ -1,15 +1,3 @@
-.ascii {
-    font-size: 5px;
-    background-color: var(--main-bg-color);
-    color: var(--accent-bg-color);
-    padding-bottom: 4px;
-    padding-top: 12px;
-    height: 60px;
-    min-width: 180px;
-    border: none;
-    resize: none;
-    
-}
 :focus {
     border: none;
 }
@@ -21,6 +9,10 @@
 }
 
 .panel * {
-    margin-top: 2px;
-    margin-bottom: 2px;
+    margin-top: var(--margin-narrow);
+    margin-bottom: 0;
+}
+
+app-toast {
+    display: flex;
 }

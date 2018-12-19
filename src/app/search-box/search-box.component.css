@@ -1,4 +1,9 @@
 .search-area {
   display: flex;
   flex-direction: column;
+  border-radius: var(--border-radius);
+  border-width: var(--border-width-thin);
+  border-style: solid;
+  border-color: var(--secondary-fg-color);
+  background-color: var(--secondary-bg-color);
 }

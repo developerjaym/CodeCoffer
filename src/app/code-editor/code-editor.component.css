@@ -4,21 +4,22 @@
     min-width: 100%;
 }
 
-.code-editor textarea {
+.code-editor textarea, .line-number-area {
     font-size: 14px;
-    line-height: 16px;
-    padding-top: 4px;
-    padding-bottom: 4px;
+    line-height: var(--padding-thick);
+    padding-top: var(--padding-narrow);
+    padding-bottom: var(--padding-narrow);
     resize: none;
     min-height: 100%;
 }
 
 .line-number-area {
-    padding-left: 1px;
+    padding-left: 0;
     padding-right: 0;
+    margin-top: 0;
 }
 
-.code-area {
+.code-area, .line-number-area {
     width: 100%;
     font-family: monospace;
 }

@@ -3,7 +3,7 @@ import { Snippet } from './snippet';
 import { SearchParameters } from './searchParameters';
 import { StorageService } from './storage.service';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { distinctUntilChanged, filter, tap, map } from 'rxjs/operators';
+import { distinctUntilChanged, filter, map } from 'rxjs/operators';
 import { ToastService } from './toast.service';
 import { Toast } from './toast.enum';
 import { HotKeyService } from './hot-key.service';
@@ -30,7 +30,6 @@ export class SnippetService {
       filter(hotKey => hotKey === HotKey.UNDO),
       map(undoCommand => this.undoDelete()),
       filter(Boolean)
-
     ).subscribe(success => this.toastService.push(Toast.SNIPPET_RESTORED));
   }
   getSearchParameters(): Observable<SearchParameters> {

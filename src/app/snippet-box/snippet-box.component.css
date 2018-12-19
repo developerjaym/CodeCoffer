@@ -14,16 +14,17 @@ textarea, input {
 
 .title {
   font-weight: bold;
-  flex-grow: 2;
 }
 
 .options-area {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   background-color: var(--secondary-bg-color);
   border-color: var(--secondary-fg-color);
+  padding-top: var(--padding-narrow);
+
 }
 
 .option-button {

@@ -1,9 +1,10 @@
+<input type="text" aria-label="Title" class="title" [(ngModel)]="snippet.title" [title]="'Snippet Title'" name="title"
+  spellcheck="false">
+<input type="text" aria-label="Tags" [(ngModel)]="snippet.tags" [title]="'Snippet Tags'" name="tags" spellcheck="false">
+<app-code-editor [(ngModel)]="snippet.code" [title]="'Snippet Code'"></app-code-editor>
+<textarea aria-label="Notes" class="notes-area" [(ngModel)]="snippet.notes" [title]="'Snippet Notes'" name="notes"></textarea>
 <div class="options-area">
-  <input type="text" aria-label="Title" class="title" [(ngModel)]="snippet.title" [title]="'Snippet Title'" name="title" spellcheck="false">
   <button (click)="copy()" class="option-button" [title]="'Copy Code to Clipboard'">Copy</button>
   <button (click)="export()" class="option-button" [title]="'Export Snippet'">Export</button>
   <button (click)="delete()" class="option-button" [title]="'Delete Snippet'">Delete</button>
 </div>
-  <input type="text" aria-label="Tags" class="title" [(ngModel)]="snippet.tags" [title]="'Snippet Tags'" name="tags" spellcheck="false">
-<app-code-editor [(ngModel)]="snippet.code" [title]="'Snippet Code'"></app-code-editor>
-<textarea aria-label="Notes" class="notes-area" [(ngModel)]="snippet.notes" [title]="'Snippet Notes'" name="notes"></textarea>

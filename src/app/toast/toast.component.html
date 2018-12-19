@@ -1,1 +1,1 @@
-<label [ngClass]="(message$ | async) ? 'toast' : ''">{{ message$ | async }}</label>
+<label [ngClass]="(message$ | async) === TOAST.EMPTY ? '' : 'toast'">{{ message$ | async }}</label>

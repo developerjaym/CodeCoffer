@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastService } from '../toast.service';
 import { Observable } from 'rxjs';
+import { Toast } from '../toast.enum';
 
 @Component({
   selector: 'app-toast',
@@ -10,6 +11,7 @@ import { Observable } from 'rxjs';
 export class ToastComponent implements OnInit {
 
   message$: Observable<string>;
+  TOAST = Toast;
 
   constructor(private toastService: ToastService) { }
 

@@ -1,1 +1,54 @@
-<label [ngClass]="(message$ | async) === TOAST.EMPTY ? '' : 'toast'">{{ message$ | async }}</label>
+<label class="toast" *ngIf="message === TOAST.WELCOME" 
+i18n="A toast to welcome the user@@welcomeToast">Welcome</label>
+
+<label class="toast" *ngIf="message === TOAST.SAVE_SUCCEEDED" 
+i18n="A toast to tell the user the snippets saved successfully@@saveSucceededToast">Save Succeeded</label>
+
+<label class="toast" *ngIf="message === TOAST.COPY_SUCCEEDED" 
+i18n="A toast to tell the user the snippets copied to clipboard successfully@@copySucceededToast">Copy Succeeded</label>
+
+<label class="toast" *ngIf="message === TOAST.IMPORT_SUCCEEDED" 
+i18n="A toast to tell the user the snippets imported successfully@@importSucceededToast">Import Succeeded</label>
+
+<label class="toast" *ngIf="message === TOAST.SNIPPET_ADDED" 
+i18n="A toast to tell the user they just added a new snippet@@snippetAddedToast">Snippet Added</label>
+
+<label class="toast" *ngIf="message === TOAST.SNIPPET_RESTORED" 
+i18n="A toast to tell the user a snippet was just restored or undeleted@@snippetRestoredToast">Snippet Restored</label>
+
+<label class="toast" *ngIf="message === TOAST.SEARCH_COMPLETED" 
+i18n="A toast to tell the user their search has ended@@searchCompletedToast">Search Completed</label>
+
+<label class="toast warning" *ngIf="message === TOAST.COPY_FAILED" 
+i18n="A toast to tell the user the snippets copied to clipboard unsuccessfully@@copyFailedToast">Copy Failed</label>
+
+<label class="toast warning" *ngIf="message === TOAST.SAVE_FAILED" 
+i18n="A toast to tell the user the snippets saved unsuccessfully@@saveFailedToast">Save Failed</label>
+
+<label class="toast warning" *ngIf="message === TOAST.IMPORT_FAILED" 
+i18n="A toast to tell the user the snippets imported unsuccessfully@@importFailedToast">Import Failed</label>
+
+<label class="toast warning" *ngIf="message === TOAST.IMPORT_TOO_BIG" 
+i18n="A toast to tell the user the snippets imported unsuccessfully due to size@@importTooBigToast">File Too Big!</label>
+
+<label class="toast warning" *ngIf="message === TOAST.SNIPPET_DELETED" 
+i18n="A toast to tell the user a snippet was just deleted@@snippetDeletedToast">Snippet Deleted</label>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,8 +1,15 @@
 <div class="search-area" role="search">
-  <input #searchBox id="search-box" name="search-box" [title]="'Search Snippets'" aria-label="Search" spellcheck="false" [(ngModel)]="searchParameters.query"
-    (ngModelChange)="search()" (keyup.enter)="search()" appFocus />
-  <app-strike-through-box [label]="'In Title'" [(ngModel)]="searchParameters.title" (ngModelChange)="search()"></app-strike-through-box>
-  <app-strike-through-box [label]="'In Code'" [(ngModel)]="searchParameters.code" (ngModelChange)="search()"></app-strike-through-box>
-  <app-strike-through-box [label]="'In Tags'" [(ngModel)]="searchParameters.tags" (ngModelChange)="search()"></app-strike-through-box>
-  <app-strike-through-box [label]="'In Notes'" [(ngModel)]="searchParameters.notes" (ngModelChange)="search()"></app-strike-through-box>
+  <input #searchBox id="search-box" name="search-box" title="Search Snippets" aria-label="Search" spellcheck="false"
+    [(ngModel)]="searchParameters.query" (ngModelChange)="search()" (keyup.enter)="search()" appFocus i18n-title="Type search term here to search through the snippets@@search"
+    i18n-aria-label="@@search" i18n="@@search" />
+  <app-strike-through-box [label]="'By Title'" [(ngModel)]="searchParameters.title" (ngModelChange)="search()" title="By Title"
+    i18n-title="If selected, the search will match on the snippet title@@searchByTitle" i18n-label="@@searchByTitle"
+    i18n="@@searchByTitle"></app-strike-through-box>
+  <app-strike-through-box [label]="'By Code'" [(ngModel)]="searchParameters.code" (ngModelChange)="search()" i18n-title="If selected, the search will match on the snippet code@@searchByCode"
+    title="By Code" i18n-label="@@searchByCode" i18n="@@searchByCode"></app-strike-through-box>
+  <app-strike-through-box [label]="'By Tags'" [(ngModel)]="searchParameters.tags" (ngModelChange)="search()" i18n-title="If selected, the search will match on the snippet tags@@searchByTag"
+    title="By Tags" i18n-label="@@searchByTag" i18n="@@searchByTag"></app-strike-through-box>
+  <app-strike-through-box [label]="'By Notes'" [(ngModel)]="searchParameters.notes" (ngModelChange)="search()" title="By Notes"
+    i18n-title="If selected, the search will match on the snippet notes@@searchByNotes" i18n-label="@@searchByNotes"
+    i18n="@@searchByNotes"></app-strike-through-box>
 </div>

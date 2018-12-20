@@ -1,6 +1,11 @@
-<button (click)="back()" [title]="'Return to Snippets'">⇐ Return to Snippets</button>
-<textarea aria-label="Exported JSON" class="display-textarea" spellcheck="false">
+<button (click)="back()" title="Return to Snippets" i18n-title="@@returnToSnippets" i18n="@@returnToSnippets">⇐ Return to Snippets</button>
+<textarea aria-label="Exported JSON" class="display-textarea" spellcheck="false" title="Exported JSON" i18n-title="Exported JSON that can be pasted in another user's app@@exportedJSON">
 {{exportedJson}}
 </textarea>
-<button (click)="copy()" class="copy-button" [title]="'Copy Code to Clipboard and Return to Snippets'" appFocus>Copy and Return</button>
-<a #downloadButton (click)="download()" [title]="'Download Code'">Download</a>
+<button (click)="copy()" class="copy-button" title="Copy Code to Clipboard and Return to Snippets" 
+i18n-title="Copy the text to clipboard and then return to the main page with the list of snippets@@copyAndReturn" 
+i18n="@@copyAndReturn" appFocus>Copy and Return</button>
+<a #downloadButton (click)="download()" title="'Download Code'"
+i18n-title="Download a file containing the snippets@@downloadSnippets" 
+i18n="@@downloadSnippets"
+>Download</a>

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ToastService } from '../toast.service';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { Toast } from '../toast.enum';
 
 @Component({
@@ -8,14 +8,22 @@ import { Toast } from '../toast.enum';
   templateUrl: './toast.component.html',
   styleUrls: ['./toast.component.css']
 })
-export class ToastComponent implements OnInit {
+export class ToastComponent implements OnInit, OnDestroy {
 
   message$: Observable<string>;
+  message: string;
+  subscription: Subscription;
   TOAST = Toast;
 
   constructor(private toastService: ToastService) { }
 
   ngOnInit() {
-    this.message$ = this.toastService.pull();
+    this.subscription = this.toastService.pull().subscribe(
+      (toast) => this.message = toast
+    );
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

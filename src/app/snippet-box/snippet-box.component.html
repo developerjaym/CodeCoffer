@@ -1,10 +1,15 @@
-<input type="text" aria-label="Title" class="title" [(ngModel)]="snippet.title" [title]="'Snippet Title'" name="title"
-  spellcheck="false">
-<input type="text" aria-label="Tags" [(ngModel)]="snippet.tags" [title]="'Snippet Tags'" name="tags" spellcheck="false">
-<app-code-editor [(ngModel)]="snippet.code" [title]="'Snippet Code'"></app-code-editor>
-<textarea aria-label="Notes" class="notes-area" [(ngModel)]="snippet.notes" [title]="'Snippet Notes'" name="notes"></textarea>
+<input type="text" aria-label="Title" class="title" [(ngModel)]="snippet.title" title="Snippet Title" name="title"
+  spellcheck="false" i18n-title="The title for this snippet@@title" i18n-aria-label="@@title">
+<input type="text" aria-label="Tags" [(ngModel)]="snippet.tags" title="Snippet Tags" name="tags" spellcheck="false"
+  i18n-aria-label="@@tags" i18n-title="The tags to describe this snippet|the tags are useful for searching and organizing the snippets@@tags">
+<app-code-editor [(ngModel)]="snippet.code" title="Snippet Code" i18n-title="The code snippet goes in this area@@code"></app-code-editor>
+<textarea aria-label="Notes" name="notes" class="notes-area" [(ngModel)]="snippet.notes" title="Snippet Notes"
+  i18n-title="The notes or description for this snippet@@notes" i18n-aria-label="@@notes"></textarea>
 <div class="options-area">
-  <button (click)="copy()" class="option-button" [title]="'Copy Code to Clipboard'">Copy</button>
-  <button (click)="export()" class="option-button" [title]="'Export Snippet'">Export</button>
-  <button (click)="delete()" class="option-button" [title]="'Delete Snippet'">Delete</button>
+  <button (click)="copy()" class="option-button" title="Copy Code to Clipboard" i18n-title="Copy this one snippet's code to the clipboard@@copyThisOneSnippetsCode"
+    i18n="@@copyThisOneSnippetsCode">Copy</button>
+  <button (click)="export()" class="option-button" title="Export Snippet" i18n-title="Go to the export screen to export this one snippet@@exportThisOneSnippet"
+    i18n="@@exportThisOneSnippet">Export</button>
+  <button (click)="delete()" class="option-button" title="Delete Snippet" i18n-title="Delete this one snippet@@deleteThisSnippet"
+    i18n="@@deleteThisSnippet">Delete</button>
 </div>

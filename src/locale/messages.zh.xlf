@@ -78,7 +78,7 @@ Here&apos;s a quick user guide:
                                                                
       创建者:           Jay M
       代码保险箱:       0.0.1
-      版权:        Jay Mansmann ©2018</target>
+      版权:             Jay Mansmann ©2018</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/about/about.component.html</context>
           <context context-type="linenumber">3</context>

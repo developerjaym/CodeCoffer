@@ -1,0 +1,9 @@
+.language-selector {
+    position: absolute;
+    right: 5px;
+    display: flex;
+}
+.language-selector a {
+    margin-left: var(--margin-narrow);
+    margin-right: var(--margin-narrow);
+}

@@ -4,7 +4,7 @@
     <body>
       <trans-unit id="returnToSnippets" datatype="html">
         <source>⇐
-      Return to Snippets</source><target> TEST </target>
+      Return to Snippets</source><target>⇐返回代码段</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/about/about.component.html</context>
           <context context-type="linenumber">1</context>
@@ -69,7 +69,16 @@ Here&apos;s a quick user guide:
       g) ctrl+alt+z = undo deletion of a snippet
       h) ctrl+z = undo deletion of a snippet    
       
-</source><target> TEST </target>
+</source><target>8&quot;&quot;&quot;&quot;8                  8&quot;&quot;&quot;&quot;8                             
+8    &quot; eeeee eeeee eeee 8    &quot; eeeee eeee eeee eeee eeeee  
+8e     8  88 8   8 8    8e     8  88 8    8    8    8   8  
+88     8   8 8e  8 8eee 88     8   8 8eee 8eee 8eee 8eee8e 
+88   e 8   8 88  8 88   88   e 8   8 88   88   88   88   8 
+88eee8 8eee8 88ee8 88ee 88eee8 8eee8 88   88   88ee 88   8 
+                                                               
+      创建者:           Jay M
+      代码保险箱:       0.0.1
+      版权:        Jay Mansmann ©2018</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/about/about.component.html</context>
           <context context-type="linenumber">3</context>
@@ -77,21 +86,21 @@ Here&apos;s a quick user guide:
       </trans-unit>
       <trans-unit id="privacyPolicy" datatype="html">
         <source>Privacy
-      Policy</source><target> TEST </target>
+      Policy</source><target>隐私政策</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/about/about.component.html</context>
           <context context-type="linenumber">43</context>
         </context-group>
       </trans-unit>
       <trans-unit id="gitHub" datatype="html">
-        <source>GitHub</source><target> TEST </target>
+        <source>GitHub</source><target>GitHub</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/about/about.component.html</context>
           <context context-type="linenumber">45</context>
         </context-group>
       </trans-unit>
       <trans-unit id="exportedJSON" datatype="html">
-        <source>Exported JSON</source><target> TEST </target>
+        <source>Exported JSON</source><target>JSON</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/export/export.component.html</context>
           <context context-type="linenumber">2</context>
@@ -99,7 +108,7 @@ Here&apos;s a quick user guide:
         <note priority="1" from="description">Exported JSON that can be pasted in another user&apos;s app</note>
       </trans-unit>
       <trans-unit id="copyAndReturn" datatype="html">
-        <source>Copy and Return</source><target> TEST </target>
+        <source>Copy and Return</source><target>复制并返回</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/export/export.component.html</context>
           <context context-type="linenumber">7</context>
@@ -110,7 +119,7 @@ Here&apos;s a quick user guide:
         </context-group>
       </trans-unit>
       <trans-unit id="downloadSnippets" datatype="html">
-        <source>Download</source><target> TEST </target>
+        <source>Download</source><target>下载</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/export/export.component.html</context>
           <context context-type="linenumber">11</context>
@@ -121,7 +130,7 @@ Here&apos;s a quick user guide:
         </context-group>
       </trans-unit>
       <trans-unit id="pasteSnippetsToImport" datatype="html">
-        <source>Paste CodeCoffer XML/JSON below</source><target> TEST </target>
+        <source>Paste CodeCoffer XML/JSON below</source><target>黏贴代码保险箱 XML/JSON 如下</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/import/import.component.html</context>
           <context context-type="linenumber">2</context>
@@ -132,7 +141,7 @@ Here&apos;s a quick user guide:
         </context-group>
       </trans-unit>
       <trans-unit id="importAndReturn" datatype="html">
-        <source>Import and Return to Snippets</source><target> TEST </target>
+        <source>Import and Return to Snippets</source><target>代入并返回代码段</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/import/import.component.html</context>
           <context context-type="linenumber">8</context>
@@ -143,7 +152,7 @@ Here&apos;s a quick user guide:
         </context-group>
       </trans-unit>
       <trans-unit id="saveAllSnippets" datatype="html">
-        <source>Save</source><target> TEST </target>
+        <source>Save</source><target>保存</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/side-panel/side-panel.component.html</context>
           <context context-type="linenumber">3</context>
@@ -154,7 +163,7 @@ Here&apos;s a quick user guide:
         </context-group>
       </trans-unit>
       <trans-unit id="importSnippets" datatype="html">
-        <source>Import</source><target> TEST </target>
+        <source>Import</source><target>代入</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/side-panel/side-panel.component.html</context>
           <context context-type="linenumber">4</context>
@@ -165,7 +174,7 @@ Here&apos;s a quick user guide:
         </context-group>
       </trans-unit>
       <trans-unit id="exportAllSnippets" datatype="html">
-        <source>Export</source><target> TEST </target>
+        <source>Export</source><target>输出</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/side-panel/side-panel.component.html</context>
           <context context-type="linenumber">5</context>
@@ -176,7 +185,7 @@ Here&apos;s a quick user guide:
         </context-group>
       </trans-unit>
       <trans-unit id="viewAbout" datatype="html">
-        <source>About</source><target> TEST </target>
+        <source>About</source><target>更多</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/side-panel/side-panel.component.html</context>
           <context context-type="linenumber">6</context>
@@ -187,7 +196,7 @@ Here&apos;s a quick user guide:
         </context-group>
       </trans-unit>
       <trans-unit id="createNewSnippet" datatype="html">
-        <source>Create New Snippet</source><target> TEST </target>
+        <source>Create New Snippet</source><target>创建新代码段</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/middle-panel/middle-panel.component.html</context>
           <context context-type="linenumber">2</context>
@@ -199,7 +208,7 @@ Here&apos;s a quick user guide:
       </trans-unit>
       <trans-unit id="viewRemainingSnippets" datatype="html">
         <source>View
-    Remaining Snippets</source><target> TEST </target>
+    Remaining Snippets</source><target>浏览更多</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/middle-panel/middle-panel.component.html</context>
           <context context-type="linenumber">7</context>
@@ -210,7 +219,7 @@ Here&apos;s a quick user guide:
         </context-group>
       </trans-unit>
       <trans-unit id="search" datatype="html">
-        <source>Search Snippets</source><target> TEST </target>
+        <source>Search Snippets</source><target>搜索</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/search-box/search-box.component.html</context>
           <context context-type="linenumber">2</context>
@@ -222,7 +231,7 @@ Here&apos;s a quick user guide:
         <note priority="1" from="description">Type search term here to search through the snippets</note>
       </trans-unit>
       <trans-unit id="searchByTitle" datatype="html">
-        <source>By Title</source><target> TEST </target>
+        <source>By Title</source><target>按标题</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/search-box/search-box.component.html</context>
           <context context-type="linenumber">5</context>
@@ -230,7 +239,7 @@ Here&apos;s a quick user guide:
         <note priority="1" from="description">If selected, the search will match on the snippet title</note>
       </trans-unit>
       <trans-unit id="searchByCode" datatype="html">
-        <source>By Code</source><target> TEST </target>
+        <source>By Code</source><target>按代码</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/search-box/search-box.component.html</context>
           <context context-type="linenumber">9</context>
@@ -238,7 +247,7 @@ Here&apos;s a quick user guide:
         <note priority="1" from="description">If selected, the search will match on the snippet code</note>
       </trans-unit>
       <trans-unit id="searchByTag" datatype="html">
-        <source>By Tags</source><target> TEST </target>
+        <source>By Tags</source><target>按关键词</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/search-box/search-box.component.html</context>
           <context context-type="linenumber">11</context>
@@ -246,7 +255,7 @@ Here&apos;s a quick user guide:
         <note priority="1" from="description">If selected, the search will match on the snippet tags</note>
       </trans-unit>
       <trans-unit id="searchByNotes" datatype="html">
-        <source>By Notes</source><target> TEST </target>
+        <source>By Notes</source><target>按注解</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/search-box/search-box.component.html</context>
           <context context-type="linenumber">12</context>
@@ -254,7 +263,7 @@ Here&apos;s a quick user guide:
         <note priority="1" from="description">If selected, the search will match on the snippet notes</note>
       </trans-unit>
       <trans-unit id="title" datatype="html">
-        <source>Title</source><target> TEST </target>
+        <source>Title</source><target>标题</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/snippet-box/snippet-box.component.html</context>
           <context context-type="linenumber">1</context>
@@ -265,7 +274,7 @@ Here&apos;s a quick user guide:
         </context-group>
       </trans-unit>
       <trans-unit id="tags" datatype="html">
-        <source>Tags</source><target> TEST </target>
+        <source>Tags</source><target>关键词</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/snippet-box/snippet-box.component.html</context>
           <context context-type="linenumber">3</context>
@@ -276,7 +285,7 @@ Here&apos;s a quick user guide:
         </context-group>
       </trans-unit>
       <trans-unit id="code" datatype="html">
-        <source>Snippet Code</source><target> TEST </target>
+        <source>Snippet Code</source><target>代码</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/snippet-box/snippet-box.component.html</context>
           <context context-type="linenumber">5</context>
@@ -288,7 +297,7 @@ Here&apos;s a quick user guide:
         <note priority="1" from="description">The code snippet goes in this area</note>
       </trans-unit>
       <trans-unit id="notes" datatype="html">
-        <source>Notes</source><target> TEST </target>
+        <source>Notes</source><target>注解</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/snippet-box/snippet-box.component.html</context>
           <context context-type="linenumber">6</context>
@@ -299,7 +308,7 @@ Here&apos;s a quick user guide:
         </context-group>
       </trans-unit>
       <trans-unit id="copyThisOneSnippetsCode" datatype="html">
-        <source>Copy</source><target> TEST </target>
+        <source>Copy</source><target>复制</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/snippet-box/snippet-box.component.html</context>
           <context context-type="linenumber">10</context>
@@ -310,7 +319,7 @@ Here&apos;s a quick user guide:
         </context-group>
       </trans-unit>
       <trans-unit id="exportThisOneSnippet" datatype="html">
-        <source>Export</source><target> TEST </target>
+        <source>Export</source><target>输出</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/snippet-box/snippet-box.component.html</context>
           <context context-type="linenumber">12</context>
@@ -321,7 +330,7 @@ Here&apos;s a quick user guide:
         </context-group>
       </trans-unit>
       <trans-unit id="deleteThisSnippet" datatype="html">
-        <source>Delete</source><target> TEST </target>
+        <source>Delete</source><target>删除</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/snippet-box/snippet-box.component.html</context>
           <context context-type="linenumber">14</context>
@@ -332,7 +341,7 @@ Here&apos;s a quick user guide:
         </context-group>
       </trans-unit>
       <trans-unit id="welcomeToast" datatype="html">
-        <source>Welcome</source><target> Huanying </target>
+        <source>Welcome</source><target>欢迎</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/toast/toast.component.html</context>
           <context context-type="linenumber">7</context>
@@ -340,7 +349,7 @@ Here&apos;s a quick user guide:
         <note priority="1" from="description">A toast to welcome the user</note>
       </trans-unit>
       <trans-unit id="saveSucceededToast" datatype="html">
-        <source>Save Succeeded</source><target> TEST </target>
+        <source>Save Succeeded</source><target>保存成功</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/toast/toast.component.html</context>
           <context context-type="linenumber">10</context>
@@ -348,7 +357,7 @@ Here&apos;s a quick user guide:
         <note priority="1" from="description">A toast to tell the user the snippets saved successfully</note>
       </trans-unit>
       <trans-unit id="copySucceededToast" datatype="html">
-        <source>Copy Succeeded</source><target> TEST </target>
+        <source>Copy Succeeded</source><target>复制成功</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/toast/toast.component.html</context>
           <context context-type="linenumber">13</context>
@@ -356,7 +365,7 @@ Here&apos;s a quick user guide:
         <note priority="1" from="description">A toast to tell the user the snippets copied to clipboard successfully</note>
       </trans-unit>
       <trans-unit id="importSucceededToast" datatype="html">
-        <source>Import Succeeded</source><target> TEST </target>
+        <source>Import Succeeded</source><target>输出成功</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/toast/toast.component.html</context>
           <context context-type="linenumber">16</context>
@@ -364,7 +373,7 @@ Here&apos;s a quick user guide:
         <note priority="1" from="description">A toast to tell the user the snippets imported successfully</note>
       </trans-unit>
       <trans-unit id="snippetAddedToast" datatype="html">
-        <source>Snippet Added</source><target> TEST </target>
+        <source>Snippet Added</source><target>新代码段添加成功</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/toast/toast.component.html</context>
           <context context-type="linenumber">19</context>
@@ -372,7 +381,7 @@ Here&apos;s a quick user guide:
         <note priority="1" from="description">A toast to tell the user they just added a new snippet</note>
       </trans-unit>
       <trans-unit id="snippetRestoredToast" datatype="html">
-        <source>Snippet Restored</source><target> TEST </target>
+        <source>Snippet Restored</source><target>撤销删除</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/toast/toast.component.html</context>
           <context context-type="linenumber">22</context>
@@ -380,7 +389,7 @@ Here&apos;s a quick user guide:
         <note priority="1" from="description">A toast to tell the user a snippet was just restored or undeleted</note>
       </trans-unit>
       <trans-unit id="searchCompletedToast" datatype="html">
-        <source>Search Completed</source><target> TEST </target>
+        <source>Search Completed</source><target>完成搜索</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/toast/toast.component.html</context>
           <context context-type="linenumber">25</context>
@@ -388,7 +397,7 @@ Here&apos;s a quick user guide:
         <note priority="1" from="description">A toast to tell the user their search has ended</note>
       </trans-unit>
       <trans-unit id="copyFailedToast" datatype="html">
-        <source>Copy Failed</source><target> TEST </target>
+        <source>Copy Failed</source><target>复制失败</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/toast/toast.component.html</context>
           <context context-type="linenumber">28</context>
@@ -396,7 +405,7 @@ Here&apos;s a quick user guide:
         <note priority="1" from="description">A toast to tell the user the snippets copied to clipboard unsuccessfully</note>
       </trans-unit>
       <trans-unit id="saveFailedToast" datatype="html">
-        <source>Save Failed</source><target> TEST </target>
+        <source>Save Failed</source><target>保存失败</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/toast/toast.component.html</context>
           <context context-type="linenumber">31</context>
@@ -404,7 +413,7 @@ Here&apos;s a quick user guide:
         <note priority="1" from="description">A toast to tell the user the snippets saved unsuccessfully</note>
       </trans-unit>
       <trans-unit id="importFailedToast" datatype="html">
-        <source>Import Failed</source><target> TEST </target>
+        <source>Import Failed</source><target>代入失败</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/toast/toast.component.html</context>
           <context context-type="linenumber">34</context>
@@ -412,7 +421,7 @@ Here&apos;s a quick user guide:
         <note priority="1" from="description">A toast to tell the user the snippets imported unsuccessfully</note>
       </trans-unit>
       <trans-unit id="importTooBigToast" datatype="html">
-        <source>File Too Big!</source><target> TEST </target>
+        <source>File Too Big!</source><target>文件过大</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/toast/toast.component.html</context>
           <context context-type="linenumber">37</context>
@@ -420,7 +429,7 @@ Here&apos;s a quick user guide:
         <note priority="1" from="description">A toast to tell the user the snippets imported unsuccessfully due to size</note>
       </trans-unit>
       <trans-unit id="snippetDeletedToast" datatype="html">
-        <source>Snippet Deleted</source><target> TEST </target>
+        <source>Snippet Deleted</source><target>代码段已删除</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/toast/toast.component.html</context>
           <context context-type="linenumber">40</context>
@@ -428,7 +437,7 @@ Here&apos;s a quick user guide:
         <note priority="1" from="description">A toast to tell the user a snippet was just deleted</note>
       </trans-unit>
       <trans-unit id="appName" datatype="html">
-        <source>CodeCoffer</source><target> TEST </target>
+        <source>CodeCoffer</source><target>代码保险箱</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/title/title.component.html</context>
           <context context-type="linenumber">198</context>

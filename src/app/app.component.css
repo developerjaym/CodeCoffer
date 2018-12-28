@@ -1,8 +1,11 @@
 .language-selector {
-    position: absolute;
+    z-index: 1;
     top: var(--margin-narrow);
-    right: var(--margin-narrow);
+    position: sticky;
+    width: 100%;
     display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
 }
 .language-selector a {
     margin-left: var(--margin-narrow);

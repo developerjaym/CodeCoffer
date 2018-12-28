@@ -1,6 +1,7 @@
 .language-selector {
     position: absolute;
-    right: 5px;
+    top: var(--margin-narrow);
+    right: var(--margin-narrow);
     display: flex;
 }
 .language-selector a {

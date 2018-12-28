@@ -9,10 +9,10 @@ export class Snippet {
 
   constructor(
     id: number = 0,
-    title: string = 'title',
-    tags: string = 'tags',
+    title: string = '',
+    tags: string = '',
     code: string = '',
-    notes: string = 'notes',
+    notes: string = '',
     timestamp: number = Date.now()
   ) {
     this.id = String(id ? id : Math.floor(Math.random() * 1000000000) + 1);

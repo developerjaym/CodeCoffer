@@ -1,8 +1,5 @@
 .language-selector {
-    z-index: 1;
-    top: var(--margin-narrow);
-    position: sticky;
-    width: 100%;
+    padding: var(--padding-narrow);
     display: flex;
     justify-content: flex-end;
     flex-direction: row;

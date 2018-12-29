@@ -1,4 +1,4 @@
-<button class="middle-panel-button" (click)="addSnippet()" title="Create New Snippet" i18n-title="Create a new snippet@@createNewSnippet"
+<button class="sticky middle-panel-button" (click)="addSnippet()" title="Create New Snippet" i18n-title="Create a new snippet@@createNewSnippet"
     i18n="@@createNewSnippet">Create New Snippet</button>
 <div *ngFor="let snippet of snippets">
     <app-snippet-box *ngIf="snippet.showing" [snippet]="snippet"></app-snippet-box>

@@ -1,4 +1,4 @@
-<span class="language-selector">
+<span class="sticky language-selector">
     <a *ngFor="let language of supportedLanguages" [href]="language.url">{{ language.name }}</a>
 </span>
 <router-outlet  (window:unload)="doUnload()"></router-outlet>

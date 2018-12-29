@@ -33,7 +33,7 @@
 
 .sticky {
   position: sticky;
-  top: 0;
+  top: var(--margin-narrow);
 }
 
 .display-textarea {
@@ -44,7 +44,7 @@
 }
 
 .code {
-  font-family: monospace;
+   font-family: monospace;
 }
 
 /*Custom Tags*/
@@ -80,7 +80,8 @@ app-snippet-box {
 
 body, input, button, textarea {
    font-family: Arial, Helvetica, sans-serif;
-  font-size: calc(0.1em + var(--main-font-size));
+   font-size: calc(0.1em + var(--main-font-size));
+   margin: 0;
 }
 html {
   background-color: var(--main-bg-color);
@@ -102,12 +103,6 @@ pre {
   min-height: fit-content;
 }
 
-input,
-button,
-textarea {
-  margin: 0px;
-  
-}
 button {
   background-color: var(--secondary-bg-color);
   color: var(--secondary-fg-color);

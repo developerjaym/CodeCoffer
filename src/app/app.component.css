@@ -4,7 +4,7 @@
     justify-content: flex-end;
     flex-direction: row;
 }
-.language-selector a {
+a {
     margin-left: var(--margin-narrow);
     margin-right: var(--margin-narrow);
 }

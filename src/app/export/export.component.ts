@@ -52,7 +52,7 @@ export class ExportComponent implements OnInit {
   download(): void {
     this.downloadService.downloadAsFrom(
       this.exportedJson, 
-      "CodeCoffer"+Date.now(), 
+      "CodeCoffer" + Date.now(), 
       this.downloadButton, this.renderer);
     this.back();
   }

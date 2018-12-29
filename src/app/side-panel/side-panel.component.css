@@ -9,6 +9,10 @@
 }
 
 .panel * {
+    margin-bottom: var(--margin-narrow);
+}
+
+app-strike-through-box {
     margin-top: var(--margin-narrow);
     margin-bottom: 0;
 }

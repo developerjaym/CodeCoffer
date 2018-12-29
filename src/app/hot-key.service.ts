@@ -15,7 +15,7 @@ export class HotKeyService {
 
   push(keyEvent: KeyboardEvent): void {
     let hotKey: HotKey;
-    if(keyEvent.ctrlKey && keyEvent.key === 'z') {
+    if (keyEvent.ctrlKey && keyEvent.key === 'z') {
       this.hotKeySubject.next(HotKey.UNDO);
     }
     else if (keyEvent.altKey && keyEvent.ctrlKey) {

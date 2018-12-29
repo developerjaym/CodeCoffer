@@ -1,12 +1,6 @@
-label {
-    color: var(--main-bg-color);
-    background-color: var(--main-bg-color);
-    transition: background-color 0.5s, color 0.5s;
-    width: 100%;
-    max-height: 100%;
-}
-
 .toast {
-    background-color: var(--accent-bg-color);
-    color: var(--accent-fg-color);
+    background-color: var(--accent-fg-color);
+    color: var(--accent-bg-color);
+    font-weight: bold;
+    width: 100%;
 }

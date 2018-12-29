@@ -12,7 +12,7 @@ export class FiledragDirective {
 
   dragHappening = false;
   constructor(private parser: ParseService, private service: SnippetService, private toastService: ToastService) {
-   }
+  }
 
   @HostListener('drop', ['$event'])
   drop(ev) {
@@ -53,8 +53,8 @@ export class FiledragDirective {
     const read = new FileReader();
 
     read.readAsText(droppedFile);
-    
-    read.onloadend =  () => {
+
+    read.onloadend = () => {
       if (droppedFile.name.toLocaleLowerCase().endsWith('.coff')) {
         //import CodeCoffer xml (from the old desktop app)
         const newSnippets: Snippet[] = this.parser.parse(read.result.toString());

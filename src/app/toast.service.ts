@@ -21,7 +21,7 @@ export class ToastService {
     );
   }
   private pushEmpty(message: Toast): void {
-    if(message !== Toast.EMPTY) {
+    if (message !== Toast.EMPTY) {
       setTimeout(() => this.push(Toast.EMPTY), 5000);
     }
   }

@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  url: "https://jayckers.com/snippet"
+  url: "https://snippet.jayckers.com/snippet"
 };

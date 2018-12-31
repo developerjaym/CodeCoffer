@@ -2,6 +2,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: var(--accent-fg-color);
+    padding-top: var(--padding-thick);
+    border-radius: var(--border-radius);
 }
 
 svg {
@@ -12,5 +15,4 @@ svg {
 
 h1 {
     margin-top: var(--margin-narrow);
-    text-shadow: var(--border-width-thick) var(--border-width-thick) var(--accent-fg-color);
 }

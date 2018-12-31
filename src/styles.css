@@ -69,7 +69,7 @@ app-snippet-box {
   
   border-style: solid;
   border-width: var(--border-width-thick);
-  border-color: black;
+  border-color: var(--secondary-fg-color);
 }
 
 /*Tags*/

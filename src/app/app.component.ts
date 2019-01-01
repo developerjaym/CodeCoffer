@@ -3,6 +3,7 @@ import { SnippetService } from './snippet.service';
 import { Router, NavigationEnd } from '@angular/router';
 import { SupportedLanguage } from './supported-language';
 import { environment } from '../environments/environment';
+import { StyleService } from './style.service';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,7 @@ export class AppComponent implements OnInit{
   title = 'CodeCoffer';
   supportedLanguages: SupportedLanguage[] = [
     {
-      url: environment.url + "/#/",
+      url: environment.url + "/en/#/",
       name: "English"
     },
     {
@@ -22,9 +23,10 @@ export class AppComponent implements OnInit{
     }
   ];
 
-  constructor(private router: Router, private service: SnippetService) {}
+  constructor(private router: Router, private service: SnippetService, private styleService: StyleService) {}
 
   ngOnInit() {
+    this.styleService.loadStyle();
     this.router.events.subscribe((evt) => {
       if (!(evt instanceof NavigationEnd)) {
           return;

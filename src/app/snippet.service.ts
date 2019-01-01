@@ -35,7 +35,7 @@ export class SnippetService {
   getSearchParameters(): Observable<SearchParameters> {
     return this.searchSubject.asObservable().pipe(distinctUntilChanged());
   }
-  
+
   /**
    * To get the currently visible snippets, subscribe to this.
    */
@@ -80,8 +80,8 @@ export class SnippetService {
     const query = searchParams.query.trim();
     const searchResultsMap: Map<Snippet, number> = new Map<Snippet, number>();
     const terms: string[] = query.toLocaleUpperCase().split(',').map(str => str.trim());
-    terms.forEach(term => 
-    this.snippets.forEach(snippet => {
+    terms.forEach(term =>
+      this.snippets.forEach(snippet => {
         let score = searchResultsMap.has(snippet) ? searchResultsMap.get(snippet) : 0;
         if (snippet.title.toLocaleUpperCase().includes(term) && searchParams.title) {
           score++;
@@ -91,18 +91,18 @@ export class SnippetService {
           score++;
         } if (snippet.notes.toLocaleUpperCase().includes(term) && searchParams.notes) {
           score++;
-        } 
+        }
         searchResultsMap.set(snippet, score);
-    }));
+      }));
 
     this.snippets.forEach(snippet => {
       const hasPositiveSearchScore = searchResultsMap.has(snippet) && searchResultsMap.get(snippet) > 0;
       snippet.showing = hasPositiveSearchScore || query.length === 0;
     })
     if (query.length > 0) {
-      this.snippets.sort((a, b) => a.showing && b.showing ? 
-      searchResultsMap.get(b) - searchResultsMap.get(a) 
-      : +b.showing - +a.showing);
+      this.snippets.sort((a, b) => a.showing && b.showing ?
+        searchResultsMap.get(b) - searchResultsMap.get(a)
+        : +b.showing - +a.showing);
     } else {
       this.sortSnippets();
     }
@@ -115,8 +115,8 @@ export class SnippetService {
   }
 
   saveSnippets(): void {
-    this.storage.saveSnippets(this.snippets);
-    this.toastService.push(Toast.SAVE_SUCCEEDED);
+    this.storage.saveSnippets(this.snippets, () => this.toastService.push(Toast.SAVE_SUCCEEDED),
+      () => this.toastService.push(Toast.SAVE_FAILED));
   }
 
   import(imported: Snippet | Array<Snippet>): void {
@@ -138,7 +138,7 @@ export class SnippetService {
   }
 
   undoDelete(): boolean {
-    if(this.deletedSnippets.length > 0) {
+    if (this.deletedSnippets.length > 0) {
       this.addSnippet(this.deletedSnippets.shift());
       return true;
     }

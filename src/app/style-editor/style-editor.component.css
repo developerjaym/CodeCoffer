@@ -1,0 +1,3 @@
+button, textarea {
+    margin-bottom: var(--margin-narrow);
+}

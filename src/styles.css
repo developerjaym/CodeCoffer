@@ -26,6 +26,8 @@
 
   --padding-thick: 16px;
   --margin-thick: 16px;
+
+  --background-image: none;
 }
 
 /*Custom Classes*/
@@ -49,7 +51,7 @@
 
 /*Custom Tags*/
 
-app-export, app-import, app-about {
+app-export, app-import, app-about, app-style-editor {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -80,6 +82,10 @@ body, input, button, textarea {
 }
 html {
   background-color: var(--main-bg-color);
+  background-repeat: none;
+  background-attachment: fixed;
+  background-size: cover;
+  background-image: var(--background-image);
 }
 
 h1 {
@@ -88,7 +94,7 @@ h1 {
 }
 
 a {
-  color: var(--secondary-fg-color);
+  color: var(--main-fg-color);
 }
 
 pre {
@@ -109,6 +115,7 @@ button {
 label {
   padding: var(--padding-thick);
   border-radius: var(--border-radius);
+  color: var(--main-fg-color);
 }
 
 input, textarea, pre {

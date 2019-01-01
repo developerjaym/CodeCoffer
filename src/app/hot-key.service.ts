@@ -20,6 +20,9 @@ export class HotKeyService {
     }
     else if (keyEvent.altKey && keyEvent.ctrlKey) {
       switch (keyEvent.key) {
+        case "c": //css variables
+          hotKey = HotKey.STYLE;
+          break;
         case "s": // save
           hotKey = HotKey.SAVE;
           break;

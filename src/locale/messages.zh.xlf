@@ -184,6 +184,17 @@ Here&apos;s a quick user guide:
           <context context-type="linenumber">5</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="styleApp" datatype="html">
+        <source>Set Style</source><target>风格设置</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/side-panel/side-panel.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/side-panel/side-panel.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="viewAbout" datatype="html">
         <source>About</source><target>更多</target>
         <context-group purpose="location">
@@ -337,6 +348,43 @@ Here&apos;s a quick user guide:
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/snippet-box/snippet-box.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="editStyle" datatype="html">
+        <source>Edit Style</source><target>风格编辑</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/style-editor/style-editor.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/style-editor/style-editor.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/style-editor/style-editor.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="saveStyleChanges" datatype="html">
+        <source>Save Style Changes</source><target>保存</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/style-editor/style-editor.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/style-editor/style-editor.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="revertStyleChanges" datatype="html">
+        <source>Revert to Default Style</source><target>返回原风格</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/style-editor/style-editor.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/style-editor/style-editor.component.html</context>
           <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit>

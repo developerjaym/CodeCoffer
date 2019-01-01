@@ -26,6 +26,9 @@ export class SidePanelComponent implements OnInit, OnDestroy {
     this.subscriptions.push(
       this.hotKeyService.pull().subscribe(hotKey => {
         switch (hotKey) {
+          case HotKey.STYLE:
+            this.style();
+            break;
           case HotKey.SAVE:
             this.save();
             break;
@@ -48,6 +51,10 @@ export class SidePanelComponent implements OnInit, OnDestroy {
 
   download(): void {
 
+  }
+
+  style(): void {
+    this.router.navigate(['/style'])
   }
 
   load(): void {

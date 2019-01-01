@@ -1,4 +1,5 @@
 export enum HotKey {
+    STYLE,
     SEARCH,
     SAVE,
     IMPORT,

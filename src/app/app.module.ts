@@ -26,6 +26,8 @@ import { ToastService } from './toast.service';
 import { CopyService } from './copy.service';
 import { DownloadService } from './download.service';
 import { TitleComponent } from './title/title.component';
+import { StyleService } from './style.service';
+import { StyleEditorComponent } from './style-editor/style-editor.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -33,11 +35,14 @@ const appRoutes: Routes = [
   { path: 'export/:snippetId', component: ExportComponent, canActivate: [ExportGuardService] },
   { path: 'export', component: ExportComponent },
   { path: 'import', component: ImportComponent },
+  { path: 'style', component: StyleEditorComponent },
   { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
-  declarations: [AppComponent, AboutComponent, ExportComponent, ImportComponent, HomeComponent, SidePanelComponent, MiddlePanelComponent, SearchBoxComponent, SnippetBoxComponent, HomeComponent, FiledragDirective, StrikeThroughBoxComponent, CodeEditorComponent, FocusDirective, ToastComponent, TitleComponent],
+  declarations: [AppComponent, AboutComponent, ExportComponent, ImportComponent, HomeComponent, SidePanelComponent, 
+    MiddlePanelComponent, SearchBoxComponent, SnippetBoxComponent, HomeComponent, FiledragDirective, StrikeThroughBoxComponent,
+     CodeEditorComponent, FocusDirective, StyleEditorComponent, ToastComponent, TitleComponent],
   imports: [BrowserModule, CommonModule, FormsModule, RouterModule.forRoot(
     appRoutes,
     {
@@ -46,7 +51,7 @@ const appRoutes: Routes = [
     }
   ),
   ],
-  providers: [CopyService, DownloadService, ExportGuardService, HotKeyService, ParseService, SnippetService, StorageService, ToastService],
+  providers: [CopyService, DownloadService, ExportGuardService, HotKeyService, ParseService, SnippetService, StorageService, StyleService, ToastService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

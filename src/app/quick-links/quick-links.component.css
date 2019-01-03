@@ -1,0 +1,21 @@
+.quick-link {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: var(--margin-narrow);
+    border: none;
+
+}
+.quick-link-link, .quick-link-x {
+    padding: var(--padding-narrow);
+    border: none;
+    
+}
+.quick-link-link {
+    flex-grow: 2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-left: var(--padding-thick);
+    padding-right: var(--padding-narrow);
+}

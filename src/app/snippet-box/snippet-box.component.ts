@@ -30,6 +30,14 @@ export class SnippetBoxComponent implements OnInit {
     this.router.navigate(['/export', this.snippet.id])
   }
 
+  pin() {
+    this.snippetService.pinSnippet(this.snippet.id);
+  }
+
+  unpin() {
+    this.snippetService.unpinSnippet(this.snippet.id);
+  }
+
   clone() {
 
   }

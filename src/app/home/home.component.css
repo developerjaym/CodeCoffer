@@ -11,11 +11,16 @@ app-middle-panel {
   flex-direction: column;
   flex-grow: 2;
   background-color: var(--main-bg-color);
+  width: 85vw;
+  min-width: fit-content;
 }
 app-side-panel {
   display: flex;
   align-items: left;
   flex-direction: column;
   background-color: var(--main-bg-color);
+  max-width: 15vw;
+  width: 15vw;
+  min-width: fit-content;
 }
   

@@ -28,6 +28,7 @@ import { DownloadService } from './download.service';
 import { TitleComponent } from './title/title.component';
 import { StyleService } from './style.service';
 import { StyleEditorComponent } from './style-editor/style-editor.component';
+import { QuickLinksComponent } from './quick-links/quick-links.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -42,7 +43,7 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [AppComponent, AboutComponent, ExportComponent, ImportComponent, HomeComponent, SidePanelComponent, 
     MiddlePanelComponent, SearchBoxComponent, SnippetBoxComponent, HomeComponent, FiledragDirective, StrikeThroughBoxComponent,
-     CodeEditorComponent, FocusDirective, StyleEditorComponent, ToastComponent, TitleComponent],
+     CodeEditorComponent, FocusDirective, StyleEditorComponent, ToastComponent, TitleComponent, QuickLinksComponent],
   imports: [BrowserModule, CommonModule, FormsModule, RouterModule.forRoot(
     appRoutes,
     {

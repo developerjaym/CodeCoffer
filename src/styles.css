@@ -74,6 +74,16 @@ app-snippet-box {
   border-color: var(--secondary-fg-color);
 }
 
+app-quick-links {
+  background-color: var(--secondary-bg-color);
+  padding-top: var(--padding-thick);
+  padding-bottom: var(--padding-thick);
+  border-radius: var(--border-radius);
+  border-style: solid;
+  border-width: var(--border-width-thin);
+  border-color: var(--secondary-fg-color);
+}
+
 /*Tags*/
 
 body, input, button, textarea {
@@ -88,9 +98,12 @@ html {
   background-image: var(--background-image);
 }
 
-h1 {
+h1, h2, h3 {
   color: var(--accent-bg-color);
   font-family: monospace;
+  margin-top: var(--margin-narrow);
+  margin-bottom: var(--margin-narrow);
+  text-align: center;
 }
 
 a {

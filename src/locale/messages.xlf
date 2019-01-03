@@ -190,7 +190,7 @@ Here&apos;s a quick user guide:
         </context-group>
       </trans-unit>
       <trans-unit id="styleApp" datatype="html">
-        <source>Style</source>
+        <source>Set Style</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/side-panel/side-panel.component.html</context>
           <context context-type="linenumber">6</context>
@@ -359,8 +359,8 @@ Here&apos;s a quick user guide:
           <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="copyThisOneSnippetsCode" datatype="html">
-        <source>Copy</source>
+      <trans-unit id="pinToQuickLinks" datatype="html">
+        <source>Pin</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/snippet-box/snippet-box.component.html</context>
           <context context-type="linenumber">14</context>
@@ -370,8 +370,8 @@ Here&apos;s a quick user guide:
           <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="exportThisOneSnippet" datatype="html">
-        <source>Export</source>
+      <trans-unit id="unpinFromQuickLinks" datatype="html">
+        <source>Unpin</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/snippet-box/snippet-box.component.html</context>
           <context context-type="linenumber">16</context>
@@ -380,9 +380,13 @@ Here&apos;s a quick user guide:
           <context context-type="sourcefile">app/snippet-box/snippet-box.component.html</context>
           <context context-type="linenumber">15</context>
         </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/quick-links/quick-links.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
       </trans-unit>
-      <trans-unit id="deleteThisSnippet" datatype="html">
-        <source>Delete</source>
+      <trans-unit id="copyThisOneSnippetsCode" datatype="html">
+        <source>Copy</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/snippet-box/snippet-box.component.html</context>
           <context context-type="linenumber">18</context>
@@ -390,6 +394,28 @@ Here&apos;s a quick user guide:
         <context-group purpose="location">
           <context context-type="sourcefile">app/snippet-box/snippet-box.component.html</context>
           <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="exportThisOneSnippet" datatype="html">
+        <source>Export</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/snippet-box/snippet-box.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/snippet-box/snippet-box.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="deleteThisSnippet" datatype="html">
+        <source>Delete</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/snippet-box/snippet-box.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/snippet-box/snippet-box.component.html</context>
+          <context context-type="linenumber">21</context>
         </context-group>
       </trans-unit>
       <trans-unit id="editStyle" datatype="html">
@@ -531,6 +557,21 @@ Here&apos;s a quick user guide:
           <context context-type="sourcefile">app/title/title.component.html</context>
           <context context-type="linenumber">198</context>
         </context-group>
+      </trans-unit>
+      <trans-unit id="pinnedSnippetsTitle" datatype="html">
+        <source>Pinned Snippets</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/quick-links/quick-links.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="viewSnippetTooltip" datatype="html">
+        <source>View Snippet</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/quick-links/quick-links.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <note priority="1" from="description">To tell the user that this button will make the snippet visible</note>
       </trans-unit>
     </body>
   </file>

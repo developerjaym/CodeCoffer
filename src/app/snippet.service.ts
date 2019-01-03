@@ -14,6 +14,7 @@ export class SnippetService {
   private snippets: Snippet[];
   private deletedSnippets: Snippet[];
   private snippetsSubject: BehaviorSubject<Snippet[]>;
+  private pinnedSnippetsSubject: BehaviorSubject<Snippet[]>;
   private searchSubject: BehaviorSubject<SearchParameters>;
   private timerId: any;
   private readonly SAVE_INTERVAL = 200000;
@@ -24,6 +25,7 @@ export class SnippetService {
     this.deletedSnippets = [];
     this.sortSnippets();
     this.snippetsSubject = new BehaviorSubject<Snippet[]>(this.sliceSnippets());
+    this.pinnedSnippetsSubject = new BehaviorSubject<Snippet[]>(this.determinePinnedSnippets());
     this.searchSubject = new BehaviorSubject<SearchParameters>(new SearchParameters());
     this.timerId = setInterval(() => this.saveSnippets(), this.SAVE_INTERVAL);
     this.hotKeyService.pull().pipe(
@@ -34,6 +36,36 @@ export class SnippetService {
   }
   getSearchParameters(): Observable<SearchParameters> {
     return this.searchSubject.asObservable().pipe(distinctUntilChanged());
+  }
+
+  getPinnedSnippets(): Observable<Snippet[]> {
+    return this.pinnedSnippetsSubject.asObservable();
+  }
+
+  /**
+   * Snippet titles change, so this method can make sure everything is up to date.
+   */
+  refreshPinnedSnippets(): void {
+    this.pinnedSnippetsSubject.next(this.determinePinnedSnippets());
+  }
+
+  pinSnippet(id: string): void {
+    this.getSnippetById(id).pinned = true;
+    this.refreshPinnedSnippets();
+  }
+
+  unpinSnippet(id: string): void {
+    this.getSnippetById(id).pinned = false;
+    this.refreshPinnedSnippets();
+  }
+
+  onPinnedSnippetSelected(id: string): void {
+    window.scrollTo(0, 0);
+    const selectedSnippet: Snippet = this.getSnippetById(id);
+    selectedSnippet.showing = true;
+    const visibleSnippets: Snippet[] = this.snippetsSubject.value.filter(snippet => snippet.id !== id);
+    visibleSnippets.unshift(selectedSnippet);
+    this.snippetsSubject.next(visibleSnippets);
   }
 
   /**
@@ -65,6 +97,7 @@ export class SnippetService {
     window.scrollTo(0, 0);
     this.snippetsSubject.next(this.sliceSnippets());
     this.toastService.push(Toast.SNIPPET_ADDED);
+    this.refreshPinnedSnippets();
   }
 
   deleteSnippet(snippetId: string): void {
@@ -73,6 +106,7 @@ export class SnippetService {
     this.snippets = this.snippets.filter(snippet => snippet.id !== snippetId);
     this.snippetsSubject.next(this.sliceSnippets());
     this.toastService.push(Toast.SNIPPET_DELETED);
+    this.refreshPinnedSnippets();
   }
 
   search(searchParams: SearchParameters) {
@@ -126,6 +160,7 @@ export class SnippetService {
     this.sortSnippets();
     this.saveSnippets();
     this.snippetsSubject.next(this.sliceSnippets());
+    this.refreshPinnedSnippets();
     this.toastService.push(Toast.IMPORT_SUCCEEDED);
   }
 
@@ -155,5 +190,9 @@ export class SnippetService {
 
   private createId(): string {
     return String(Math.floor(Math.random() * 1000000000) + 1);
+  }
+
+  private determinePinnedSnippets(): Snippet[] {
+    return this.snippets.filter(snippet => snippet.pinned)
   }
 }

@@ -318,6 +318,32 @@ Here&apos;s a quick user guide:
           <context context-type="linenumber">6</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="pinToQuickLinks" datatype="html">
+        <source>Pin</source><target>加入到常用列表</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/snippet-box/snippet-box.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/snippet-box/snippet-box.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="unpinFromQuickLinks" datatype="html">
+        <source>Unpin</source><target>从常用列表里删除</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/snippet-box/snippet-box.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/snippet-box/snippet-box.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/quick-links/quick-links.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="copyThisOneSnippetsCode" datatype="html">
         <source>Copy</source><target>复制</target>
         <context-group purpose="location">
@@ -490,6 +516,21 @@ Here&apos;s a quick user guide:
           <context context-type="sourcefile">app/title/title.component.html</context>
           <context context-type="linenumber">198</context>
         </context-group>
+      </trans-unit>
+      <trans-unit id="pinnedSnippetsTitle" datatype="html">
+        <source>Pinned Snippets</source><target>已加入常用列表</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/quick-links/quick-links.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="viewSnippetTooltip" datatype="html">
+        <source>View Snippet</source><target>浏览常用列表</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/quick-links/quick-links.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <note priority="1" from="description">To tell the user that this button will make the snippet visible</note>
       </trans-unit>
     </body>
   </file>

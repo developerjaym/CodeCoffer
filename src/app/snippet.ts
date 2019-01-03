@@ -6,6 +6,7 @@ export class Snippet {
   code: string;
   notes: string;
   showing: boolean;
+  pinned: boolean;
 
   constructor(
     id: number = 0,
@@ -22,5 +23,6 @@ export class Snippet {
     this.code = code;
     this.notes = notes;
     this.showing = true; //for search result
+    this.pinned = false;
   }
 }

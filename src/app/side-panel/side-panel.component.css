@@ -21,6 +21,7 @@ app-strike-through-box {
 
 app-toast {
     display: flex;
+    min-height: fit-content;
 }
 
 app-quick-links {

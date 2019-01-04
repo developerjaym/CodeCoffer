@@ -35,8 +35,10 @@ export class CodeEditorComponent implements OnInit, ControlValueAccessor {
   constructor(private copyService: CopyService, private renderer: Renderer2 ) { }
 
   ngOnInit() {
-    this.renderer.setStyle(this.lineNumbers.nativeElement, 'font-size', this.FONT_SIZE);
-    this.renderer.setStyle(this.codeEditor.nativeElement, 'font-size', this.FONT_SIZE);
+    this.renderer.setStyle(this.lineNumbers.nativeElement, 'font-size', this.FONT_SIZE + "px");
+    this.renderer.setStyle(this.codeEditor.nativeElement, 'font-size', this.FONT_SIZE + "px");
+    this.renderer.setStyle(this.lineNumbers.nativeElement, 'line-height', this.LINE_HEIGHT + "px");
+    this.renderer.setStyle(this.codeEditor.nativeElement, 'line-height', this.LINE_HEIGHT + "px");
   }
 
   writeValue(value) {

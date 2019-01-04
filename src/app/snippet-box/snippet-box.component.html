@@ -10,9 +10,9 @@
   i18n-name="@@notes"
   i18n-aria-label="@@notes"></textarea>
 <div class="options-area">
-    <button *ngIf="!snippet.pinned" (click)="pin()" class="option-button" title="Pin to Quick Links" i18n-title="Makes a link for this snippet on the left side of the screen@@pinToQuickLinks"
+    <button *ngIf="!snippet.pinned" (click)="pin()" class="option-button" title="Pin" i18n-title="Makes a link for this snippet on the left side of the screen@@pinToQuickLinks"
     i18n="@@pinToQuickLinks">Pin</button>
-    <button *ngIf="snippet.pinned" (click)="unpin()" class="option-button" title="Remove from Quick Links" i18n-title="Removes a link for this snippet from the left side of the screen@@unpinFromQuickLinks"
+    <button *ngIf="snippet.pinned" (click)="unpin()" class="option-button" title="Unpin" i18n-title="Removes a link for this snippet from the left side of the screen@@unpinFromQuickLinks"
     i18n="@@unpinFromQuickLinks">Unpin</button>
   <button (click)="copy()" class="option-button" title="Copy Code to Clipboard" i18n-title="Copy this one snippet's code to the clipboard@@copyThisOneSnippetsCode"
     i18n="@@copyThisOneSnippetsCode">Copy</button>

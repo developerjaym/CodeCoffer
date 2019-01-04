@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SnippetService } from './snippet.service';
 import { Router, NavigationEnd } from '@angular/router';
-import { SupportedLanguage } from './supported-language';
-import { environment } from '../environments/environment';
 import { StyleService } from './style.service';
 
 @Component({
@@ -12,16 +10,6 @@ import { StyleService } from './style.service';
 })
 export class AppComponent implements OnInit{
   title = 'CodeCoffer';
-  supportedLanguages: SupportedLanguage[] = [
-    {
-      url: environment.url + "/en/#/",
-      name: "English"
-    },
-    {
-      url: environment.url + "/zh/#/",
-      name: "中文"
-    }
-  ];
 
   constructor(private router: Router, private service: SnippetService, private styleService: StyleService) {}
 

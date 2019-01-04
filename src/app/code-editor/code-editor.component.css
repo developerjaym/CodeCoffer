@@ -5,7 +5,7 @@
 
 .code-area, .line-number-area {
     font-size: 14px;
-    line-height: var(--padding-thick);
+    /* line-height: var(--padding-thick); */
     padding-top: var(--padding-narrow);
     padding-bottom: var(--padding-narrow);
     resize: none;

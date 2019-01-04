@@ -6,12 +6,15 @@
     display: flex;
     align-items: left;
     flex-direction: column;
-    max-height: 95vh;
+    height: 100%;
 }
 
 .panel * {
     margin-bottom: var(--margin-narrow);
-    flex-grow: 1;
+}
+
+button {
+    border: none;
 }
 
 app-strike-through-box {
@@ -21,9 +24,11 @@ app-strike-through-box {
 
 app-toast {
     display: flex;
-    min-height: fit-content;
+    justify-self: flex-end;
 }
-
+app-search-box, app-quick-links {
+    border: none;
+}
 app-quick-links {
     flex-grow: 2;
     overflow: scroll;

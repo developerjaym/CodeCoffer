@@ -1,6 +1,7 @@
 <div class="search-area" role="search">
   <input #searchBox id="search-box" name="search-box" title="Search Snippets" aria-label="Search" spellcheck="false"
     [(ngModel)]="searchParameters.query" (ngModelChange)="search()" (keyup.enter)="search()" appFocus i18n-title="Type search term here to search through the snippets@@search"
+    placeholder="Search Snippets" i18n-placeholder="@@search"
     i18n-aria-label="@@search" i18n="@@search" />
   <app-strike-through-box label="By Title" [(ngModel)]="searchParameters.title" (ngModelChange)="search()" title="By Title"
     i18n-title="If selected, the search will match on the snippet title@@searchByTitle" i18n-label="@@searchByTitle"

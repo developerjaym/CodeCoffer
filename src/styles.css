@@ -24,8 +24,8 @@
   --padding-narrow: 4px;
   --margin-narrow: 4px;
 
-  --padding-thick: 16px;
-  --margin-thick: 16px;
+  --padding-thick: 12px;
+  --margin-thick: 12px;
 
   --background-image: none;
 }
@@ -35,7 +35,7 @@
 
 .sticky {
   position: sticky;
-  top: var(--margin-narrow);
+  top: 0;
 }
 
 .display-textarea {
@@ -85,7 +85,9 @@ app-quick-links {
 }
 
 /*Tags*/
-
+body {
+  margin: 0;
+}
 body, input, button, textarea {
    font-family: Arial, Helvetica, sans-serif;
    font-size: calc(0.1em + var(--main-font-size));

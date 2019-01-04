@@ -4,7 +4,6 @@
     flex-direction: row;
     margin-bottom: var(--margin-narrow);
     border: none;
-
 }
 .quick-link-link, .quick-link-x {
     padding: var(--padding-narrow);

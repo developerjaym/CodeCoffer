@@ -1,16 +1,19 @@
 .code-editor {
     display: flex;
     flex-direction: row;
+    border-width: 0 0 var(--border-width-thin) 0;
+    border-style: solid;
+    border-color: var(--secondary-fg-color);
 }
 
 .code-area, .line-number-area {
     font-size: 14px;
-    /* line-height: var(--padding-thick); */
     padding-top: var(--padding-narrow);
     padding-bottom: var(--padding-narrow);
     resize: none;
     min-height: 100%;
     width: 100%;
+    border: none;
 }
 
 .line-number-area {

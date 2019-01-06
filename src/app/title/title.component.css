@@ -13,6 +13,10 @@ svg {
     align-self: center;
 }
 
+path {
+    fill: var(--accent-bg-color);
+}
+
 h1 {
     margin-top: var(--margin-narrow);
 }

@@ -13,6 +13,8 @@
   --accent-fg-color: rgb(244, 244, 244);
 
   --main-font-size: 16px;
+  --code-font-size: 14px;
+  --code-line-height: 16px;
 
   --snippet-width: 55vw;
   --snippet-height: 60vh;
@@ -28,6 +30,11 @@
   --margin-thick: 12px;
 
   --background-image: none;
+
+  --direction: ltr;
+  --text-align: left;
+  --flex-align: flex-end;
+  --flex-row-direction: row;
 }
 
 /*Custom Classes*/
@@ -89,15 +96,17 @@ body {
   margin: 0;
 }
 body, input, button, textarea {
-   font-family: Arial, Helvetica, sans-serif;
-   font-size: calc(0.1em + var(--main-font-size));
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: calc(0.1em + var(--main-font-size));
 }
 html {
+  direction: var(--direction);
   background-color: var(--main-bg-color);
   background-repeat: none;
   background-attachment: fixed;
   background-size: cover;
   background-image: var(--background-image);
+  direction: var(--direction);
 }
 
 h1, h2, h3 {
@@ -121,7 +130,7 @@ button {
   background-color: var(--secondary-bg-color);
   color: var(--secondary-fg-color);
   padding: var(--padding-thick) var(--padding-thick) var(--padding-thick) var(--padding-thick);
-  text-align: left;
+  text-align: var(--text-align);
   transition: background-color 0.2s, color 0.2s;
   border-width: var(--border-width-thin);
   border-color: var(--secondary-fg-color);

@@ -1,23 +1,24 @@
 .code-editor {
     display: flex;
-    flex-direction: row;
+    flex-direction: var(--flex-row-direction);
     border-width: 0 0 var(--border-width-thin) 0;
     border-style: solid;
     border-color: var(--secondary-fg-color);
 }
 
 .code-area, .line-number-area {
-    font-size: 14px;
+    font-size: var(--code-font-size);
+    line-height: var(--code-line-height);
     padding-top: var(--padding-narrow);
     padding-bottom: var(--padding-narrow);
     resize: none;
-    min-height: 100%;
+    min-height: calc(18*var(--code-line-height));
     width: 100%;
     border: none;
 }
-
 .line-number-area {
     padding-left: 0;
-    padding-right: 0;
+    padding-right: var(--padding-narrow);
     margin-top: 0;
+    width: fit-content;
 }

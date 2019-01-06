@@ -1,9 +1,6 @@
-textarea {
-  resize: vertical;
-}
-
 .notes-area {
-  height: calc(var(--snippet-height)/4);
+  min-height: calc(var(--snippet-height)/4);
+  resize: vertical;
 }
 
 .code-area {
@@ -16,8 +13,8 @@ textarea {
 
 .options-area {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
+  flex-direction: var(--flex-row-direction);
+  justify-content: var(--flex-align);
   align-items: center;
   background-color: var(--secondary-bg-color);
   border-color: var(--secondary-fg-color);

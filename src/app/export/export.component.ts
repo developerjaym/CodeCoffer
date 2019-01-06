@@ -31,10 +31,10 @@ export class ExportComponent implements OnInit {
     .subscribe(
       snippetId => {
         if (snippetId) {
-          this.exportedJson = JSON.stringify(this.service.getSnippetById(snippetId));
+          this.exportedJson = JSON.stringify(this.service.getSnippetById(snippetId), null, 2);
         }
         else {
-          this.exportedJson = JSON.stringify(this.service.getAllSnippets());
+          this.exportedJson = JSON.stringify(this.service.getAllSnippets(), null, 2);
         }
       }
     )

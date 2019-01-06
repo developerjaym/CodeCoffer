@@ -1,7 +1,7 @@
 .quick-link {
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: var(--flex-row-direction);
     margin-bottom: var(--margin-narrow);
     border: none;
 }

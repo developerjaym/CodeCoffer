@@ -1,8 +1,8 @@
 .language-selector {
     padding: var(--padding-narrow);
     display: flex;
-    justify-content: flex-end;
-    flex-direction: row;
+    justify-content: var(--flex-align);
+    flex-direction: var(--flex-row-direction);
     height: fit-content;
     width: fit-content;
 }

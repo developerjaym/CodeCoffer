@@ -24,7 +24,7 @@ app-strike-through-box {
 
 app-toast {
     display: flex;
-    justify-self: flex-end;
+    justify-self: var(--flex-align);
 }
 app-search-box, app-quick-links {
     border: none;

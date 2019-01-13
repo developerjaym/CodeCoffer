@@ -180,6 +180,10 @@ export class SnippetService {
     return false;
   }
 
+  canImport(snippetId: string): Observable<boolean> {
+    return null;
+  }
+
   private getTags(tags: string): Array<string> {
     return tags.split(',').map(s => s.trim());
   }

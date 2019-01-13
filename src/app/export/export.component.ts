@@ -1,9 +1,10 @@
 import { Component, OnInit, ElementRef, ViewChild, Renderer2 } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SnippetService } from '../snippet.service';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { CopyService } from '../copy.service';
 import { DownloadService } from '../download.service';
+import { RemoteImportService } from '../remote-import.service';
 
 @Component({
   selector: 'app-export',
@@ -16,14 +17,20 @@ export class ExportComponent implements OnInit {
   downloadButton: ElementRef;
 
   exportedJson: string;
+  remoteUrl: string;
+  loading: boolean = false;
 
   constructor(private copyService: CopyService, 
     private downloadService: DownloadService, 
-    private service: SnippetService, private router: Router, 
+    private service: SnippetService, 
+    private remoteService: RemoteImportService,
+    private router: Router, 
     private renderer: Renderer2,
     private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    this.loading = false;
+    this.remoteUrl = '';
     this.activatedRoute.params
     .pipe(
       map(params => params['snippetId'])
@@ -45,8 +52,22 @@ export class ExportComponent implements OnInit {
   }
 
   copy(): void {
-    this.copyService.copy(this.exportedJson);
+    if (this.remoteUrl) {
+      this.copyService.copy(this.remoteUrl);
+    }
+    else {
+      this.copyService.copy(this.exportedJson);
+    }
     this.back();
+  }
+
+  exportRemotely(): void {
+    this.loading = true;
+    this.remoteUrl = null;
+    this.remoteService.exportToServer(this.exportedJson)
+    .pipe(
+      tap(link => this.remoteUrl = link, (error) => this.remoteUrl = error)
+    ).subscribe();
   }
 
   download(): void {

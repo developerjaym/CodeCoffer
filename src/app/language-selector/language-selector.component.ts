@@ -11,11 +11,11 @@ export class LanguageSelectorComponent implements OnInit {
 
   supportedLanguages: SupportedLanguage[] = [
     {
-      url: environment.url + "/en/#/",
+      url: environment.url + "en/#/",
       name: "English"
     },
     {
-      url: environment.url + "/zh/#/",
+      url: environment.url + "zh/#/",
       name: "中文"
     }
   ];

@@ -1,12 +1,24 @@
 <button (click)="back()" title="Return to Snippets" i18n-title="@@returnToSnippets" i18n="@@returnToSnippets">Return to Snippets</button>
-<textarea aria-label="Exported JSON" 
+<textarea *ngIf="!loading" aria-label="Exported JSON" 
 i18n-aria-label="@@exportedJSON"
 class="display-textarea" spellcheck="false" title="Exported JSON" i18n-title="Exported JSON that can be pasted in another user's app@@exportedJSON">
 {{exportedJson}}
 </textarea>
-<button (click)="copy()" class="copy-button" title="Copy Code to Clipboard and Return to Snippets" 
+
+<textarea *ngIf="loading" 
+class="display-textarea" spellcheck="false" 
+placeholder="Please wait..." i18n-placeholder="Displayed to the user while waiting for something to load@@loadingPlaceholder"
+aria-label="URL for Remote Export" i18n-aria-label="@@urlForRemoteExport"
+title="URL for Remote Export" i18n-title="@@urlForRemoteExport">{{remoteUrl}}</textarea>
+
+<button (click)="copy()" title="Copy Snippets to Clipboard and Return to Snippets" 
 i18n-title="Copy the text to clipboard and then return to the main page with the list of snippets@@copyAndReturn" 
 i18n="@@copyAndReturn" appFocus>Copy and Return</button>
+
+<button *ngIf="!loading" (click)="exportRemotely()" title="Export to Server" 
+i18n-title="Exports snippets to the server where they can be accessed by another user on another computer@@exportToServer" 
+i18n="@@exportToServer">Export to Server</button>
+
 <a #downloadButton (click)="download()" title="Download Snippets"
 i18n-title="Download a file containing the snippets@@downloadSnippets" 
 i18n="@@downloadSnippets"

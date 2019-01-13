@@ -36,7 +36,7 @@ export class StyleService {
 
   saveStyleObject(style: Style): void {
     for (const key in style) {
-      if(style[key] !== '') {
+      if (style[key] !== '') {
         document.documentElement.style.setProperty('--' + key, style[key]);
       }
     }

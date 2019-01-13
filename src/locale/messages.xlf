@@ -66,15 +66,17 @@ Here&apos;s a quick user guide:
       b) Your snippets will be saved when you leave the page.
 8) You can export your snippet list or import others&apos; snippets, as well.
 9) For the power user, there are several hotkeys.
-      a) ctrl+alt+s = saved
+      a) ctrl+alt+s = save
       b) ctrl+alt+n = create new snippet
       c) ctrl+alt+e = export all snippets
       d) ctrl+alt+i = go to import page
-      e) ctrl+alt+f = give focus to search bar
-      f) ctrl+alt+v = view remaining snippets 
+      e) ctrl+alt+c = go to style page  
+      f) ctrl+alt+f = give focus to search bar
+      g) ctrl+alt+v = view remaining snippets 
             (if you scroll to the bottom of the snippet list, you will see that option&apos;s button)
-      g) ctrl+alt+z = undo deletion of a snippet
-      h) ctrl+z = undo deletion of a snippet    
+      h) ctrl+alt+z = undo deletion of a snippet
+      i) ctrl+z = undo deletion of a snippet  
+      
       
 </source>
         <context-group purpose="location">
@@ -87,14 +89,14 @@ Here&apos;s a quick user guide:
       Policy</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/about/about.component.html</context>
-          <context context-type="linenumber">42</context>
+          <context context-type="linenumber">44</context>
         </context-group>
       </trans-unit>
       <trans-unit id="gitHub" datatype="html">
         <source>GitHub</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/about/about.component.html</context>
-          <context context-type="linenumber">44</context>
+          <context context-type="linenumber">46</context>
         </context-group>
       </trans-unit>
       <trans-unit id="exportedJSON" datatype="html">
@@ -108,26 +110,56 @@ Here&apos;s a quick user guide:
           <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="loadingPlaceholder" datatype="html">
+        <source>Please wait...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/export/export.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <note priority="1" from="description">Displayed to the user while waiting for something to load</note>
+      </trans-unit>
+      <trans-unit id="urlForRemoteExport" datatype="html">
+        <source>URL for Remote Export</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/export/export.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/export/export.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="copyAndReturn" datatype="html">
         <source>Copy and Return</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/export/export.component.html</context>
-          <context context-type="linenumber">9</context>
+          <context context-type="linenumber">16</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/export/export.component.html</context>
-          <context context-type="linenumber">7</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="exportToServer" datatype="html">
+        <source>Export to Server</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/export/export.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/export/export.component.html</context>
+          <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit>
       <trans-unit id="downloadSnippets" datatype="html">
         <source>Download</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/export/export.component.html</context>
-          <context context-type="linenumber">13</context>
+          <context context-type="linenumber">25</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/export/export.component.html</context>
-          <context context-type="linenumber">10</context>
+          <context context-type="linenumber">22</context>
         </context-group>
       </trans-unit>
       <trans-unit id="pasteSnippetsToImport" datatype="html">
@@ -215,11 +247,11 @@ Here&apos;s a quick user guide:
         <source>Create New Snippet</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/middle-panel/middle-panel.component.html</context>
-          <context context-type="linenumber">2</context>
+          <context context-type="linenumber">3</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/middle-panel/middle-panel.component.html</context>
-          <context context-type="linenumber">1</context>
+          <context context-type="linenumber">2</context>
         </context-group>
       </trans-unit>
       <trans-unit id="viewRemainingSnippets" datatype="html">
@@ -227,11 +259,11 @@ Here&apos;s a quick user guide:
     Remaining Snippets</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/middle-panel/middle-panel.component.html</context>
-          <context context-type="linenumber">7</context>
+          <context context-type="linenumber">8</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/middle-panel/middle-panel.component.html</context>
-          <context context-type="linenumber">6</context>
+          <context context-type="linenumber">7</context>
         </context-group>
       </trans-unit>
       <trans-unit id="search" datatype="html">
@@ -244,50 +276,54 @@ Here&apos;s a quick user guide:
           <context context-type="sourcefile">app/search-box/search-box.component.html</context>
           <context context-type="linenumber">2</context>
         </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/search-box/search-box.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
         <note priority="1" from="description">Type search term here to search through the snippets</note>
       </trans-unit>
       <trans-unit id="searchByTitle" datatype="html">
         <source>By Title</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/search-box/search-box.component.html</context>
-          <context context-type="linenumber">5</context>
+          <context context-type="linenumber">6</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/search-box/search-box.component.html</context>
-          <context context-type="linenumber">5</context>
+          <context context-type="linenumber">6</context>
         </context-group>
       </trans-unit>
       <trans-unit id="searchByCode" datatype="html">
         <source>By Code</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/search-box/search-box.component.html</context>
-          <context context-type="linenumber">8</context>
+          <context context-type="linenumber">9</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/search-box/search-box.component.html</context>
-          <context context-type="linenumber">9</context>
+          <context context-type="linenumber">10</context>
         </context-group>
       </trans-unit>
       <trans-unit id="searchByTag" datatype="html">
         <source>By Tags</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/search-box/search-box.component.html</context>
-          <context context-type="linenumber">10</context>
+          <context context-type="linenumber">11</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/search-box/search-box.component.html</context>
-          <context context-type="linenumber">11</context>
+          <context context-type="linenumber">12</context>
         </context-group>
       </trans-unit>
       <trans-unit id="searchByNotes" datatype="html">
         <source>By Notes</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/search-box/search-box.component.html</context>
-          <context context-type="linenumber">12</context>
+          <context context-type="linenumber">13</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/search-box/search-box.component.html</context>
-          <context context-type="linenumber">12</context>
+          <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit>
       <trans-unit id="title" datatype="html">
@@ -382,7 +418,7 @@ Here&apos;s a quick user guide:
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/quick-links/quick-links.component.html</context>
-          <context context-type="linenumber">7</context>
+          <context context-type="linenumber">6</context>
         </context-group>
       </trans-unit>
       <trans-unit id="copyThisOneSnippetsCode" datatype="html">
@@ -558,18 +594,11 @@ Here&apos;s a quick user guide:
           <context context-type="linenumber">198</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="pinnedSnippetsTitle" datatype="html">
-        <source>Pinned Snippets</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/quick-links/quick-links.component.html</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="viewSnippetTooltip" datatype="html">
         <source>View Snippet</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/quick-links/quick-links.component.html</context>
-          <context context-type="linenumber">4</context>
+          <context context-type="linenumber">3</context>
         </context-group>
         <note priority="1" from="description">To tell the user that this button will make the snippet visible</note>
       </trans-unit>

@@ -30,12 +30,16 @@ import { StyleService } from './style.service';
 import { StyleEditorComponent } from './style-editor/style-editor.component';
 import { QuickLinksComponent } from './quick-links/quick-links.component';
 import { LanguageSelectorComponent } from './language-selector/language-selector.component';
+import { ImportGuardService } from './import-guard.service';
+import { RemoteImportService } from './remote-import.service';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'export/:snippetId', component: ExportComponent, canActivate: [ExportGuardService] },
   { path: 'export', component: ExportComponent },
+  { path: 'import/:conversationId', component: ImportComponent, canActivate: [ImportGuardService] },
   { path: 'import', component: ImportComponent },
   { path: 'style', component: StyleEditorComponent },
   { path: '**', redirectTo: '' }
@@ -45,7 +49,7 @@ const appRoutes: Routes = [
   declarations: [AppComponent, AboutComponent, ExportComponent, ImportComponent, HomeComponent, SidePanelComponent, 
     MiddlePanelComponent, SearchBoxComponent, SnippetBoxComponent, HomeComponent, FiledragDirective, StrikeThroughBoxComponent,
      CodeEditorComponent, FocusDirective, StyleEditorComponent, ToastComponent, TitleComponent, QuickLinksComponent, LanguageSelectorComponent],
-  imports: [BrowserModule, CommonModule, FormsModule, RouterModule.forRoot(
+  imports: [BrowserModule, CommonModule, FormsModule, HttpClientModule, RouterModule.forRoot(
     appRoutes,
     {
       enableTracing: false, // <-- debugging purposes only
@@ -53,7 +57,7 @@ const appRoutes: Routes = [
     }
   ),
   ],
-  providers: [CopyService, DownloadService, ExportGuardService, HotKeyService, ParseService, SnippetService, StorageService, StyleService, ToastService],
+  providers: [CopyService, DownloadService, ExportGuardService, HotKeyService, ImportGuardService, ParseService, RemoteImportService, SnippetService, StorageService, StyleService, ToastService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

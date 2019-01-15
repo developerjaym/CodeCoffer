@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, forwardRef, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { CopyService } from '../copy.service';
 @Component({
@@ -19,12 +19,6 @@ export class CodeEditorComponent implements OnInit, ControlValueAccessor {
   value: string = '';
 
   lines: string;
-
-  @ViewChild('lineNumbers')
-  lineNumbers: ElementRef
-
-  @ViewChild('codeEditor')
-  codeEditor: ElementRef
 
   onChange = (v: string) => { };
 

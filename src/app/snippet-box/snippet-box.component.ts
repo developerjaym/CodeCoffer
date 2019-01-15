@@ -11,7 +11,7 @@ import { CopyService } from '../copy.service';
 export class SnippetBoxComponent implements OnInit {
 
   @Input() snippet: Snippet;
-  
+
   constructor(private copyService: CopyService, private snippetService: SnippetService, private router: Router) {
   }
 

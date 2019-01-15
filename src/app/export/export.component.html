@@ -1,12 +1,13 @@
 <button (click)="back()" title="Return to Snippets" i18n-title="@@returnToSnippets" i18n="@@returnToSnippets">Return to Snippets</button>
-<textarea *ngIf="!loading" aria-label="Exported JSON" 
-i18n-aria-label="@@exportedJSON"
-class="display-textarea" spellcheck="false" title="Exported JSON" i18n-title="Exported JSON that can be pasted in another user's app@@exportedJSON">
+<textarea *ngIf="!loading" 
+aria-label="Exported JSON" i18n-aria-label="@@exportedJSON"
+class="display-textarea" spellcheck="false"  disabled
+title="Exported JSON" i18n-title="Exported JSON that can be pasted in another user's app@@exportedJSON">
 {{exportedJson}}
 </textarea>
 
 <textarea *ngIf="loading" 
-class="display-textarea" spellcheck="false" 
+class="display-textarea" spellcheck="false"  disabled
 placeholder="Please wait..." i18n-placeholder="Displayed to the user while waiting for something to load@@loadingPlaceholder"
 aria-label="URL for Remote Export" i18n-aria-label="@@urlForRemoteExport"
 title="URL for Remote Export" i18n-title="@@urlForRemoteExport">{{remoteUrl}}</textarea>

@@ -2,6 +2,13 @@
   min-height: calc(var(--snippet-height)/4);
   resize: vertical;
 }
+.note-editor {
+  display: flex;
+  flex-direction: var(--flex-row-direction);
+  border-width: 0 0 var(--border-width-thin) 0;
+  border-style: solid;
+  border-color: var(--secondary-fg-color);
+}
 
 .code-area {
   height: calc(var(--snippet-height)/2);

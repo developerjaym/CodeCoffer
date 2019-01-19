@@ -1,0 +1,22 @@
+.notes-editor {
+    display: flex;
+    flex-direction: var(--flex-row-direction);
+    border-width: 0 0 var(--border-width-thin) 0;
+    border-style: solid;
+    border-color: var(--secondary-fg-color);
+}
+
+.notes-area, .expander {
+    /* padding-top: var(--padding-narrow); */
+    /* padding-bottom: var(--padding-narrow); */
+    resize: none;
+    min-height: calc(var(--snippet-height)/4);
+    width: 100%;
+    border: none;
+}
+.expander {
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 0;
+    width: 0;
+}

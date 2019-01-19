@@ -154,10 +154,14 @@ export class SnippetService {
   }
 
   import(imported: Snippet | Array<Snippet>): void {
-    const snippets: Snippet[] = imported instanceof Array ? imported : [imported];
-    snippets.forEach(snippet => snippet.id = this.createId());
-    this.snippets.push(...snippets);
-    this.sortSnippets();
+    const importedSnippetArray: Snippet[] = imported instanceof Array ? imported : [imported];
+    importedSnippetArray.sort((snippetA, snippetB) => snippetB.timestamp - snippetA.timestamp);
+    importedSnippetArray.forEach((snippet, index) => {
+      snippet.id = this.createId();
+      snippet.showing = true;
+      snippet.timestamp = Date.now() + (importedSnippetArray.length - index);
+    });
+    this.snippets.unshift(...importedSnippetArray);
     this.saveSnippets();
     this.snippetsSubject.next(this.sliceSnippets());
     this.refreshPinnedSnippets();

@@ -3,6 +3,7 @@ import { Snippet } from '../snippet';
 import { SnippetService } from '../snippet.service';
 import { Router } from '@angular/router';
 import { CopyService } from '../copy.service';
+import { Supplement } from '../supplement';
 @Component({
   selector: 'app-snippet-box',
   templateUrl: './snippet-box.component.html',
@@ -36,6 +37,13 @@ export class SnippetBoxComponent implements OnInit {
 
   unpin() {
     this.snippetService.unpinSnippet(this.snippet.id);
+  }
+
+  supplement() {
+    if (!this.snippet.supplements) {
+      this.snippet.supplements = [];
+    }
+    this.snippet.supplements.push(new Supplement());
   }
 
   clone() {

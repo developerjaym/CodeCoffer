@@ -12,7 +12,7 @@
     padding-top: var(--padding-narrow);
     padding-bottom: var(--padding-narrow);
     resize: none;
-    min-height: calc(18*var(--code-line-height));
+    min-height: calc(6*var(--code-line-height));
     width: 100%;
     border: none;
 }
@@ -21,4 +21,5 @@
     padding-right: var(--padding-narrow);
     margin-top: 0;
     width: fit-content;
+    text-align: var(--reverse-text-align);
 }

@@ -33,6 +33,9 @@ import { LanguageSelectorComponent } from './language-selector/language-selector
 import { ImportGuardService } from './import-guard.service';
 import { RemoteImportService } from './remote-import.service';
 import { HttpClientModule } from '@angular/common/http';
+import { SvgButtonComponent } from './svg-button/svg-button.component';
+import { SvgService } from './svg.service';
+import { ExpandingTextareaComponent } from './expanding-textarea/expanding-textarea.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -48,7 +51,7 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [AppComponent, AboutComponent, ExportComponent, ImportComponent, HomeComponent, SidePanelComponent, 
     MiddlePanelComponent, SearchBoxComponent, SnippetBoxComponent, HomeComponent, FiledragDirective, StrikeThroughBoxComponent,
-     CodeEditorComponent, FocusDirective, StyleEditorComponent, ToastComponent, TitleComponent, QuickLinksComponent, LanguageSelectorComponent],
+     CodeEditorComponent, FocusDirective, StyleEditorComponent, ToastComponent, TitleComponent, QuickLinksComponent, LanguageSelectorComponent, SvgButtonComponent, ExpandingTextareaComponent],
   imports: [BrowserModule, CommonModule, FormsModule, HttpClientModule, RouterModule.forRoot(
     appRoutes,
     {
@@ -57,7 +60,7 @@ const appRoutes: Routes = [
     }
   ),
   ],
-  providers: [CopyService, DownloadService, ExportGuardService, HotKeyService, ImportGuardService, ParseService, RemoteImportService, SnippetService, StorageService, StyleService, ToastService],
+  providers: [CopyService, DownloadService, ExportGuardService, HotKeyService, ImportGuardService, ParseService, RemoteImportService, SnippetService, StorageService, StyleService, SvgService, ToastService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,13 +1,6 @@
-.notes-area {
-  min-height: calc(var(--snippet-height)/4);
-  resize: vertical;
-}
-.note-editor {
+.supplement-area {
   display: flex;
-  flex-direction: var(--flex-row-direction);
-  border-width: 0 0 var(--border-width-thin) 0;
-  border-style: solid;
-  border-color: var(--secondary-fg-color);
+  flex-direction: column;
 }
 
 .code-area {
@@ -26,13 +19,4 @@
   background-color: var(--secondary-bg-color);
   border-color: var(--secondary-fg-color);
   padding-top: var(--padding-narrow);
-}
-
-.option-button {
-  text-align: center;
-  vertical-align: center;
-  padding: var(--padding-narrow);
-  border-radius: var(--border-radius);
-  margin: 0 var(--margin-narrow) 0 var(--margin-narrow);
-  border-width: 0;
 }

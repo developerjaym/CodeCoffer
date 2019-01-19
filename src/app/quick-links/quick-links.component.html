@@ -2,7 +2,7 @@
   <button class="quick-link-link" (click)="selectSnippet(snippet.id)"
   title="View Snippet" i18n-title="To tell the user that this button will make the snippet visible@@viewSnippetTooltip"
   >{{snippet.title}}</button>
-  <button class="quick-link-x" (click)="unpinSnippet(snippet.id)"
+  <app-svg-button class="small-button" src="unpin" (click)="unpinSnippet(snippet.id)"
   title="Unpin" i18n-title="@@unpinFromQuickLinks"
-  >X</button>
+  ></app-svg-button>
 </div>

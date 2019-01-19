@@ -33,8 +33,11 @@
 
   --direction: ltr;
   --text-align: left;
+  --reverse-text-align: right;
   --flex-align: flex-end;
   --flex-row-direction: row;
+
+  --svg-dimension: 240px;
 }
 
 /*Custom Classes*/
@@ -56,7 +59,22 @@
    font-family: monospace;
 }
 
+.small-button {
+  text-align: center;
+  vertical-align: center;
+  padding: var(--padding-narrow);
+  border-radius: var(--border-radius);
+  margin: 0 var(--margin-narrow) 0 var(--margin-narrow);
+  border-width: 0;
+  height: fit-content;
+}
+
 /*Custom Tags*/
+app-svg-button {
+  max-height: var(--svg-dimension);
+  max-width: var(--svg-dimension);
+  padding: var(--padding-narrow);
+}
 
 app-export, app-import, app-about, app-style-editor {
   display: flex;
@@ -96,7 +114,7 @@ app-quick-links {
 body {
   margin: 0;
 }
-body, input, button, textarea {
+body, input, button, textarea, pre {
   font-family: Arial, Helvetica, sans-serif;
   font-size: calc(0.1em + var(--main-font-size));
 }
@@ -133,7 +151,7 @@ button {
   padding: var(--padding-thick) var(--padding-thick) var(--padding-thick) var(--padding-thick);
   text-align: var(--text-align);
   transition: background-color 0.2s, color 0.2s;
-  border-width: var(--border-width-thin);
+  border-width: var(--border-width-thick);
   border-color: var(--secondary-fg-color);
   border-radius: var(--border-radius);
 }
@@ -155,12 +173,18 @@ input, textarea, pre {
   transition: background-color 0.2s, color 0.2s;
 }
 
+path {
+  fill: var(--secondary-fg-color);
+}
+
 /*Pseudo Classes, etc*/
 
-button:hover{
+button:hover, app-svg-button:hover path, app-svg-button:hover{
   background-color: var(--accent-bg-color);
   color: var(--accent-fg-color);
+  fill: var(--accent-fg-color);
 }
+
 ::selection {
   background-color: var(--accent-bg-color);
   color: var(--accent-fg-color);

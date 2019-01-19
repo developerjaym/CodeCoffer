@@ -1,3 +1,5 @@
+import { Supplement } from './supplement';
+
 export class Snippet {
   id: string;
   timestamp: number;
@@ -7,6 +9,7 @@ export class Snippet {
   notes: string;
   showing: boolean;
   pinned: boolean;
+  supplements: Supplement[];
 
   constructor(
     id: number = 0,
@@ -24,5 +27,6 @@ export class Snippet {
     this.notes = notes;
     this.showing = true; //for search result
     this.pinned = false;
+    this.supplements = [];
   }
 }

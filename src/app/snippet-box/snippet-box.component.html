@@ -15,12 +15,17 @@
 
 <div class="options-area">
   <app-svg-button src="pin" *ngIf="!snippet.pinned" (click)="pin()" class="small-button" title="Pin"
-    i18n-title="Makes a link for this snippet on the left side of the screen@@pinToQuickLinks"></app-svg-button>
-  <app-svg-button src="unpin" *ngIf="snippet.pinned" (click)="unpin()" class="small-button" title="Unpin"
-    i18n-title="Removes a link for this snippet from the left side of the screen@@unpinFromQuickLinks"></app-svg-button>
+    i18n-title="Makes a link for this snippet on the left side of the screen@@pinToQuickLinks"
+    label="Pin" i18n-label="@@pinToQuickLinks"></app-svg-button>
+  <app-svg-button src="unpin" *ngIf="snippet.pinned" (click)="unpin()" class="small-button" 
+    title="Unpin" i18n-title="Removes a link for this snippet from the left side of the screen@@unpinFromQuickLinks"
+    label="Unpin" i18n-label="@@unpinFromQuickLinks"></app-svg-button>
   <!-- <app-svg-button src="add" (click)="supplement()" class="small-button" 
     title="Add More Code and Notes" i18n-title="Create an additional pair of code and notes@@supplementSnippet"></app-svg-button> -->
-  <app-svg-button src="share" (click)="export()" class="small-button" title="Export Snippet"
-    i18n-title="Go to the export screen to export this one snippet@@exportThisOneSnippet"></app-svg-button>
-  <app-svg-button src="trash" (click)="delete()" class="small-button" title="Delete Snippet" i18n-title="Delete this one snippet@@deleteThisSnippet"></app-svg-button>
+  <app-svg-button src="share" (click)="export()" class="small-button" 
+    title="Export Snippet" i18n-title="Go to the export screen to export this one snippet@@exportThisOneSnippet"
+    label="Export Snippet" i18n-label="@@exportThisOneSnippet"></app-svg-button>
+  <app-svg-button src="trash" (click)="delete()" class="small-button" 
+    title="Delete Snippet" i18n-title="Delete this one snippet@@deleteThisSnippet"
+    label="Delete Snippet" i18n-label="@@deleteThisSnippet"></app-svg-button>
 </div>

@@ -214,9 +214,10 @@ input:focus::selection, textarea:focus::selection {
   background-color: var(--secondary-fg-color);
 }
 
-button:focus{
+button:focus, app-svg-button:focus path, app-svg-button:focus{
   background-color: var(--accent-bg-color);
   color: var(--accent-fg-color);
+  fill: var(--accent-fg-color);
 }
 
 /* width */

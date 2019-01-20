@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { SnippetService } from './snippet.service';
+import { SnippetService } from './services/snippet.service';
 import { Router, NavigationEnd } from '@angular/router';
-import { StyleService } from './style.service';
+import { StyleService } from './services/style.service';
 
 @Component({
   selector: 'app-root',

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, forwardRef } from '@angular/core';
+import { Component, Input, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 @Component({
   selector: 'app-expanding-textarea',
@@ -10,7 +10,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
     multi: true
   }]
 })
-export class ExpandingTextareaComponent implements OnInit, ControlValueAccessor {
+export class ExpandingTextareaComponent implements ControlValueAccessor {
 
   @Input('title')
   title: string;
@@ -25,9 +25,6 @@ export class ExpandingTextareaComponent implements OnInit, ControlValueAccessor 
   onChange = (v: string) => { };
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
   writeValue(value) {
     this.value = value;

@@ -1,0 +1,5 @@
+.tag-button-area {
+    display: flex;
+    flex-direction: var(--flex-row-direction);
+    flex-wrap: wrap;
+}

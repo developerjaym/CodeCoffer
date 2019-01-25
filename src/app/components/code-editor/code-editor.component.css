@@ -13,8 +13,10 @@
     padding-bottom: var(--padding-narrow);
     resize: none;
     min-height: calc(6*var(--code-line-height));
-    width: 100%;
     border: none;
+}
+.code-area {
+    flex-grow: 2;
 }
 .line-number-area {
     padding-left: 0;

@@ -10,7 +10,8 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
     useExisting: forwardRef(() => StrikeThroughBoxComponent),
     multi: true
   }]
-})
+}
+)
 export class StrikeThroughBoxComponent implements OnInit, ControlValueAccessor {
 
   @Input('label')

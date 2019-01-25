@@ -1,0 +1,5 @@
+<input *ngIf="editing; else tag_buttons" type="text" aria-label="Tags" [(ngModel)]="value" title="Snippet Tags" name="tags" spellcheck="false"
+  i18n-name="@@tags" placeholder="Tags" i18n-placeholder="@@tags" i18n-aria-label="@@tags" i18n-title="The tags to describe this snippet|the tags are useful for searching and organizing the snippets@@tags">
+<div class="tag-button-area">
+  <app-tag #tag_buttons *ngFor="let tag of value.split(',')" [tag]="tag"></app-tag>
+</div>

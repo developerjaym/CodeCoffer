@@ -109,8 +109,10 @@ export class SnippetService {
     this.refreshPinnedSnippets();
   }
 
-  search(searchParams: SearchParameters) {
-    this.searchSubject.next(searchParams);
+  search(searchParams: SearchParameters, saveSearch: boolean = true) {
+    if(saveSearch) {
+      this.searchSubject.next(searchParams);
+    }
     const query = searchParams.query.trim();
     const searchResultsMap: Map<Snippet, number> = new Map<Snippet, number>();
     const terms: string[] = query.toLocaleUpperCase().split(',').map(str => str.trim());

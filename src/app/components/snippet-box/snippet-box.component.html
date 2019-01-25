@@ -3,7 +3,10 @@
   i18n-name="@@title" i18n-aria-label="@@title">
 <input type="text" aria-label="Tags" [(ngModel)]="snippet.tags" title="Snippet Tags" name="tags" spellcheck="false"
   i18n-name="@@tags" placeholder="Tags" i18n-placeholder="@@tags" i18n-aria-label="@@tags" i18n-title="The tags to describe this snippet|the tags are useful for searching and organizing the snippets@@tags">
-<app-code-editor [(ngModel)]="snippet.code" title="Snippet Code" i18n-title="The code snippet goes in this area@@code"></app-code-editor>
+
+  <!-- <app-editable-tags-area [(ngModel)]="snippet.tags"></app-editable-tags-area> -->
+
+  <app-code-editor [(ngModel)]="snippet.code" title="Snippet Code" i18n-title="The code snippet goes in this area@@code"></app-code-editor>
 <app-expanding-textarea class="notes-area" [(ngModel)]="snippet.notes" title="Snippet Notes" i18n-title="The notes or description for this snippet@@notes"
   placeholder="Notes" i18n-placeholder="@@notes" name="notes" i18n-name="@@notes" aria-label="Notes" i18n-aria-label="@@notes"></app-expanding-textarea>
 

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { RouterModule, Routes } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { SidePanelComponent } from './components/side-panel/side-panel.component';
 import { MiddlePanelComponent } from './components/middle-panel/middle-panel.component';
@@ -36,6 +37,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { SvgButtonComponent } from './components/svg-button/svg-button.component';
 import { SvgService } from './services/svg.service';
 import { ExpandingTextareaComponent } from './components/expanding-textarea/expanding-textarea.component';
+import { TagComponent } from './components/tag/tag.component';
+import { EditableTagsAreaComponent } from './components/editable-tags-area/editable-tags-area.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -51,7 +54,7 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [AppComponent, AboutComponent, ExportComponent, ImportComponent, HomeComponent, SidePanelComponent, 
     MiddlePanelComponent, SearchBoxComponent, SnippetBoxComponent, HomeComponent, FiledragDirective, StrikeThroughBoxComponent,
-     CodeEditorComponent, FocusDirective, StyleEditorComponent, ToastComponent, TitleComponent, QuickLinksComponent, LanguageSelectorComponent, SvgButtonComponent, ExpandingTextareaComponent],
+     CodeEditorComponent, FocusDirective, StyleEditorComponent, ToastComponent, TitleComponent, QuickLinksComponent, LanguageSelectorComponent, SvgButtonComponent, ExpandingTextareaComponent, TagComponent, EditableTagsAreaComponent],
   imports: [BrowserModule, CommonModule, FormsModule, HttpClientModule, RouterModule.forRoot(
     appRoutes,
     {

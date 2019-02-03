@@ -95,7 +95,9 @@ export class SnippetService {
     this.storage.addSnippet(snippet);
     this.snippets.unshift(snippet);
     window.scrollTo(0, 0);
-    this.snippetsSubject.next(this.sliceSnippets());
+    const snippetsToDisplay = this.snippetsSubject.value;
+    snippetsToDisplay.unshift(snippet);
+    this.snippetsSubject.next(snippetsToDisplay);
     this.toastService.push(Toast.SNIPPET_ADDED);
     this.refreshPinnedSnippets();
   }
@@ -110,22 +112,22 @@ export class SnippetService {
   }
 
   search(searchParams: SearchParameters, saveSearch: boolean = true) {
-    if(saveSearch) {
+    if (saveSearch) {
       this.searchSubject.next(searchParams);
     }
     const query = searchParams.query.trim();
     const searchResultsMap: Map<Snippet, number> = new Map<Snippet, number>();
     const terms: string[] = query.toLocaleUpperCase().split(',').map(str => str.trim());
-    terms.forEach(term =>
+    terms.filter(term => term.length).forEach(term =>
       this.snippets.forEach(snippet => {
         let score = searchResultsMap.has(snippet) ? searchResultsMap.get(snippet) : 0;
-        if (snippet.title.toLocaleUpperCase().includes(term) && searchParams.title) {
+        if (searchParams.title && snippet.title.toLocaleUpperCase().includes(term)) {
           score++;
-        } if (this.getTags(snippet.tags.toLocaleUpperCase()).some(tag => tag === term) && searchParams.tags) {
+        } if (searchParams.tags && this.isInTags(term, snippet)) {
           score++;
-        } if (snippet.code.toLocaleUpperCase().includes(term) && searchParams.code) {
+        } if (searchParams.code && this.isInCode(term, snippet)) {
           score++;
-        } if (snippet.notes.toLocaleUpperCase().includes(term) && searchParams.notes) {
+        } if (searchParams.notes && this.isInNotes(term, snippet)) {
           score++;
         }
         searchResultsMap.set(snippet, score);
@@ -204,5 +206,19 @@ export class SnippetService {
 
   private determinePinnedSnippets(): Snippet[] {
     return this.snippets.filter(snippet => snippet.pinned)
+  }
+
+  private isInCode(term: string, snippet: Snippet): boolean {
+    return snippet.code.toLocaleUpperCase().includes(term) || snippet.supplements.map(supplement => supplement.code.toLocaleUpperCase())
+      .some(code => code.includes(term));
+  }
+
+  private isInNotes(term: string, snippet: Snippet): boolean {
+    return snippet.notes.toLocaleUpperCase().includes(term) || snippet.supplements.map(supplement => supplement.notes.toLocaleUpperCase())
+      .some(notes => notes.includes(term));
+  }
+
+  private isInTags(term: string, snippet: Snippet): boolean {
+    return this.getTags(snippet.tags.toLocaleUpperCase()).some(tag => tag === term);
   }
 }

@@ -4,11 +4,15 @@
 }
 
 .code-area {
-  height: calc(var(--snippet-height)/2);
+  height: calc(var(--code-line-height)*2);
 }
 
 .title {
   font-weight: bold;
+}
+
+.small-button {
+  max-width: fit-content;
 }
 
 .options-area {

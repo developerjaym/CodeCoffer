@@ -4,31 +4,37 @@
 <input type="text" aria-label="Tags" [(ngModel)]="snippet.tags" title="Snippet Tags" name="tags" spellcheck="false"
   i18n-name="@@tags" placeholder="Tags" i18n-placeholder="@@tags" i18n-aria-label="@@tags" i18n-title="The tags to describe this snippet|the tags are useful for searching and organizing the snippets@@tags">
 
-  <!-- <app-editable-tags-area [(ngModel)]="snippet.tags"></app-editable-tags-area> -->
+<!-- <app-editable-tags-area [(ngModel)]="snippet.tags"></app-editable-tags-area> -->
 
-  <app-code-editor [(ngModel)]="snippet.code" title="Snippet Code" i18n-title="The code snippet goes in this area@@code"></app-code-editor>
+<app-code-editor [(ngModel)]="snippet.code" title="Snippet Code" i18n-title="The code snippet goes in this area@@code"></app-code-editor>
 <app-expanding-textarea class="notes-area" [(ngModel)]="snippet.notes" title="Snippet Notes" i18n-title="The notes or description for this snippet@@notes"
   placeholder="Notes" i18n-placeholder="@@notes" name="notes" i18n-name="@@notes" aria-label="Notes" i18n-aria-label="@@notes"></app-expanding-textarea>
+<div class="options-area">
+  <app-svg-button src="add" (click)="addSupplement(0)" class="small-button" title="Add More Code and Notes"
+    i18n-title="Create an additional pair of code and notes@@supplementSnippet"></app-svg-button>
+</div>
 
-<!-- <div class="supplement-area" *ngFor="let supplement of snippet.supplements">
+<div class="supplement-area" *ngFor="let supplement of snippet.supplements; let index = index">
   <app-code-editor [(ngModel)]="supplement.code" title="Snippet Code" i18n-title="The code snippet goes in this area@@code"></app-code-editor>
-  <textarea class="notes-area" [(ngModel)]="supplement.notes" title="Snippet Notes" i18n-title="The notes or description for this snippet@@notes"
-    placeholder="Notes" i18n-placeholder="@@notes" name="notes" i18n-name="@@notes" aria-label="Notes" i18n-aria-label="@@notes"></textarea>
-</div> -->
+  <app-expanding-textarea class="notes-area" [(ngModel)]="supplement.notes" title="Snippet Notes" i18n-title="The notes or description for this snippet@@notes"
+    placeholder="Notes" i18n-placeholder="@@notes" name="notes" i18n-name="@@notes" aria-label="Notes" i18n-aria-label="@@notes"></app-expanding-textarea>
+
+  <div class="options-area">
+    <app-svg-button src="remove" (click)="unsupplement(index)" class="small-button" title="Remove Above Code and Notes"
+      i18n-title="Remove an additional pair of code and notes@@unsupplementSnippet"></app-svg-button>
+    <app-svg-button src="add" (click)="addSupplement(index)" class="small-button" title="Add More Code and Notes"
+      i18n-title="Create an additional pair of code and notes@@supplementSnippet"></app-svg-button>
+  </div>
+
+</div>
 
 <div class="options-area">
-  <app-svg-button src="pin" *ngIf="!snippet.pinned" (click)="pin()" class="small-button" title="Pin"
-    i18n-title="Makes a link for this snippet on the left side of the screen@@pinToQuickLinks"
+  <app-svg-button src="pin" *ngIf="!snippet.pinned" (click)="pin()" class="small-button" title="Pin" i18n-title="Makes a link for this snippet on the left side of the screen@@pinToQuickLinks"
     label="Pin" i18n-label="@@pinToQuickLinks"></app-svg-button>
-  <app-svg-button src="unpin" *ngIf="snippet.pinned" (click)="unpin()" class="small-button" 
-    title="Unpin" i18n-title="Removes a link for this snippet from the left side of the screen@@unpinFromQuickLinks"
+  <app-svg-button src="unpin" *ngIf="snippet.pinned" (click)="unpin()" class="small-button" title="Unpin" i18n-title="Removes a link for this snippet from the left side of the screen@@unpinFromQuickLinks"
     label="Unpin" i18n-label="@@unpinFromQuickLinks"></app-svg-button>
-  <!-- <app-svg-button src="add" (click)="supplement()" class="small-button" 
-    title="Add More Code and Notes" i18n-title="Create an additional pair of code and notes@@supplementSnippet"></app-svg-button> -->
-  <app-svg-button src="share" (click)="export()" class="small-button" 
-    title="Export Snippet" i18n-title="Go to the export screen to export this one snippet@@exportThisOneSnippet"
+  <app-svg-button src="share" (click)="export()" class="small-button" title="Export Snippet" i18n-title="Go to the export screen to export this one snippet@@exportThisOneSnippet"
     label="Export Snippet" i18n-label="@@exportThisOneSnippet"></app-svg-button>
-  <app-svg-button src="trash" (click)="delete()" class="small-button" 
-    title="Delete Snippet" i18n-title="Delete this one snippet@@deleteThisSnippet"
+  <app-svg-button src="trash" (click)="delete()" class="small-button" title="Delete Snippet" i18n-title="Delete this one snippet@@deleteThisSnippet"
     label="Delete Snippet" i18n-label="@@deleteThisSnippet"></app-svg-button>
 </div>

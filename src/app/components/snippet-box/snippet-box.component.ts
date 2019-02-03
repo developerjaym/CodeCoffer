@@ -17,6 +17,7 @@ export class SnippetBoxComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.snippet.supplements = this.snippet.supplements || [];
   }
 
   delete() {
@@ -39,11 +40,12 @@ export class SnippetBoxComponent implements OnInit {
     this.snippetService.unpinSnippet(this.snippet.id);
   }
 
-  supplement() {
-    if (!this.snippet.supplements) {
-      this.snippet.supplements = [];
-    }
-    this.snippet.supplements.push(new Supplement());
+  addSupplement(index: number) {
+    this.snippet.supplements.splice(index+1, 0, new Supplement());
+  }
+
+  unsupplement(index: number) {
+    this.snippet.supplements.splice(index, 1); //offset 1 because the first index of allSnippets is the main code/notes pair
   }
 
   clone() {

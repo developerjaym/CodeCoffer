@@ -12,7 +12,7 @@
     padding-top: var(--padding-narrow);
     padding-bottom: var(--padding-narrow);
     resize: none;
-    min-height: calc(6*var(--code-line-height));
+    min-height: calc(3*var(--code-line-height));
     border: none;
 }
 .code-area {

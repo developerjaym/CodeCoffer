@@ -69,6 +69,14 @@
   height: fit-content;
 }
 
+.snippet-link {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: none;
+  border: none;
+}
+
 /*Custom Tags*/
 app-svg-button {
   max-height: var(--svg-dimension);

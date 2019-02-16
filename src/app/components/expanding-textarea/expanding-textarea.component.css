@@ -8,7 +8,7 @@
 
 .notes-area, .expander {
     resize: none;
-    min-height: calc(var(--snippet-height)/6);
+    min-height: calc(var(--main-font-size)*3);
     width: 100%;
     border: none;
 }

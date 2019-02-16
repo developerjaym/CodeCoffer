@@ -7,10 +7,6 @@
   height: calc(var(--code-line-height)*2);
 }
 
-.title {
-  font-weight: bold;
-}
-
 .small-button {
   max-width: fit-content;
 }
@@ -23,4 +19,20 @@
   background-color: var(--secondary-bg-color);
   border-color: var(--secondary-fg-color);
   padding-top: var(--padding-narrow);
+}
+
+.title-row {
+  display: flex;
+  flex-direction: var(--flex-row-direction);
+  justify-content: space-between;
+}
+
+.index {
+  flex-grow: 1;
+  max-width: fit-content;
+}
+
+.title {
+  font-weight: bold;
+  flex-grow: 2;
 }

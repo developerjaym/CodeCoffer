@@ -10,14 +10,15 @@ export class Snippet {
   showing: boolean;
   pinned: boolean;
   supplements: Supplement[];
-
+  index: string;
   constructor(
     id: number = 0,
     title: string = '',
     tags: string = '',
     code: string = '',
     notes: string = '',
-    timestamp: number = Date.now()
+    timestamp: number = Date.now(),
+    index: string = '1'
   ) {
     this.id = String(id ? id : Math.floor(Math.random() * 1000000000) + 1);
     this.timestamp = timestamp;
@@ -28,5 +29,6 @@ export class Snippet {
     this.showing = true; //for search result
     this.pinned = false;
     this.supplements = [];
+    this.index = index;
   }
 }

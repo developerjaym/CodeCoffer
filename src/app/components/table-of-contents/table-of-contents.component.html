@@ -1,0 +1,16 @@
+<div class="table-of-contents">
+  
+  <label *ngIf="head" i18n="@@tableOfContents">Table of Contents</label>
+  <button *ngIf="!head" class="snippet-link table-header" (click)="revealMore()" [ngStyle]="{'margin-left': indentationString}">{{table.name}}</button>
+  
+  <div class="table-of-contents" *ngIf="(expand && branches)">
+    <app-table-of-contents *ngFor="let branch of branches" [table]="branch" [indentation]="indentation + 12">
+    </app-table-of-contents>
+    <button class="snippet-link" *ngFor="let leaf of leaves" [ngStyle]="{'margin-left': indentationString}"
+      (click)="selectSnippet(leaf.value.id)" title="View Snippet"
+      i18n-title="To tell the user that this button will make the snippet visible@@viewSnippetTooltip"
+      label="View Snippet" i18n-label="@@viewSnippetTooltip">
+      {{leaf.value.title}}
+    </button>
+  </div>
+</div>

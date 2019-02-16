@@ -16,6 +16,7 @@
 
 button {
     border: none;
+    min-height: fit-content;
 }
 
 app-strike-through-box {
@@ -32,6 +33,11 @@ app-search-box, app-quick-links {
 }
 app-quick-links {
     flex-grow: 2;
+    overflow: scroll;
+    max-width: 18vw;
+}
+
+app-table-of-contents {
     overflow: scroll;
     max-width: 18vw;
 }

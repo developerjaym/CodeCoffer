@@ -12,9 +12,4 @@
 }
 .quick-link-link {
     flex-grow: 2;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding-left: var(--padding-thick);
-    padding-right: var(--padding-narrow);
 }

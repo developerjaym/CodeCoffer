@@ -1,5 +1,5 @@
 <div class="quick-link" *ngFor="let snippet of pinnedSnippets">
-  <button class="quick-link-link" (click)="selectSnippet(snippet.id)"
+  <button class="snippet-link quick-link-link" (click)="selectSnippet(snippet.id)"
   title="View Snippet" i18n-title="To tell the user that this button will make the snippet visible@@viewSnippetTooltip"
   label="View Snippet" i18n-label="@@viewSnippetTooltip"
   >{{snippet.title}}</button>

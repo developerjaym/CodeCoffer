@@ -1,0 +1,11 @@
+.table-of-contents {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--margin-narrow);
+    border: none;
+}
+
+.table-header {
+    text-decoration: underline;
+}

@@ -330,38 +330,57 @@ Here&apos;s a quick user guide:
         <source>Title</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/snippet-box/snippet-box.component.html</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/components/snippet-box/snippet-box.component.html</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/components/snippet-box/snippet-box.component.html</context>
-          <context context-type="linenumber">1</context>
+          <context context-type="linenumber">2</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/snippet-box/snippet-box.component.html</context>
           <context context-type="linenumber">2</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/snippet-box/snippet-box.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/snippet-box/snippet-box.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="index" datatype="html">
+        <source>Index</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/snippet-box/snippet-box.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/snippet-box/snippet-box.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/snippet-box/snippet-box.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/snippet-box/snippet-box.component.html</context>
+          <context context-type="linenumber">6</context>
         </context-group>
       </trans-unit>
       <trans-unit id="tags" datatype="html">
         <source>Tags</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/snippet-box/snippet-box.component.html</context>
-          <context context-type="linenumber">4</context>
+          <context context-type="linenumber">10</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/snippet-box/snippet-box.component.html</context>
-          <context context-type="linenumber">4</context>
+          <context context-type="linenumber">10</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/snippet-box/snippet-box.component.html</context>
-          <context context-type="linenumber">4</context>
+          <context context-type="linenumber">10</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/snippet-box/snippet-box.component.html</context>
-          <context context-type="linenumber">5</context>
+          <context context-type="linenumber">11</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/editable-tags-area/editable-tags-area.component.html</context>
@@ -384,11 +403,11 @@ Here&apos;s a quick user guide:
         <source>Snippet Code</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/snippet-box/snippet-box.component.html</context>
-          <context context-type="linenumber">9</context>
+          <context context-type="linenumber">15</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/snippet-box/snippet-box.component.html</context>
-          <context context-type="linenumber">18</context>
+          <context context-type="linenumber">24</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/code-editor/code-editor.component.html</context>
@@ -400,35 +419,35 @@ Here&apos;s a quick user guide:
         <source>Snippet Notes</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/snippet-box/snippet-box.component.html</context>
-          <context context-type="linenumber">10</context>
+          <context context-type="linenumber">16</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/snippet-box/snippet-box.component.html</context>
-          <context context-type="linenumber">11</context>
+          <context context-type="linenumber">17</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/snippet-box/snippet-box.component.html</context>
-          <context context-type="linenumber">11</context>
+          <context context-type="linenumber">17</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/snippet-box/snippet-box.component.html</context>
-          <context context-type="linenumber">11</context>
+          <context context-type="linenumber">17</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/snippet-box/snippet-box.component.html</context>
-          <context context-type="linenumber">19</context>
+          <context context-type="linenumber">25</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/snippet-box/snippet-box.component.html</context>
-          <context context-type="linenumber">20</context>
+          <context context-type="linenumber">26</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/snippet-box/snippet-box.component.html</context>
-          <context context-type="linenumber">20</context>
+          <context context-type="linenumber">26</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/snippet-box/snippet-box.component.html</context>
-          <context context-type="linenumber">20</context>
+          <context context-type="linenumber">26</context>
         </context-group>
         <note priority="1" from="description">The notes or description for this snippet</note>
       </trans-unit>
@@ -436,11 +455,11 @@ Here&apos;s a quick user guide:
         <source>Add More Code and Notes</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/snippet-box/snippet-box.component.html</context>
-          <context context-type="linenumber">13</context>
+          <context context-type="linenumber">19</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/snippet-box/snippet-box.component.html</context>
-          <context context-type="linenumber">25</context>
+          <context context-type="linenumber">31</context>
         </context-group>
         <note priority="1" from="description">Create an additional pair of code and notes</note>
       </trans-unit>
@@ -448,7 +467,7 @@ Here&apos;s a quick user guide:
         <source>Remove Above Code and Notes</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/snippet-box/snippet-box.component.html</context>
-          <context context-type="linenumber">23</context>
+          <context context-type="linenumber">29</context>
         </context-group>
         <note priority="1" from="description">Remove an additional pair of code and notes</note>
       </trans-unit>
@@ -456,11 +475,11 @@ Here&apos;s a quick user guide:
         <source>Pin</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/snippet-box/snippet-box.component.html</context>
-          <context context-type="linenumber">32</context>
+          <context context-type="linenumber">38</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/snippet-box/snippet-box.component.html</context>
-          <context context-type="linenumber">33</context>
+          <context context-type="linenumber">39</context>
         </context-group>
         <note priority="1" from="description">Makes a link for this snippet on the left side of the screen</note>
       </trans-unit>
@@ -468,11 +487,11 @@ Here&apos;s a quick user guide:
         <source>Unpin</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/snippet-box/snippet-box.component.html</context>
-          <context context-type="linenumber">34</context>
+          <context context-type="linenumber">40</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/snippet-box/snippet-box.component.html</context>
-          <context context-type="linenumber">35</context>
+          <context context-type="linenumber">41</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/quick-links/quick-links.component.html</context>
@@ -484,11 +503,11 @@ Here&apos;s a quick user guide:
         <source>Export Snippet</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/snippet-box/snippet-box.component.html</context>
-          <context context-type="linenumber">36</context>
+          <context context-type="linenumber">42</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/snippet-box/snippet-box.component.html</context>
-          <context context-type="linenumber">37</context>
+          <context context-type="linenumber">43</context>
         </context-group>
         <note priority="1" from="description">Go to the export screen to export this one snippet</note>
       </trans-unit>
@@ -496,11 +515,11 @@ Here&apos;s a quick user guide:
         <source>Delete Snippet</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/snippet-box/snippet-box.component.html</context>
-          <context context-type="linenumber">38</context>
+          <context context-type="linenumber">44</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/snippet-box/snippet-box.component.html</context>
-          <context context-type="linenumber">39</context>
+          <context context-type="linenumber">45</context>
         </context-group>
         <note priority="1" from="description">Delete this one snippet</note>
       </trans-unit>
@@ -666,7 +685,22 @@ Here&apos;s a quick user guide:
           <context context-type="sourcefile">app/components/quick-links/quick-links.component.html</context>
           <context context-type="linenumber">4</context>
         </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/table-of-contents/table-of-contents.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/table-of-contents/table-of-contents.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
         <note priority="1" from="description">To tell the user that this button will make the snippet visible</note>
+      </trans-unit>
+      <trans-unit id="tableOfContents" datatype="html">
+        <source>Table of Contents</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/table-of-contents/table-of-contents.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
       </trans-unit>
     </body>
   </file>

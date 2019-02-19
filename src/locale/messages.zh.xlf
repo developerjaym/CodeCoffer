@@ -314,6 +314,25 @@ Here&apos;s a quick user guide:
           <context context-type="linenumber">1</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="index" datatype="html">
+        <source>Index</source><target>索引</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/snippet-box/snippet-box.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/snippet-box/snippet-box.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/snippet-box/snippet-box.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/snippet-box/snippet-box.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="tags" datatype="html">
         <source>Tags</source><target>关键词</target>
         <context-group purpose="location">
@@ -349,7 +368,7 @@ Here&apos;s a quick user guide:
         </context-group>
       </trans-unit>
       <trans-unit id="supplementSnippet" datatype="html">
-        <source>Add More Code and Notes</source><target>LUCY</target>
+        <source>Add More Code and Notes</source><target>添加备注</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/snippet-box/snippet-box.component.html</context>
           <context context-type="linenumber">13</context>
@@ -361,7 +380,7 @@ Here&apos;s a quick user guide:
         <note priority="1" from="description">Create an additional pair of code and notes</note>
       </trans-unit>
       <trans-unit id="unsupplementSnippet" datatype="html">
-        <source>Remove Above Code and Notes</source><target>LUCY</target>
+        <source>Remove Above Code and Notes</source><target>删除此备注</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/components/snippet-box/snippet-box.component.html</context>
           <context context-type="linenumber">23</context>
@@ -581,6 +600,13 @@ Here&apos;s a quick user guide:
           <context context-type="linenumber">4</context>
         </context-group>
         <note priority="1" from="description">To tell the user that this button will make the snippet visible</note>
+      </trans-unit>
+      <trans-unit id="tableOfContents" datatype="html">
+        <source>Table of Contents</source><target>目录</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/table-of-contents/table-of-contents.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
       </trans-unit>
     </body>
   </file>

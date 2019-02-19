@@ -30,6 +30,8 @@
 .index {
   flex-grow: 1;
   max-width: fit-content;
+  margin-left: var(--margin-narrow);
+  margin-right: var(--margin-narrow);
 }
 
 .title {

@@ -61,7 +61,7 @@ class Tree<T> {
     this.branches = {};
   }
 
-  addValue(index: string, value: T) {
+  addValue(index: string, value: T): void {
     //for each index, locate the branch
     const nameAndIndices = this.determineNameAndIndices(index);
     const branch = this.findBranch(nameAndIndices[1], this);
@@ -73,9 +73,10 @@ class Tree<T> {
   private determineNameAndIndices(index: string): [string, string[]] {
     index = index || '';
     const nameMaker = index.split(':');
-    let name = nameMaker.length === 2 ? index : index;
-    name = name.trim();
+    let name = nameMaker.length === 2 ? nameMaker[1] : index.trim();
     const indices = nameMaker.length === 2 ? nameMaker[0].split('.') : index.split('.');
+    let lastIndex = indices.length ? indices[indices.length-1] : '';
+    name = nameMaker.length == 2 ? lastIndex + ': ' + name : lastIndex;
     return [name, indices];
     
   }
@@ -120,7 +121,7 @@ class Branch<T> extends Tree<T> {
     this.leaves = [];
   }
 
-  addLeaf(value: T) {
+  addLeaf(value: T): void {
     this.leaves.push(new Leaf(value));
   }
 }

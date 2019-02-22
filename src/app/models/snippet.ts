@@ -18,7 +18,7 @@ export class Snippet {
     code: string = '',
     notes: string = '',
     timestamp: number = Date.now(),
-    index: string = '1'
+    index: string = ''
   ) {
     this.id = String(id ? id : Math.floor(Math.random() * 1000000000) + 1);
     this.timestamp = timestamp;

@@ -16,7 +16,7 @@
 <app-expanding-textarea class="notes-area" [(ngModel)]="snippet.notes" title="Snippet Notes" i18n-title="The notes or description for this snippet@@notes"
   placeholder="Notes" i18n-placeholder="@@notes" name="notes" i18n-name="@@notes" aria-label="Notes" i18n-aria-label="@@notes"></app-expanding-textarea>
 <div class="options-area">
-  <app-svg-button src="add" (click)="addSupplement(0)" class="small-button" title="Add More Code and Notes"
+  <app-svg-button src="add" (click)="addSupplement(-1)" class="small-button" title="Add More Code and Notes"
     i18n-title="Create an additional pair of code and notes@@supplementSnippet"></app-svg-button>
 </div>
 

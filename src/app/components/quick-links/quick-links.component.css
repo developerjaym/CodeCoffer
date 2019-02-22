@@ -12,4 +12,5 @@
 }
 .quick-link-link {
     flex-grow: 2;
+    padding-left: var(--padding-thick);
 }

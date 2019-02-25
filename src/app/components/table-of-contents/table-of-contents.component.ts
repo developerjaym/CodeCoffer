@@ -47,7 +47,7 @@ export class TableOfContentsComponent implements OnInit {
   }
 
   selectSnippet(id: string) {
-    this.snippetService.onPinnedSnippetSelected(id);
+    this.snippetService.onSnippetSelected(id);
     this.router.navigate(['']);
   }
 

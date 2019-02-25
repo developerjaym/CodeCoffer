@@ -3,16 +3,19 @@ import { Snippet } from '../models/snippet';
 import { SearchParameters } from '../models/searchParameters';
 import { StorageService } from './storage.service';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { distinctUntilChanged, filter, map } from 'rxjs/operators';
+import { distinctUntilChanged, filter, map, tap } from 'rxjs/operators';
 import { ToastService } from './toast.service';
 import { Toast } from '../models/toast.enum';
 import { HotKeyService } from './hot-key.service';
 import { HotKey } from '../models/hot-key.enum';
+import { SortService } from './sort.service';
+import { UndoService } from './undo.service';
+import { UndoMessage } from '../models/undo-message';
 
 @Injectable()
 export class SnippetService {
   private snippets: Snippet[];
-  private deletedSnippets: Snippet[];
+  // private deletedSnippets: Snippet[];
   private snippetsSubject: BehaviorSubject<Snippet[]>;
   private pinnedSnippetsSubject: BehaviorSubject<Snippet[]>;
   private searchSubject: BehaviorSubject<SearchParameters>;
@@ -20,18 +23,18 @@ export class SnippetService {
   private readonly SAVE_INTERVAL = 200000;
   private readonly DEFAULT_PAGE_SIZE = 12;
 
-  constructor(private hotKeyService: HotKeyService, private storage: StorageService, private toastService: ToastService) {
+  constructor(private undoService: UndoService, private sortService: SortService, private storage: StorageService, private toastService: ToastService) {
     this.snippets = this.storage.getSnippets();
-    this.deletedSnippets = [];
-    this.sortSnippets();
+    // this.deletedSnippets = [];
+    this.sortService.sortSnippets(this.snippets);
     this.snippetsSubject = new BehaviorSubject<Snippet[]>(this.sliceSnippets());
     this.pinnedSnippetsSubject = new BehaviorSubject<Snippet[]>(this.determinePinnedSnippets());
     this.searchSubject = new BehaviorSubject<SearchParameters>(new SearchParameters());
     this.timerId = setInterval(() => this.saveSnippets(), this.SAVE_INTERVAL);
-    this.hotKeyService.pull().pipe(
-      filter(hotKey => hotKey === HotKey.UNDO),
-      map(undoCommand => this.undoDelete()),
-      filter(Boolean)
+    this.undoService.pull().pipe(
+      filter(message => message.type === "snippet"),
+      tap(message => this.undoDelete(message.snippet)),
+      // filter(Boolean)
     ).subscribe(success => this.toastService.push(Toast.SNIPPET_RESTORED));
   }
   getSearchParameters(): Observable<SearchParameters> {
@@ -59,7 +62,7 @@ export class SnippetService {
     this.refreshPinnedSnippets();
   }
 
-  onPinnedSnippetSelected(id: string): void {
+  onSnippetSelected(id: string): void {
     window.scrollTo(0, 0);
     const selectedSnippet: Snippet = this.getSnippetById(id);
     selectedSnippet.showing = true;
@@ -103,7 +106,15 @@ export class SnippetService {
   }
 
   deleteSnippet(snippetId: string): void {
-    this.deletedSnippets.unshift(...(this.snippets.filter(snippet => snippet.id === snippetId)));
+    this.snippets
+    .filter(snippet => snippet.id === snippetId)
+    .map(snippet => {
+      return {
+      type: "snippet",
+      snippet: snippet
+    }})
+    .forEach((message: UndoMessage) => this.undoService.push(message));
+    // this.deletedSnippets.unshift(...(this.snippets.filter(snippet => snippet.id === snippetId)));
     this.storage.removeSnippet(snippetId);
     this.snippets = this.snippets.filter(snippet => snippet.id !== snippetId);
     this.snippetsSubject.next(this.sliceSnippets());
@@ -142,75 +153,10 @@ export class SnippetService {
         searchResultsMap.get(b) - searchResultsMap.get(a)
         : +b.showing - +a.showing);
     } else {
-      this.sortSnippets();
+      this.sortService.sortSnippets(this.snippets);
     }
     this.snippetsSubject.next(this.sliceSnippets());
     this.toastService.push(Toast.SEARCH_COMPLETED);
-  }
-
-  private sortSnippets(): void {
-    this.snippets.sort((a, b) => this.compareSnippets(a, b));
-    // this.snippets.sort((a, b) => a.showing && b.showing ? this.compareIndices( a, b) : this.compareShowing(a, b));
-  }
-
-  private compareSnippets(a: Snippet, b:Snippet): number {
-    let result = this.compareShowing(a, b);
-    if(result === 0) {
-      result = this.compareIndices(a, b);
-    }
-    if(result === 0) {
-      result = this.compareTimestamps(a, b);
-    }
-    if(result === 0) {
-      result = this.compareTitles(a, b);
-    }
-    return result;
-  }
-
-/**
-   * The alphabetically lowest Snippet title comes first (title "a" comes before title "b")
-   * @param a 
-   * @param b 
-   */
-  private compareTitles(a: Snippet, b: Snippet): number {
-    if(a.title > b.title) {
-      return 1;
-    }
-    else if(b.title > a.title) {
-      return -1;
-    }
-    return 0;
-  }
-
-  /**
-   * The alphabetically lowest Snippet index comes first (index "1" comes before index "2")
-   * @param a 
-   * @param b 
-   */
-  private compareIndices(a: Snippet, b: Snippet): number {
-    if(a.index > b.index) {
-      return 1;
-    }
-    else if(b.index > a.index) {
-      return -1;
-    }
-    return 0;
-  }
-
-  /**
-   * Snippets that are showing come first (showing "true" comes before showing "false" (showing is not really a string))
-   * @param a 
-   * @param b 
-   */
-  private compareShowing(a: Snippet, b: Snippet): number {
-    return +b.showing - +a.showing;
-  }
-  
-  /**
-   * Snippets that are newer come first (timestamp "today" comes before timestamp "yesterday" (timestamps aren't really strings))
-   */
-  private compareTimestamps(a: Snippet, b: Snippet): number {
-    return b.timestamp - a.timestamp;
   }
 
   saveSnippets(): void {
@@ -241,12 +187,12 @@ export class SnippetService {
     return this.snippets.filter(snippet => snippet.showing).length > index;
   }
 
-  undoDelete(): boolean {
-    if (this.deletedSnippets.length > 0) {
-      this.addSnippet(this.deletedSnippets.shift());
-      return true;
-    }
-    return false;
+  private undoDelete(snippet: Snippet): void {
+    // if (this.deletedSnippets.length > 0) {
+      this.addSnippet(snippet);//this.deletedSnippets.shift());
+      // return true;
+    // }
+    // return false;
   }
 
   canImport(snippetId: string): Observable<boolean> {

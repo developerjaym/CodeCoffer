@@ -29,6 +29,6 @@ export class QuickLinksComponent implements OnInit, OnDestroy {
   }
 
   selectSnippet(id: string) {
-    this.service.onPinnedSnippetSelected(id);
+    this.service.onSnippetSelected(id);
   }
 }

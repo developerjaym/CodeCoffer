@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { SnippetService } from '../../services/snippet.service';
+import { SearchService } from '../../services/search.service';
 
 @Component({
   selector: 'app-tag',
@@ -11,7 +11,7 @@ export class TagComponent {
   @Input("tag")
   tag: string;
 
-  constructor(private snippetService: SnippetService) { }
+  constructor(private searchService: SearchService) { }
 
   onClick(): void {
     const searchParameters = {
@@ -21,7 +21,7 @@ export class TagComponent {
       code: false,
       query: this.tag
     };
-    this.snippetService.search(searchParameters, false);
+    this.searchService.search(searchParameters, false);
   }
 
 }

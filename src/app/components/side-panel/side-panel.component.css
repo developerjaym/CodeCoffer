@@ -33,11 +33,11 @@ app-search-box, app-quick-links {
 }
 app-quick-links {
     flex-grow: 2;
-    overflow: scroll;
+    overflow: auto;
     max-width: 18vw;
 }
 
 app-table-of-contents {
-    overflow: scroll;
+    overflow: auto;
     max-width: 18vw;
 }

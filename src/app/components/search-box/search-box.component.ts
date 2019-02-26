@@ -1,9 +1,9 @@
 import { Component, OnInit, ElementRef, ViewChild, OnDestroy } from '@angular/core';
 import { SearchParameters } from '../../models/searchParameters';
-import { SnippetService } from '../../services/snippet.service';
 import { HotKeyService } from '../../services/hot-key.service';
 import { HotKey } from '../../models/hot-key.enum';
 import { Subscription } from 'rxjs';
+import { SearchService } from '../../services/search.service';
 
 @Component({
   selector: 'app-search-box',
@@ -19,8 +19,8 @@ export class SearchBoxComponent implements OnInit, OnDestroy {
   freshlyLoaded: boolean;
   private subscriptions: Subscription[];
 
-  constructor(private hotKeyService: HotKeyService, 
-    private snippetService: SnippetService) {
+  constructor(private hotKeyService: HotKeyService,
+    private searchService: SearchService) {
     this.searchParameters = new SearchParameters();
   }
 
@@ -32,7 +32,7 @@ export class SearchBoxComponent implements OnInit, OnDestroy {
     this.subscriptions = [];
     this.freshlyLoaded = true;
     this.subscriptions.push(
-      this.snippetService.getSearchParameters().subscribe(searchParameters => 
+      this.searchService.getSearchParameters().subscribe(searchParameters => 
         this.searchParameters = searchParameters),
 
       this.hotKeyService.pull().subscribe(hotKey => {
@@ -53,7 +53,7 @@ export class SearchBoxComponent implements OnInit, OnDestroy {
 
   search(): void {
     if (!this.freshlyLoaded) {
-      this.snippetService.search(this.searchParameters);
+      this.searchService.search(this.searchParameters);
     }
     this.freshlyLoaded = false;
   }

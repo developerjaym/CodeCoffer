@@ -18,7 +18,8 @@ export class Snippet {
     code: string = '',
     notes: string = '',
     timestamp: number = Date.now(),
-    index: string = ''
+    index: string = '',
+    supplements: Supplement[] = []
   ) {
     this.id = String(id ? id : Math.floor(Math.random() * 1000000000) + 1);
     this.timestamp = timestamp;
@@ -28,7 +29,27 @@ export class Snippet {
     this.notes = notes;
     this.showing = true; //for search result
     this.pinned = false;
-    this.supplements = [];
+    this.supplements = supplements;
     this.index = index;
+  }
+
+  static createValidSnippet(snippet: Snippet): Snippet {
+    snippet.id = snippet.id || String(Math.floor(Math.random() * 1000000000) + 1);
+    snippet.timestamp = snippet.timestamp || Date.now();
+    snippet.title = snippet.title || '';
+    snippet.tags = snippet.tags || '';
+    snippet.code = snippet.code || '';
+    snippet.notes = snippet.notes || '';
+    snippet.showing = (snippet.showing === true || snippet.showing === false) ? snippet.showing : false;
+    snippet.pinned = (snippet.pinned === true || snippet.pinned === false) ? snippet.pinned : false;
+    snippet.supplements = snippet.supplements || [];
+    snippet.index = snippet.index || '';
+
+
+    return snippet;
+  }
+
+  static createValidSnippets(snippets: Snippet[]): Snippet[] {
+    return snippets.map(snippet => this.createValidSnippet(snippet));
   }
 }

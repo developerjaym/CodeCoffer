@@ -40,6 +40,7 @@ import { TagComponent } from './components/tag/tag.component';
 import { EditableTagsAreaComponent } from './components/editable-tags-area/editable-tags-area.component';
 import { TableOfContentsComponent } from './components/table-of-contents/table-of-contents.component';
 import { SortService } from './services/sort.service';
+import { SearchService } from './services/search.service';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -65,7 +66,7 @@ const appRoutes: Routes = [
     }
   ),
   ],
-  providers: [CopyService, DownloadService, ExportGuardService, HotKeyService, ImportGuardService, ParseService, RemoteImportService, SnippetService, SortService, StorageService, StyleService, SvgService, ToastService],
+  providers: [CopyService, DownloadService, ExportGuardService, HotKeyService, ImportGuardService, ParseService, RemoteImportService, SearchService, SnippetService, SortService, StorageService, StyleService, SvgService, ToastService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

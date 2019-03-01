@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router } from '@angular/router';
 import { StyleService } from '../../services/style.service';
 import { ToastService } from '../../services/toast.service';
 import { Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { RoutingService } from '../../services/routing.service';
 
 @Component({
   selector: 'app-style-editor',
@@ -15,7 +15,7 @@ export class StyleEditorComponent implements OnInit, OnDestroy {
   style: string;
   subscriptions: Subscription[] = [];
 
-  constructor(private router: Router, private styleService: StyleService, private toastService: ToastService) { }
+  constructor(private routingService: RoutingService, private styleService: StyleService, private toastService: ToastService) { }
 
   ngOnInit() {
     this.subscriptions.push(this.styleService.getStyleObject()
@@ -30,7 +30,7 @@ export class StyleEditorComponent implements OnInit, OnDestroy {
   }
 
   back(): void {
-    this.router.navigate(['']); 
+    this.routingService.goHome();
   }
 
   save(): void {

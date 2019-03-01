@@ -126,7 +126,8 @@ export class SnippetService {
   }
 
   import(imported: Snippet | Array<Snippet>): void {
-    const importedSnippetArray: Snippet[] = imported instanceof Array ? imported : [imported];
+    let importedSnippetArray: Snippet[] = imported instanceof Array ? imported : [imported];
+    importedSnippetArray = importedSnippetArray.map(snippet => Snippet.createValidSnippet(snippet));
     importedSnippetArray.sort((snippetA, snippetB) => snippetB.timestamp - snippetA.timestamp);
     importedSnippetArray.forEach((snippet, index) => {
       snippet.id = this.createId();

@@ -1,9 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SnippetService } from '../../services/snippet.service';
-import { Router } from '@angular/router';
 import { HotKeyService } from '../../services/hot-key.service';
 import { HotKey } from '../../models/hot-key.enum';
 import { Subscription } from 'rxjs';
+import { SettingsService } from '../../services/settings.service';
+import { RoutingService } from '../../services/routing.service';
 
 @Component({
   selector: 'app-side-panel',
@@ -12,9 +13,14 @@ import { Subscription } from 'rxjs';
 })
 export class SidePanelComponent implements OnInit, OnDestroy {
 
+  isEditable: boolean = true;
+
   private subscriptions: Subscription[];
 
-  constructor(private hotKeyService: HotKeyService, private snippetService: SnippetService, private router: Router) { }
+  constructor(private hotKeyService: HotKeyService, 
+    private snippetService: SnippetService, 
+    private routingService: RoutingService, 
+    private settingsService: SettingsService) { }
 
   ngOnDestroy() {
     this.subscriptions.forEach(subscription => subscription.unsubscribe());
@@ -22,6 +28,8 @@ export class SidePanelComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.subscriptions = [];
+
+    this.isEditable = this.settingsService.isEditable();
 
     this.subscriptions.push(
       this.hotKeyService.pull().subscribe(hotKey => {
@@ -54,18 +62,18 @@ export class SidePanelComponent implements OnInit, OnDestroy {
   }
 
   style(): void {
-    this.router.navigate(['/style'])
+    this.routingService.goToStyle();
   }
 
   load(): void {
-    this.router.navigate(['/import'])
+    this.routingService.goToImport();
   }
 
   export(): void {
-    this.router.navigate(['/export'])
+    this.routingService.goToExport();
   }
 
   about(): void {
-    this.router.navigate(['/about'])
+    this.routingService.goToAbout();
   }
 }

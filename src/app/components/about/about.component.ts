@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { RoutingService } from '../../services/routing.service';
 
 @Component({
   selector: 'app-about',
@@ -9,11 +9,11 @@ import { Router } from '@angular/router';
 export class AboutComponent {
 
   displayString: string = '';
-  constructor(private router: Router) { }
+  constructor(private routingService: RoutingService) { }
 
 
   back(): void {
-    this.router.navigate(['']);
+    this.routingService.goHome();
   }
 
 }

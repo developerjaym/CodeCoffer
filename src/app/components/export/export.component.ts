@@ -1,10 +1,11 @@
 import { Component, OnInit, ElementRef, ViewChild, Renderer2 } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { SnippetService } from '../../services/snippet.service';
 import { map, tap } from 'rxjs/operators';
 import { CopyService } from '../../services/copy.service';
 import { DownloadService } from '../../services/download.service';
 import { RemoteImportService } from '../../services/remote-import.service';
+import { RoutingService } from '../../services/routing.service';
 
 @Component({
   selector: 'app-export',
@@ -24,7 +25,7 @@ export class ExportComponent implements OnInit {
     private downloadService: DownloadService, 
     private service: SnippetService, 
     private remoteService: RemoteImportService,
-    private router: Router, 
+    private routingService: RoutingService, 
     private renderer: Renderer2,
     private activatedRoute: ActivatedRoute) { }
 
@@ -48,7 +49,7 @@ export class ExportComponent implements OnInit {
   }
 
   back(): void {
-    this.router.navigate(['']);
+    this.routingService.goHome();
   }
 
   copy(): void {

@@ -41,17 +41,30 @@ import { EditableTagsAreaComponent } from './components/editable-tags-area/edita
 import { TableOfContentsComponent } from './components/table-of-contents/table-of-contents.component';
 import { SortService } from './services/sort.service';
 import { SearchService } from './services/search.service';
+import { SettingsService } from './services/settings.service';
+import { RouteGuardService } from './services/route-guard.service';
+import { RoutingService } from './services/routing.service';
 
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'export/:snippetId', component: ExportComponent, canActivate: [ExportGuardService] },
-  { path: 'export', component: ExportComponent },
-  { path: 'import/:conversationId', component: ImportComponent, canActivate: [ImportGuardService] },
-  { path: 'import', component: ImportComponent },
-  { path: 'style', component: StyleEditorComponent },
-  { path: 'contents', component: TableOfContentsComponent },
-  { path: '**', redirectTo: '' }
+  { path: 'export/:snippetId', component: ExportComponent, canActivate: [ExportGuardService, RouteGuardService] },
+  { path: 'export', component: ExportComponent, canActivate: [RouteGuardService]  },
+  { path: 'import/:conversationId', component: ImportComponent, canActivate: [ImportGuardService, RouteGuardService] },
+  { path: 'import', component: ImportComponent, canActivate: [RouteGuardService]  },
+  { path: 'style', component: StyleEditorComponent, canActivate: [RouteGuardService]  },
+  { path: 'export/:snippetId', component: ExportComponent, canActivate: [ExportGuardService, RouteGuardService] },
+  { path: 'contents', component: TableOfContentsComponent }, //<-- for debugging only
+  
+  { path: 'home/:user/:mode/:locale', component: HomeComponent, canActivate: [RouteGuardService] },
+
+  { path: 'export/:snippetId/:user/:mode/:locale', component: ExportComponent, canActivate: [ExportGuardService, RouteGuardService] },
+  { path: 'export/:user/:mode/:locale', component: ExportComponent, canActivate: [RouteGuardService]  },
+  { path: 'import/:conversationId/:user/:mode/:locale', component: ImportComponent, canActivate: [ImportGuardService, RouteGuardService] },
+  { path: 'import/:user/:mode/:locale', component: ImportComponent, canActivate: [RouteGuardService]  },
+  { path: 'style/:user/:mode/:locale', component: StyleEditorComponent, canActivate: [RouteGuardService]  },
+  
+  { path: '**', redirectTo: 'home' }
 ];
 
 @NgModule({
@@ -66,7 +79,7 @@ const appRoutes: Routes = [
     }
   ),
   ],
-  providers: [CopyService, DownloadService, ExportGuardService, HotKeyService, ImportGuardService, ParseService, RemoteImportService, SearchService, SnippetService, SortService, StorageService, StyleService, SvgService, ToastService],
+  providers: [CopyService, DownloadService, ExportGuardService, HotKeyService, ImportGuardService, RouteGuardService, ParseService, RemoteImportService, RoutingService, SearchService, SettingsService, SnippetService, SortService, StorageService, StyleService, SvgService, ToastService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

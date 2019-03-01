@@ -5,6 +5,7 @@ import { map, tap } from 'rxjs/operators';
 import { HotKeyService } from '../../services/hot-key.service';
 import { HotKey } from '../../models/hot-key.enum';
 import { Subscription } from 'rxjs';
+import { SettingsService } from '../../services/settings.service';
 
 @Component({
   selector: 'app-middle-panel',
@@ -16,9 +17,11 @@ export class MiddlePanelComponent implements OnInit, OnDestroy {
   index: number;
   hasMoreSnippetsToLoad: boolean;
 
+  isEditable: boolean = false;
+
   private subscriptions: Subscription[];
 
-  constructor(private hotKeyService: HotKeyService, private snippetService: SnippetService) {
+  constructor(private hotKeyService: HotKeyService, private snippetService: SnippetService, private settingsService: SettingsService) {
   }
 
   ngOnDestroy() {
@@ -27,6 +30,8 @@ export class MiddlePanelComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.subscriptions = [];
+    
+    this.isEditable = this.settingsService.isEditable();
 
     this.subscriptions.push(
       this.snippetService.getSnippetList()

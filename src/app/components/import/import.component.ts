@@ -5,6 +5,7 @@ import { ParseService } from '../../services/parse.service';
 import { ToastService } from '../../services/toast.service';
 import { Toast } from '../../models/toast.enum';
 import { RemoteImportService } from '../../services/remote-import.service';
+import { RoutingService } from '../../services/routing.service';
 
 @Component({
   selector: 'app-import',
@@ -18,7 +19,11 @@ export class ImportComponent implements OnInit{
 
   importedSnippets: string = '';
 
-  constructor(private parser: ParseService, private service: SnippetService, private remoteImport: RemoteImportService, private toastService: ToastService, private router: Router) { }
+  constructor(private parser: ParseService, 
+    private service: SnippetService, 
+    private remoteImport: RemoteImportService, 
+    private toastService: ToastService, 
+    private routingService: RoutingService) { }
 
   ngOnInit() {
     this.importedSnippets = this.remoteImport.getTextToImport();
@@ -46,6 +51,6 @@ export class ImportComponent implements OnInit{
   }
 
   back(): void {
-    this.router.navigate(['']);
+    this.routingService.goHome();
   }
 }

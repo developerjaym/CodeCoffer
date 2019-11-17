@@ -13,7 +13,7 @@ import { SearchService } from '../../services/search.service';
 export class SearchBoxComponent implements OnInit, OnDestroy {
   searchParameters: SearchParameters;
 
-  @ViewChild('searchBox')
+  @ViewChild('searchBox', {static: false})
   searchBox: ElementRef;
 
   freshlyLoaded: boolean;

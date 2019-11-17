@@ -14,7 +14,7 @@ import { RoutingService } from '../../services/routing.service';
 })
 export class ExportComponent implements OnInit {
 
-  @ViewChild("downloadButton")
+  @ViewChild("downloadButton", {static: false})
   downloadButton: ElementRef;
 
   exportedJson: string;

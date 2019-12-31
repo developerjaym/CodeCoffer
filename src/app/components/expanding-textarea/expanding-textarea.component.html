@@ -1,5 +1,11 @@
 <div class="notes-editor">
-    <pre class="expander" aria-hidden="true">{{lines}}</pre>
-    <textarea class="notes-area" [placeholder]="placeholder" [title]="title" [(ngModel)]="value"
-      (ngModelChange)="writeValue(value)" wrap="off"></textarea>
-  </div>
+  <pre class="expander" aria-hidden="true">{{ lines }}</pre>
+  <textarea
+    class="notes-area"
+    [placeholder]="placeholder"
+    [title]="title"
+    [(ngModel)]="value"
+    (ngModelChange)="writeValue(value)"
+    wrap="off"
+  ></textarea>
+</div>

@@ -6,11 +6,12 @@ import { Toast } from '../models/toast.enum';
   providedIn: 'root'
 })
 export class CopyService {
-
-  constructor(private toastService: ToastService) { }
+  constructor(private toastService: ToastService) {}
 
   copy(text: string): void {
-    navigator["clipboard"].writeText(text).then(() => this.toastService.push(Toast.COPY_SUCCEEDED), 
-    () => this.toastService.push(Toast.COPY_FAILED));
+    navigator['clipboard'].writeText(text).then(
+      () => this.toastService.push(Toast.COPY_SUCCEEDED),
+      () => this.toastService.push(Toast.COPY_FAILED)
+    );
   }
 }

@@ -21,8 +21,11 @@ export class MiddlePanelComponent implements OnInit, OnDestroy {
 
   private subscriptions: Subscription[];
 
-  constructor(private hotKeyService: HotKeyService, private snippetService: SnippetService, private settingsService: SettingsService) {
-  }
+  constructor(
+    private hotKeyService: HotKeyService,
+    private snippetService: SnippetService,
+    private settingsService: SettingsService
+  ) {}
 
   ngOnDestroy() {
     this.subscriptions.forEach(subscription => subscription.unsubscribe());
@@ -30,17 +33,18 @@ export class MiddlePanelComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.subscriptions = [];
-    
+
     this.isEditable = this.settingsService.isEditable();
 
     this.subscriptions.push(
-      this.snippetService.getSnippetList()
+      this.snippetService
+        .getSnippetList()
         .pipe(
           map(snippets => snippets.filter(snippet => snippet.showing)),
-          tap(snippetList => this.snippets = snippetList),
+          tap(snippetList => (this.snippets = snippetList)),
           map(snippetList => snippetList.length),
-          tap(length => this.hasMoreSnippetsToLoad = this.snippetService.hasMoreSnippets(length)),
-          tap(length => this.index = length)
+          tap(length => (this.hasMoreSnippetsToLoad = this.snippetService.hasMoreSnippets(length))),
+          tap(length => (this.index = length))
         )
         .subscribe(),
 

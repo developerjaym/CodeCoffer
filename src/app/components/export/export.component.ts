@@ -13,39 +13,33 @@ import { RoutingService } from '../../services/routing.service';
   styleUrls: ['./export.component.css']
 })
 export class ExportComponent implements OnInit {
-
-  @ViewChild("downloadButton", {static: false})
+  @ViewChild('downloadButton', { static: false })
   downloadButton: ElementRef;
 
   exportedJson: string;
   remoteUrl: string;
   loading: boolean = false;
 
-  constructor(private copyService: CopyService, 
-    private downloadService: DownloadService, 
-    private service: SnippetService, 
+  constructor(
+    private copyService: CopyService,
+    private downloadService: DownloadService,
+    private service: SnippetService,
     private remoteService: RemoteImportService,
-    private routingService: RoutingService, 
+    private routingService: RoutingService,
     private renderer: Renderer2,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit() {
     this.loading = false;
     this.remoteUrl = '';
-    this.activatedRoute.params
-    .pipe(
-      map(params => params['snippetId'])
-    )
-    .subscribe(
-      snippetId => {
-        if (snippetId) {
-          this.exportedJson = JSON.stringify(this.service.getSnippetById(snippetId), null, 2);
-        }
-        else {
-          this.exportedJson = JSON.stringify(this.service.getAllSnippets(), null, 2);
-        }
+    this.activatedRoute.params.pipe(map(params => params['snippetId'])).subscribe(snippetId => {
+      if (snippetId) {
+        this.exportedJson = JSON.stringify(this.service.getSnippetById(snippetId), null, 2);
+      } else {
+        this.exportedJson = JSON.stringify(this.service.getAllSnippets(), null, 2);
       }
-    )
+    });
   }
 
   back(): void {
@@ -55,8 +49,7 @@ export class ExportComponent implements OnInit {
   copy(): void {
     if (this.remoteUrl) {
       this.copyService.copy(this.remoteUrl);
-    }
-    else {
+    } else {
       this.copyService.copy(this.exportedJson);
     }
     this.back();
@@ -65,17 +58,24 @@ export class ExportComponent implements OnInit {
   exportRemotely(): void {
     this.loading = true;
     this.remoteUrl = null;
-    this.remoteService.exportToServer(this.exportedJson)
-    .pipe(
-      tap(link => this.remoteUrl = link, (error) => this.remoteUrl = error)
-    ).subscribe();
+    this.remoteService
+      .exportToServer(this.exportedJson)
+      .pipe(
+        tap(
+          link => (this.remoteUrl = link),
+          error => (this.remoteUrl = error)
+        )
+      )
+      .subscribe();
   }
 
   download(): void {
     this.downloadService.downloadAsFrom(
-      this.exportedJson, 
-      "CodeCoffer" + Date.now(), 
-      this.downloadButton, this.renderer);
+      this.exportedJson,
+      'CodeCoffer' + Date.now(),
+      this.downloadButton,
+      this.renderer
+    );
     this.back();
   }
 }

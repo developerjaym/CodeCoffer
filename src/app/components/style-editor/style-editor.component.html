@@ -1,15 +1,35 @@
-<button (click)="back()" title="Return to Snippets" i18n-title="@@returnToSnippets" i18n="@@returnToSnippets">Return to Snippets</button>
+<button (click)="back()" title="Return to Snippets" i18n-title="@@returnToSnippets" i18n="@@returnToSnippets">
+  Return to Snippets
+</button>
 <label for="edit-style" i18n="@@editStyle">Edit Style</label>
 
-<textarea id="edit-style" name="edit-style" aria-label="Edit Style" 
-i18n-aria-label="@@editStyle"
-[(ngModel)]="style" class="display-textarea" spellcheck="false"
-title="Edit Style" i18n-title="@@editStyle"></textarea>
+<textarea
+  id="edit-style"
+  name="edit-style"
+  aria-label="Edit Style"
+  i18n-aria-label="@@editStyle"
+  [(ngModel)]="style"
+  class="display-textarea"
+  spellcheck="false"
+  title="Edit Style"
+  i18n-title="@@editStyle"
+></textarea>
 
-<button (click)="save()" title="Save Style Changes" 
-i18n-title="Saves the css styling changes@@saveStyleChanges" 
-i18n="@@saveStyleChanges" appFocus>Save Style Changes</button>
+<button
+  (click)="save()"
+  title="Save Style Changes"
+  i18n-title="Saves the css styling changes@@saveStyleChanges"
+  i18n="@@saveStyleChanges"
+  appFocus
+>
+  Save Style Changes
+</button>
 
-<button (click)="revert()" title="Revert to Default Style" 
-i18n-title="Saves the css styling changes@@revertStyleChanges" 
-i18n="@@revertStyleChanges">Revert to Default Style</button>
+<button
+  (click)="revert()"
+  title="Revert to Default Style"
+  i18n-title="Saves the css styling changes@@revertStyleChanges"
+  i18n="@@revertStyleChanges"
+>
+  Revert to Default Style
+</button>

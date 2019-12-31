@@ -13,14 +13,13 @@ import { SearchService } from '../../services/search.service';
 export class SearchBoxComponent implements OnInit, OnDestroy {
   searchParameters: SearchParameters;
 
-  @ViewChild('searchBox', {static: false})
+  @ViewChild('searchBox', { static: false })
   searchBox: ElementRef;
 
   freshlyLoaded: boolean;
   private subscriptions: Subscription[];
 
-  constructor(private hotKeyService: HotKeyService,
-    private searchService: SearchService) {
+  constructor(private hotKeyService: HotKeyService, private searchService: SearchService) {
     this.searchParameters = new SearchParameters();
   }
 
@@ -32,8 +31,9 @@ export class SearchBoxComponent implements OnInit, OnDestroy {
     this.subscriptions = [];
     this.freshlyLoaded = true;
     this.subscriptions.push(
-      this.searchService.getSearchParameters().subscribe(searchParameters => 
-        this.searchParameters = searchParameters),
+      this.searchService
+        .getSearchParameters()
+        .subscribe(searchParameters => (this.searchParameters = searchParameters)),
 
       this.hotKeyService.pull().subscribe(hotKey => {
         switch (hotKey) {

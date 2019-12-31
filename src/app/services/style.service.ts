@@ -9,7 +9,6 @@ import { Toast } from '../models/toast.enum';
   providedIn: 'root'
 })
 export class StyleService {
-
   private defaultStyleObject = {
     'background-image': 'none',
     'main-bg-color': 'rgba(244, 244, 244, 1)',
@@ -27,8 +26,7 @@ export class StyleService {
     'text-align': 'left'
   };
 
-  constructor(private storage: StorageService, private toastService: ToastService) {
-   }
+  constructor(private storage: StorageService, private toastService: ToastService) { }
 
   getStyleObject(): Observable<Style> {
     return of(this.generateStyle());
@@ -41,7 +39,11 @@ export class StyleService {
       }
     }
 
-    this.storage.saveStyleObject(style, () => this.toastService.push(Toast.SAVE_SUCCEEDED), () => this.toastService.push(Toast.SAVE_FAILED));    
+    this.storage.saveStyleObject(
+      style,
+      () => this.toastService.push(Toast.SAVE_SUCCEEDED),
+      () => this.toastService.push(Toast.SAVE_FAILED)
+    );
   }
 
   revert(): Style {
@@ -51,7 +53,6 @@ export class StyleService {
 
   loadStyle(): void {
     this.saveStyleObject(this.storage.getStyleObject(this.defaultStyleObject)); //start off with saved styles
-  
   }
 
   /**
@@ -62,6 +63,6 @@ export class StyleService {
    * If it doesn't, then the default value is used.
    */
   private generateStyle(): Style {
-    return {...this.defaultStyleObject, ...this.storage.getStyleObject(this.defaultStyleObject)};
+    return { ...this.defaultStyleObject, ...this.storage.getStyleObject(this.defaultStyleObject) };
   }
 }

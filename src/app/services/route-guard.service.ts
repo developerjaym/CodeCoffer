@@ -7,12 +7,11 @@ import { Mode } from '../models/mode.enum';
   providedIn: 'root'
 })
 export class RouteGuardService {
-
-  constructor(private settingsService: SettingsService) { }
+  constructor(private settingsService: SettingsService) {}
 
   canActivate(route: ActivatedRouteSnapshot): boolean {
     this.settingsService.setFrom(route.params);
-    if(this.settingsService.getMode() === Mode.EDITOR) {
+    if (this.settingsService.getMode() === Mode.EDITOR) {
       //TODO do real auth
       return true;
     }

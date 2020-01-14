@@ -8,16 +8,16 @@ import { Toast } from '../models/toast.enum';
 })
 export class ToastService {
   toastSubject: BehaviorSubject<Toast>;
-  constructor() { 
+  constructor() {
     this.toastSubject = new BehaviorSubject<Toast>(Toast.WELCOME);
   }
   push(message: Toast): void {
     this.toastSubject.next(message);
   }
   pull(): Observable<Toast> {
-    return  this.toastSubject.asObservable().pipe(
+    return this.toastSubject.asObservable().pipe(
       distinctUntilChanged(),
-      tap((value) => this.pushEmpty(value))
+      tap(value => this.pushEmpty(value))
     );
   }
   private pushEmpty(message: Toast): void {

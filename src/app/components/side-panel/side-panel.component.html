@@ -1,12 +1,51 @@
 <div class="panel">
-   <app-title></app-title>
-   <button *ngIf="isEditable" (click)="save()" i18n-title="Save all snippets to local storage@@saveAllSnippets" i18n="@@saveAllSnippets" title="Save">Save</button>
-   <button *ngIf="isEditable" (click)="load()" i18n-title="Go to import page and import more snippets@@importSnippets" i18n="@@importSnippets" title="Import">Import</button>
-   <button (click)="export()" i18n-title="Go to export page and export all snippets@@exportAllSnippets" i18n="@@exportAllSnippets" title="Export">Export</button>
-   <button *ngIf="isEditable" (click)="style()" i18n-title="Go to style page and change the app's style@@styleApp" i18n="@@styleApp" title="Set Style">Set Style</button>
-   <button *ngIf="isEditable" (click)="about()" i18n-title="Go to about page and learn more about the app@@viewAbout" i18n="@@viewAbout" title="About">About</button>
-   <app-search-box></app-search-box>
-   <app-table-of-contents *ngIf="!isEditable"></app-table-of-contents>
-   <app-quick-links *ngIf="isEditable"></app-quick-links>
-   <app-toast *ngIf="isEditable"></app-toast>
+  <app-title></app-title>
+  <button
+    *ngIf="isEditable"
+    (click)="save()"
+    i18n-title="Save all snippets to local storage@@saveAllSnippets"
+    i18n="@@saveAllSnippets"
+    title="Save"
+  >
+    Save
+  </button>
+  <button
+    *ngIf="isEditable"
+    (click)="load()"
+    i18n-title="Go to import page and import more snippets@@importSnippets"
+    i18n="@@importSnippets"
+    title="Import"
+  >
+    Import
+  </button>
+  <button
+    (click)="export()"
+    i18n-title="Go to export page and export all snippets@@exportAllSnippets"
+    i18n="@@exportAllSnippets"
+    title="Export"
+  >
+    Export
+  </button>
+  <button
+    *ngIf="isEditable"
+    (click)="style()"
+    i18n-title="Go to style page and change the app's style@@styleApp"
+    i18n="@@styleApp"
+    title="Set Style"
+  >
+    Set Style
+  </button>
+  <button
+    *ngIf="isEditable"
+    (click)="about()"
+    i18n-title="Go to about page and learn more about the app@@viewAbout"
+    i18n="@@viewAbout"
+    title="About"
+  >
+    About
+  </button>
+  <app-search-box></app-search-box>
+  <app-table-of-contents *ngIf="!isEditable"></app-table-of-contents>
+  <app-quick-links *ngIf="isEditable"></app-quick-links>
+  <app-toast *ngIf="isEditable"></app-toast>
 </div>

@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Snippet } from '../../models/snippet';
 import { SnippetService } from '../../services/snippet.service';
-import { Router } from '@angular/router';
 import { CopyService } from '../../services/copy.service';
 import { UndoService } from '../../services/undo.service';
 import { Supplement } from '../../models/supplement';
@@ -11,35 +10,55 @@ import { ToastService } from '../../services/toast.service';
 import { Toast } from '../../models/toast.enum';
 import { Subscription } from 'rxjs';
 import { RoutingService } from '../../services/routing.service';
+import { Language } from '../../models/language.enum';
+
 @Component({
   selector: 'app-snippet-box',
   templateUrl: './snippet-box.component.html',
   styleUrls: ['./snippet-box.component.css']
 })
 export class SnippetBoxComponent implements OnInit, OnDestroy {
-
   @Input() snippet: Snippet;
 
   private subscriptions: Subscription[];
+  public supportedLanguages = Object.keys(Language);
 
-  constructor(private copyService: CopyService,
+  constructor(
+    private copyService: CopyService,
     private snippetService: SnippetService,
     private undoService: UndoService,
     private toastService: ToastService,
-    private routingService: RoutingService) {
+    private routingService: RoutingService
+  ) {
     this.subscriptions = [];
   }
 
   ngOnInit() {
-    this.snippet.supplements = this.snippet.supplements || [];
+    this.snippet.supplements = this.snippet.supplements || [new Supplement()];
+    console.log(this.snippet);
+
     this.subscriptions.push(
-      this.undoService.pull().pipe(
-        filter(message => message.type === "supplement"),
-        filter(message => message.snippet.id === this.snippet.id),
-        tap(message => this.addSupplement(message.supplementIndex, message.supplement)),
-        tap(message => this.snippetService.onSnippetSelected(this.snippet.id))
-      ).subscribe(success => this.toastService.push(Toast.SNIPPET_RESTORED))
+      this.undoService
+        .pull()
+        .pipe(
+          filter(message => message.type === 'supplement'),
+          filter(message => message.snippet.id === this.snippet.id),
+          tap(message => this.addSupplement(message.supplementIndex, message.supplement)),
+          tap(message => this.snippetService.onSnippetSelected(this.snippet.id))
+        )
+        .subscribe(success => {
+          this.toastService.push(Toast.SNIPPET_RESTORED);
+        })
     );
+  }
+
+  getLang(langKey: string) {
+    return Language[langKey];
+  }
+
+  setSupplementLanguage(languageKey: string, supplement: Supplement) {
+    let key = Object.keys(Language).filter(x => Language[x] == languageKey.split(': ')[1])[0];
+    supplement.language = Language[key];
   }
 
   ngOnDestroy() {
@@ -48,10 +67,6 @@ export class SnippetBoxComponent implements OnInit, OnDestroy {
 
   delete() {
     this.snippetService.deleteSnippet(this.snippet.id);
-  }
-
-  copy() {
-    this.copyService.copy(this.snippet.code);
   }
 
   export() {
@@ -71,10 +86,11 @@ export class SnippetBoxComponent implements OnInit, OnDestroy {
   }
 
   unsupplement(index: number) {
-    this.snippet.supplements.splice(index, 1) //offset 1 because the first index of allSnippets is the main code/notes pair
+    this.snippet.supplements
+      .splice(index, 1) //offset 1 because the first index of allSnippets is the main code/notes pair
       .map(supplement => {
         const undoMessage = new UndoMessage();
-        undoMessage.type = "supplement";
+        undoMessage.type = 'supplement';
         undoMessage.snippet = this.snippet;
         undoMessage.supplement = supplement;
         undoMessage.supplementIndex = index;
@@ -83,7 +99,5 @@ export class SnippetBoxComponent implements OnInit, OnDestroy {
       .forEach((undoMessage: UndoMessage) => this.undoService.push(undoMessage));
   }
 
-  clone() {
-
-  }
+  clone() {}
 }

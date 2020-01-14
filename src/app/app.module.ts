@@ -49,37 +49,88 @@ const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'export/:snippetId', component: ExportComponent, canActivate: [ExportGuardService, RouteGuardService] },
-  { path: 'export', component: ExportComponent, canActivate: [RouteGuardService]  },
+  { path: 'export', component: ExportComponent, canActivate: [RouteGuardService] },
   { path: 'import/:conversationId', component: ImportComponent, canActivate: [ImportGuardService, RouteGuardService] },
-  { path: 'import', component: ImportComponent, canActivate: [RouteGuardService]  },
-  { path: 'style', component: StyleEditorComponent, canActivate: [RouteGuardService]  },
+  { path: 'import', component: ImportComponent, canActivate: [RouteGuardService] },
+  { path: 'style', component: StyleEditorComponent, canActivate: [RouteGuardService] },
   { path: 'export/:snippetId', component: ExportComponent, canActivate: [ExportGuardService, RouteGuardService] },
   { path: 'contents', component: TableOfContentsComponent }, //<-- for debugging only
-  
+
   { path: 'home/:user/:mode/:locale', component: HomeComponent, canActivate: [RouteGuardService] },
 
-  { path: 'export/:snippetId/:user/:mode/:locale', component: ExportComponent, canActivate: [ExportGuardService, RouteGuardService] },
-  { path: 'export/:user/:mode/:locale', component: ExportComponent, canActivate: [RouteGuardService]  },
-  { path: 'import/:conversationId/:user/:mode/:locale', component: ImportComponent, canActivate: [ImportGuardService, RouteGuardService] },
-  { path: 'import/:user/:mode/:locale', component: ImportComponent, canActivate: [RouteGuardService]  },
-  { path: 'style/:user/:mode/:locale', component: StyleEditorComponent, canActivate: [RouteGuardService]  },
-  
+  {
+    path: 'export/:snippetId/:user/:mode/:locale',
+    component: ExportComponent,
+    canActivate: [ExportGuardService, RouteGuardService]
+  },
+  { path: 'export/:user/:mode/:locale', component: ExportComponent, canActivate: [RouteGuardService] },
+  {
+    path: 'import/:conversationId/:user/:mode/:locale',
+    component: ImportComponent,
+    canActivate: [ImportGuardService, RouteGuardService]
+  },
+  { path: 'import/:user/:mode/:locale', component: ImportComponent, canActivate: [RouteGuardService] },
+  { path: 'style/:user/:mode/:locale', component: StyleEditorComponent, canActivate: [RouteGuardService] },
+
   { path: '**', redirectTo: 'home' }
 ];
 
 @NgModule({
-  declarations: [AppComponent, AboutComponent, ExportComponent, ImportComponent, HomeComponent, SidePanelComponent, 
-    MiddlePanelComponent, SearchBoxComponent, SnippetBoxComponent, HomeComponent, FiledragDirective, StrikeThroughBoxComponent,
-     CodeEditorComponent, FocusDirective, StyleEditorComponent, ToastComponent, TitleComponent, QuickLinksComponent, LanguageSelectorComponent, SvgButtonComponent, ExpandingTextareaComponent, TagComponent, EditableTagsAreaComponent, TableOfContentsComponent],
-  imports: [BrowserModule, CommonModule, FormsModule, HttpClientModule, RouterModule.forRoot(
-    appRoutes,
-    {
+  declarations: [
+    AppComponent,
+    AboutComponent,
+    ExportComponent,
+    ImportComponent,
+    HomeComponent,
+    SidePanelComponent,
+    MiddlePanelComponent,
+    SearchBoxComponent,
+    SnippetBoxComponent,
+    HomeComponent,
+    FiledragDirective,
+    StrikeThroughBoxComponent,
+    CodeEditorComponent,
+    FocusDirective,
+    StyleEditorComponent,
+    ToastComponent,
+    TitleComponent,
+    QuickLinksComponent,
+    LanguageSelectorComponent,
+    SvgButtonComponent,
+    ExpandingTextareaComponent,
+    TagComponent,
+    EditableTagsAreaComponent,
+    TableOfContentsComponent
+  ],
+  imports: [
+    BrowserModule,
+    CommonModule,
+    FormsModule,
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes, {
       enableTracing: false, // <-- debugging purposes only
       useHash: true
-    }
-  ),
+    })
   ],
-  providers: [CopyService, DownloadService, ExportGuardService, HotKeyService, ImportGuardService, RouteGuardService, ParseService, RemoteImportService, RoutingService, SearchService, SettingsService, SnippetService, SortService, StorageService, StyleService, SvgService, ToastService],
+  providers: [
+    CopyService,
+    DownloadService,
+    ExportGuardService,
+    HotKeyService,
+    ImportGuardService,
+    RouteGuardService,
+    ParseService,
+    RemoteImportService,
+    RoutingService,
+    SearchService,
+    SettingsService,
+    SnippetService,
+    SortService,
+    StorageService,
+    StyleService,
+    SvgService,
+    ToastService
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

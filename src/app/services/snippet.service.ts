@@ -12,27 +12,34 @@ import { UndoMessage } from '../models/undo-message';
 @Injectable()
 export class SnippetService {
   private snippets: Snippet[];
-  
+
   private snippetsSubject: BehaviorSubject<Snippet[]>;
   private pinnedSnippetsSubject: BehaviorSubject<Snippet[]>;
-  
+
   private timerId: any;
   private readonly SAVE_INTERVAL = 200000;
   private readonly DEFAULT_PAGE_SIZE = 12;
 
-  constructor(private undoService: UndoService, private sortService: SortService, private storage: StorageService, private toastService: ToastService) {
+  constructor(
+    private undoService: UndoService,
+    private sortService: SortService,
+    private storage: StorageService,
+    private toastService: ToastService
+  ) {
     this.snippets = this.storage.getSnippets().map(snippet => Snippet.createValidSnippet(snippet));
     this.sortService.sortSnippets(this.snippets);
     this.snippetsSubject = new BehaviorSubject<Snippet[]>(this.sliceSnippets());
     this.pinnedSnippetsSubject = new BehaviorSubject<Snippet[]>(this.determinePinnedSnippets());
-    
+
     this.timerId = setInterval(() => this.saveSnippets(), this.SAVE_INTERVAL);
-    this.undoService.pull().pipe(
-      filter(message => message.type === "snippet"),
-      tap(message => this.undoDelete(message.snippet))
-    ).subscribe(success => this.toastService.push(Toast.SNIPPET_RESTORED));
+    this.undoService
+      .pull()
+      .pipe(
+        filter(message => message.type === 'snippet'),
+        tap(message => this.undoDelete(message.snippet))
+      )
+      .subscribe(success => this.toastService.push(Toast.SNIPPET_RESTORED));
   }
-  
 
   getPinnedSnippets(): Observable<Snippet[]> {
     return this.pinnedSnippetsSubject.asObservable();
@@ -100,13 +107,14 @@ export class SnippetService {
 
   deleteSnippet(snippetId: string): void {
     this.snippets
-    .filter(snippet => snippet.id === snippetId)
-    .map(snippet => {
-      return {
-      type: "snippet",
-      snippet: snippet
-    }})
-    .forEach((message: UndoMessage) => this.undoService.push(message));
+      .filter(snippet => snippet.id === snippetId)
+      .map(snippet => {
+        return {
+          type: 'snippet',
+          snippet: snippet
+        };
+      })
+      .forEach((message: UndoMessage) => this.undoService.push(message));
     this.storage.removeSnippet(snippetId);
     this.snippets = this.snippets.filter(snippet => snippet.id !== snippetId);
     this.snippetsSubject.next(this.sliceSnippets());
@@ -121,8 +129,11 @@ export class SnippetService {
   }
 
   saveSnippets(): void {
-    this.storage.saveSnippets(this.snippets, () => this.toastService.push(Toast.SAVE_SUCCEEDED),
-      () => this.toastService.push(Toast.SAVE_FAILED));
+    this.storage.saveSnippets(
+      this.snippets,
+      () => this.toastService.push(Toast.SAVE_SUCCEEDED),
+      () => this.toastService.push(Toast.SAVE_FAILED)
+    );
   }
 
   import(imported: Snippet | Array<Snippet>): void {
@@ -150,7 +161,7 @@ export class SnippetService {
   }
 
   private undoDelete(snippet: Snippet): void {
-      this.addSnippet(snippet);
+    this.addSnippet(snippet);
   }
 
   private sliceSnippets(): Snippet[] {
@@ -162,6 +173,6 @@ export class SnippetService {
   }
 
   private determinePinnedSnippets(): Snippet[] {
-    return this.snippets.filter(snippet => snippet.pinned)
+    return this.snippets.filter(snippet => snippet.pinned);
   }
 }

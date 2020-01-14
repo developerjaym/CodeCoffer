@@ -1,9 +1,15 @@
-export class Supplement {
-    code: string;
-    notes: string;
+import { Language } from './language.enum';
 
-    constructor(code: string = '', notes: string = '') {
-        this.code = code;
-        this.notes = notes;
-    }
+export class Supplement {
+  name: string;
+  language: Language;
+  code: string;
+  notes: string;
+
+  constructor(name: string = '', language: Language = Language.TEXT, code: string = '', notes: string = '') {
+    this.name = name;
+    this.language = language;
+    this.code = code;
+    this.notes = notes;
+  }
 }

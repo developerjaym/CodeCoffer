@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { SnippetService } from '../../services/snippet.service';
 import { ParseService } from '../../services/parse.service';
 import { ToastService } from '../../services/toast.service';
@@ -12,18 +11,19 @@ import { RoutingService } from '../../services/routing.service';
   templateUrl: './import.component.html',
   styleUrls: ['./import.component.css']
 })
-export class ImportComponent implements OnInit{
-
+export class ImportComponent implements OnInit {
   importedJson: string = '';
   importedXml: string = '';
 
   importedSnippets: string = '';
 
-  constructor(private parser: ParseService, 
-    private service: SnippetService, 
-    private remoteImport: RemoteImportService, 
-    private toastService: ToastService, 
-    private routingService: RoutingService) { }
+  constructor(
+    private parser: ParseService,
+    private service: SnippetService,
+    private remoteImport: RemoteImportService,
+    private toastService: ToastService,
+    private routingService: RoutingService
+  ) {}
 
   ngOnInit() {
     this.importedSnippets = this.remoteImport.getTextToImport();
@@ -32,11 +32,9 @@ export class ImportComponent implements OnInit{
   save(): void {
     if (this.importedSnippets.startsWith('<')) {
       this.saveXml(this.importedSnippets);
-    }
-    else if (this.importedSnippets.startsWith('[') || this.importedSnippets.startsWith('{')) {
+    } else if (this.importedSnippets.startsWith('[') || this.importedSnippets.startsWith('{')) {
       this.saveJson(this.importedSnippets);
-    }
-    else if (this.importedSnippets.length > 0) {
+    } else if (this.importedSnippets.length > 0) {
       this.toastService.push(Toast.IMPORT_FAILED);
     }
     this.back();

@@ -10,10 +10,9 @@ import { SnippetService } from './snippet.service';
   providedIn: 'root'
 })
 export class SearchService {
-
   private searchSubject: BehaviorSubject<SearchParameters>;
 
-  constructor(private snippetService: SnippetService, private sortService: SortService) { 
+  constructor(private snippetService: SnippetService, private sortService: SortService) {
     this.searchSubject = new BehaviorSubject<SearchParameters>(new SearchParameters());
   }
 
@@ -28,30 +27,39 @@ export class SearchService {
     const snippets = this.snippetService.getAllSnippets();
     const query = searchParams.query.trim();
     const searchResultsMap: Map<Snippet, number> = new Map<Snippet, number>();
-    const terms: string[] = query.toLocaleUpperCase().split(',').map(str => str.trim());
-    terms.filter(term => term.length).forEach(term =>
-      snippets.forEach(snippet => {
-        let score = searchResultsMap.has(snippet) ? searchResultsMap.get(snippet) : 0;
-        if (searchParams.title && snippet.title.toLocaleUpperCase().includes(term)) {
-          score++;
-        } if (searchParams.tags && this.isInTags(term, snippet)) {
-          score++;
-        } if (searchParams.code && this.isInCode(term, snippet)) {
-          score++;
-        } if (searchParams.notes && this.isInNotes(term, snippet)) {
-          score++;
-        }
-        searchResultsMap.set(snippet, score);
-      }));
+    const terms: string[] = query
+      .toLocaleUpperCase()
+      .split(',')
+      .map(str => str.trim());
+    terms
+      .filter(term => term.length)
+      .forEach(term =>
+        snippets.forEach(snippet => {
+          let score = searchResultsMap.has(snippet) ? searchResultsMap.get(snippet) : 0;
+          if (searchParams.title && snippet.title.toLocaleUpperCase().includes(term)) {
+            score++;
+          }
+          if (searchParams.tags && this.isInTags(term, snippet)) {
+            score++;
+          }
+          if (searchParams.code && this.isInCode(term, snippet)) {
+            score++;
+          }
+          if (searchParams.notes && this.isInNotes(term, snippet)) {
+            score++;
+          }
+          searchResultsMap.set(snippet, score);
+        })
+      );
 
     snippets.forEach(snippet => {
       const hasPositiveSearchScore = searchResultsMap.has(snippet) && searchResultsMap.get(snippet) > 0;
       snippet.showing = hasPositiveSearchScore || query.length === 0;
-    })
+    });
     if (query.length > 0) {
-      snippets.sort((a, b) => a.showing && b.showing ?
-        searchResultsMap.get(b) - searchResultsMap.get(a)
-        : +b.showing - +a.showing);
+      snippets.sort((a, b) =>
+        a.showing && b.showing ? searchResultsMap.get(b) - searchResultsMap.get(a) : +b.showing - +a.showing
+      );
     } else {
       this.sortService.sortSnippets(snippets);
     }
@@ -59,12 +67,12 @@ export class SearchService {
   }
 
   private isInCode(term: string, snippet: Snippet): boolean {
-    return snippet.code.toLocaleUpperCase().includes(term) || snippet.supplements.map(supplement => supplement.code.toLocaleUpperCase())
-      .some(code => code.includes(term));
+    return snippet.supplements.map(supplement => supplement.code.toLocaleUpperCase()).some(code => code.includes(term));
   }
 
   private isInNotes(term: string, snippet: Snippet): boolean {
-    return snippet.notes.toLocaleUpperCase().includes(term) || snippet.supplements.map(supplement => supplement.notes.toLocaleUpperCase())
+    return snippet.supplements
+      .map(supplement => supplement.notes.toLocaleUpperCase())
       .some(notes => notes.includes(term));
   }
 

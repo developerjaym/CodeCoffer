@@ -12,15 +12,16 @@ import { RoutingService } from '../../services/routing.service';
   styleUrls: ['./side-panel.component.css']
 })
 export class SidePanelComponent implements OnInit, OnDestroy {
-
   isEditable: boolean = true;
 
   private subscriptions: Subscription[];
 
-  constructor(private hotKeyService: HotKeyService, 
-    private snippetService: SnippetService, 
-    private routingService: RoutingService, 
-    private settingsService: SettingsService) { }
+  constructor(
+    private hotKeyService: HotKeyService,
+    private snippetService: SnippetService,
+    private routingService: RoutingService,
+    private settingsService: SettingsService
+  ) {}
 
   ngOnDestroy() {
     this.subscriptions.forEach(subscription => subscription.unsubscribe());
@@ -57,9 +58,7 @@ export class SidePanelComponent implements OnInit, OnDestroy {
     this.snippetService.saveSnippets();
   }
 
-  download(): void {
-
-  }
+  download(): void {}
 
   style(): void {
     this.routingService.goToStyle();

@@ -8,19 +8,19 @@ import { StyleService } from './services/style.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'CodeCoffer';
 
   constructor(private router: Router, private service: SnippetService, private styleService: StyleService) {}
 
   ngOnInit() {
     this.styleService.loadStyle();
-    this.router.events.subscribe((evt) => {
+    this.router.events.subscribe(evt => {
       if (!(evt instanceof NavigationEnd)) {
-          return;
+        return;
       }
       window.scrollTo(0, 0);
-  });
+    });
   }
 
   doUnload(): void {

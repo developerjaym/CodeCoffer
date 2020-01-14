@@ -5,15 +5,15 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   selector: 'app-strike-through-box',
   templateUrl: './strike-through-box.component.html',
   styleUrls: ['./strike-through-box.component.css'],
-  providers: [{
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => StrikeThroughBoxComponent),
-    multi: true
-  }]
-}
-)
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => StrikeThroughBoxComponent),
+      multi: true
+    }
+  ]
+})
 export class StrikeThroughBoxComponent implements OnInit, ControlValueAccessor {
-
   @Input('label')
   label: string = '';
 
@@ -21,10 +21,9 @@ export class StrikeThroughBoxComponent implements OnInit, ControlValueAccessor {
 
   onChange = (v: boolean) => {};
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   writeValue(value) {
     if (this.value !== value && this.isDefined(value) && this.isDefined(this.value)) {
@@ -33,11 +32,11 @@ export class StrikeThroughBoxComponent implements OnInit, ControlValueAccessor {
     }
   }
 
-  registerOnChange(fn) { 
-    this.onChange = fn; 
+  registerOnChange(fn) {
+    this.onChange = fn;
   }
 
-  registerOnTouched(fn) { }
+  registerOnTouched(fn) {}
 
   private isDefined(v: any) {
     return v !== undefined && v !== null;

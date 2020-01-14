@@ -9,10 +9,8 @@ import { Snippet } from '../models/snippet';
   selector: '[appFiledrag]'
 })
 export class FiledragDirective {
-
   dragHappening = false;
-  constructor(private parser: ParseService, private service: SnippetService, private toastService: ToastService) {
-  }
+  constructor(private parser: ParseService, private service: SnippetService, private toastService: ToastService) {}
 
   @HostListener('drop', ['$event'])
   drop(ev) {
@@ -59,20 +57,18 @@ export class FiledragDirective {
         //import CodeCoffer xml (from the old desktop app)
         const newSnippets: Snippet[] = this.parser.parse(read.result.toString());
         newSnippets.forEach(snippet => this.service.addSnippet(snippet));
-      }
-      else if (droppedFile.name.toLocaleLowerCase().endsWith('.jcoff')) {
+      } else if (droppedFile.name.toLocaleLowerCase().endsWith('.jcoff')) {
         //import CodeCoffer JSON
         const newSnippets: Snippet[] = JSON.parse(read.result.toString());
         this.service.import(newSnippets);
-      }
-      else {
+      } else {
         //import lone snippet
         const newSnippet: Snippet = new Snippet();
         newSnippet.title = droppedFile.name;
         newSnippet.tags = droppedFile.name;
-        newSnippet.code = read.result.toString();
+        newSnippet.supplements[0].code = read.result.toString();
         this.service.addSnippet(newSnippet);
       }
-    }
+    };
   }
 }

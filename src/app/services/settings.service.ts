@@ -10,7 +10,7 @@ export class SettingsService {
   private locale: string;
   private user: string;
 
-  constructor() { }
+  constructor() {}
 
   setFrom(params: Params): void {
     this.mode = SettingsService.getMode(params);
@@ -31,7 +31,7 @@ export class SettingsService {
   }
 
   isEditable(): boolean {
-    return this.mode === Mode.PERSONAL || this.mode === Mode.EDITOR; 
+    return this.mode === Mode.PERSONAL || this.mode === Mode.EDITOR;
   }
 
   static getMode(params: Params): Mode {
@@ -39,7 +39,7 @@ export class SettingsService {
       case Mode.DISPLAY:
         return Mode.DISPLAY;
       case Mode.EDITOR:
-        return Mode.EDITOR
+        return Mode.EDITOR;
       default:
         return Mode.PERSONAL;
     }

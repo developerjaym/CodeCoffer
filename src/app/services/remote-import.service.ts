@@ -10,9 +10,8 @@ import { Snippet } from '../models/snippet';
   providedIn: 'root'
 })
 export class RemoteImportService {
-
   private textToImport: string;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   displayImport(snippetsToImport: Snippet | Snippet[]): void {
     this.textToImport = JSON.stringify(snippetsToImport, null, 2);
@@ -25,11 +24,10 @@ export class RemoteImportService {
   }
 
   exportToServer(text: string): Observable<string> {
-    const path = environment.url + this.determineLanguage() + "/#/import";
-    return this.http.post<ChatMessage>(environment.serverUrl + "conversations/create", this.createMessage(text))
-      .pipe(
-        map(message => path + "/" + message.conversationId)
-      );
+    const path = environment.url + this.determineLanguage() + '/#/import';
+    return this.http
+      .post<ChatMessage>(environment.serverUrl + 'conversations/create', this.createMessage(text))
+      .pipe(map(message => path + '/' + message.conversationId));
   }
 
   private createMessage(text: string): ChatMessage {
@@ -37,11 +35,11 @@ export class RemoteImportService {
       message: {
         content: JSON.parse(text)
       }
-    }
+    };
   }
 
   private determineLanguage(): string {
-    const languageCode = window.location.pathname.split("/").reverse()[1] || "en"; 
+    const languageCode = window.location.pathname.split('/').reverse()[1] || 'en';
     return languageCode;
   }
 }

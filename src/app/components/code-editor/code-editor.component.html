@@ -1,8 +1,24 @@
 <div class="code-editor">
-  <pre class="code line-number-area" aria-hidden="true" #lineNumbers>{{lines}}</pre>
-  <textarea aria-label="Code" i18n-aria-label="@@code" class="code code-area" [title]="title" [(ngModel)]="value"
-    (ngModelChange)="writeValue(value)" #codeEditor wrap="off" spellcheck="false"></textarea>
-  <app-svg-button src="copy" (click)="copy()" class="small-button svg-button" 
-    title="Copy Code to Clipboard" i18n-title="Copy this one snippet's code to the clipboard@@copyThisOneSnippetsCode"
-    label="Copy Code to Clipboard" i18n-label="@@copyThisOneSnippetsCode"></app-svg-button>
+  <pre class="code line-number-area" aria-hidden="true" #lineNumbers>{{ lines }}</pre>
+  <textarea
+    aria-label="Code"
+    i18n-aria-label="@@code"
+    class="code code-area"
+    placeholder="Code"
+    [title]="title"
+    [(ngModel)]="value"
+    (ngModelChange)="writeValue(value)"
+    #codeEditor
+    wrap="off"
+    spellcheck="false"
+  ></textarea>
+  <app-svg-button
+    src="copy"
+    (click)="copy()"
+    class="small-button svg-button"
+    title="Copy Code to Clipboard"
+    i18n-title="Copy this one snippet's code to the clipboard@@copyThisOneSnippetsCode"
+    label="Copy Code to Clipboard"
+    i18n-label="@@copyThisOneSnippetsCode"
+  ></app-svg-button>
 </div>

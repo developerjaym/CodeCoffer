@@ -65,9 +65,10 @@ const appRoutes: Routes = [
   imports: [BrowserModule, CommonModule, FormsModule, HttpClientModule, RouterModule.forRoot(
     appRoutes,
     {
-      enableTracing: false, // <-- debugging purposes only
-      useHash: true
-    }
+    enableTracing: false,
+    useHash: true,
+    relativeLinkResolution: 'legacy'
+}
   ),
   ],
   providers: [CopyService, DownloadService, ExportGuardService, HotKeyService, ImportGuardService, ParseService, RemoteImportService, RoutingService, SearchService, SettingsService, SnippetService, SortService, StorageService, StyleService, SvgService, ToastService],

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ExpandingTextareaComponent } from './expanding-textarea.component';
 
@@ -6,7 +6,7 @@ describe('ExpandingTextareaComponent', () => {
   let component: ExpandingTextareaComponent;
   let fixture: ComponentFixture<ExpandingTextareaComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ExpandingTextareaComponent ]
     })

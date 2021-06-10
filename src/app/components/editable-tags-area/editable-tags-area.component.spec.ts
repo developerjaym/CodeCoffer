@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { EditableTagsAreaComponent } from './editable-tags-area.component';
 
@@ -6,7 +6,7 @@ describe('EditableTagsAreaComponent', () => {
   let component: EditableTagsAreaComponent;
   let fixture: ComponentFixture<EditableTagsAreaComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ EditableTagsAreaComponent ]
     })

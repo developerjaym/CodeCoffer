@@ -5,7 +5,13 @@
     "callable-types": true,
     "class-name": true,
     "forin": true,
-    "import-blacklist": [true, "rxjs/Rx"],
+    "import-blacklist": [
+      true,
+      "rxjs/Rx"
+    ],
+    "deprecation": {
+      "severity": "warning"
+    },
     "interface-over-type-literal": true,
     "label-position": true,
     "member-access": false,
@@ -33,7 +39,6 @@
     "no-switch-case-fall-through": true,
     "no-unnecessary-initializer": true,
     "no-unused-expression": true,
-    "no-use-before-declare": true,
     "no-var-keyword": true,
     "object-literal-sort-keys": false,
     "prefer-const": true,

@@ -8,7 +8,7 @@ import { Toast } from '../models/toast.enum';
 })
 export class ToastService {
   toastSubject: BehaviorSubject<Toast>;
-  constructor() { 
+  constructor() {
     this.toastSubject = new BehaviorSubject<Toast>(Toast.WELCOME);
   }
   push(message: Toast): void {

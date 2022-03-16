@@ -18,9 +18,9 @@ export class StyleService {
     'secondary-fg-color': 'rgb(9, 9, 9)',
     'accent-bg-color': 'rgb(35, 135, 66)',
     'accent-fg-color': 'rgb(244, 244, 244)',
-    'main-font-size': '16px',
-    'code-font-size': '14px',
-    'code-line-height': '16px',
+    'main-font-size': '1.75vh',
+    'code-font-size': '1.5vh',
+    'code-line-height': '1.75vh',
     'direction': 'ltr',
     'flex-row-direction': 'row',
     'flex-align': 'flex-end',
@@ -41,7 +41,7 @@ export class StyleService {
       }
     }
 
-    this.storage.saveStyleObject(style, () => this.toastService.push(Toast.SAVE_SUCCEEDED), () => this.toastService.push(Toast.SAVE_FAILED));    
+    this.storage.saveStyleObject(style, () => this.toastService.push(Toast.SAVE_SUCCEEDED), () => this.toastService.push(Toast.SAVE_FAILED));
   }
 
   revert(): Style {
@@ -51,7 +51,7 @@ export class StyleService {
 
   loadStyle(): void {
     this.saveStyleObject(this.storage.getStyleObject(this.defaultStyleObject)); //start off with saved styles
-  
+
   }
 
   /**

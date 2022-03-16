@@ -1,24 +1,30 @@
 .home {
   display: flex;
-  align-items: left;
+  flex-direction: row;
+  align-items: flex-start;
   flex-direction: var(--flex-row-direction);
-} 
+}
 
 app-middle-panel {
   display: flex;
   align-items: center;
-  align-content: space-between;
   flex-direction: column;
   flex-grow: 2;
   background-color: var(--main-bg-color);
 }
 app-side-panel {
   display: flex;
-  align-items: left;
+  align-items: flex-start;
   flex-direction: column;
   background-color: var(--secondary-bg-color);
   max-width: 18vw;
   width: 18vw;
   min-width: 18vw;
   height: 100vh;
+}
+
+@media screen and (max-width: 750px) {
+  app-side-panel {
+    display: none;
+  }
 }

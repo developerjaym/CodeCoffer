@@ -16,6 +16,8 @@ export class CodeEditorComponent implements OnInit, ControlValueAccessor {
   @Input('title')
   title: string;
 
+  @Input() disabled = false;
+
   value: string = '';
 
   lines: string;

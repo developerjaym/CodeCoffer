@@ -18,6 +18,8 @@ export class ExpandingTextareaComponent implements ControlValueAccessor {
   @Input('placeholder')
   placeholder: string;
 
+  @Input() disabled = false;
+
   value: string = '';
 
   lines: string;

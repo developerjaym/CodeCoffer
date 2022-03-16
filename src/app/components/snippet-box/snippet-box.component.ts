@@ -20,6 +20,8 @@ export class SnippetBoxComponent implements OnInit, OnDestroy {
 
   @Input() snippet: Snippet;
 
+  @Input() disabled = false;
+
   private subscriptions: Subscription[];
 
   constructor(private copyService: CopyService,

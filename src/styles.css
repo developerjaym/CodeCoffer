@@ -2,19 +2,19 @@
 
 :root {
   /*Only for container backgrounds that should match the page background*/
-  --main-bg-color: rgba(244, 244, 244, 1); 
+  --main-bg-color: rgba(244, 244, 244, 1);
   --main-fg-color: rgb(9, 9, 9);
 
   /*For control and component backgrounds*/
-  --secondary-bg-color: rgb(244, 244, 244); 
+  --secondary-bg-color: rgb(244, 244, 244);
   --secondary-fg-color: rgb(9, 9, 9);
 
   --accent-bg-color: rgb(35, 135, 66);
   --accent-fg-color: rgb(244, 244, 244);
 
-  --main-font-size: 16px;
-  --code-font-size: 14px;
-  --code-line-height: 16px;
+  --main-font-size: 1.75vw;
+  --code-font-size: 1.5vw;
+  --code-line-height: 1.75vw;
 
   --snippet-width: 55vw;
   --snippet-height: 60vh;
@@ -84,7 +84,7 @@ app-svg-button {
   padding: var(--padding-narrow);
 }
 
-app-export, app-import, app-about, app-style-editor {
+app-export, app-import, app-about, app-style-editor, app-import-helper {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -102,7 +102,7 @@ app-snippet-box {
   padding: var(--padding-thick);
   border-radius: var(--border-radius);
   background-color: var(--secondary-bg-color);
-  
+
   border-style: solid;
   border-width: var(--border-width-thick);
   border-color: var(--secondary-fg-color);
@@ -181,6 +181,11 @@ input, textarea, pre {
   transition: background-color 0.2s, color 0.2s;
 }
 
+input.checkbox {
+  width: calc(2 * var(--main-font-size));
+  height: calc(2 * var(--main-font-size));
+}
+
 path {
   fill: var(--secondary-fg-color);
 }
@@ -215,6 +220,11 @@ input:focus, textarea:focus {
   caret-color: var(--accent-fg-color);
   background-color: var(--accent-bg-color);
   color: var(--accent-fg-color);
+}
+
+input:focus::placeholder, textarea:focus::placeholder {
+  color: var(--accent-fg-color);
+  opacity: 0.5;
 }
 
 input:focus::selection, textarea:focus::selection {

@@ -4,14 +4,11 @@
 
 .panel {
     display: flex;
-    align-items: left;
+    align-items: stretch;
     flex-direction: column;
+    row-gap: var(--margin-narrow);
     height: 100%;
-}
-
-.panel * {
-    margin-bottom: var(--margin-narrow);
-    width: 100%;
+    background-color: var(--main-bg-color);
 }
 
 button {

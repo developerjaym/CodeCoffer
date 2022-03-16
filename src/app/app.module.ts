@@ -43,25 +43,24 @@ import { SortService } from './services/sort.service';
 import { SearchService } from './services/search.service';
 import { SettingsService } from './services/settings.service';
 import { RoutingService } from './services/routing.service';
+import { ImportHelperComponent } from './components/import-helper/import-helper.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'export/:snippetId', component: ExportComponent, canActivate: [ExportGuardService] },
   { path: 'export', component: ExportComponent  },
-  { path: 'import/:conversationId', component: ImportComponent, canActivate: [ImportGuardService] },
+  { path: 'import/:conversationId', component: ImportHelperComponent, canActivate: [ImportGuardService] },
   { path: 'import', component: ImportComponent  },
   { path: 'style', component: StyleEditorComponent  },
-  { path: 'export/:snippetId', component: ExportComponent, canActivate: [ExportGuardService] },
   { path: 'contents', component: TableOfContentsComponent }, //<-- for debugging only
-  
   { path: '**', redirectTo: 'home' }
 ];
 
 @NgModule({
-  declarations: [AppComponent, AboutComponent, ExportComponent, ImportComponent, HomeComponent, SidePanelComponent, 
+  declarations: [AppComponent, AboutComponent, ExportComponent, ImportComponent, HomeComponent, SidePanelComponent,
     MiddlePanelComponent, SearchBoxComponent, SnippetBoxComponent, HomeComponent, FiledragDirective, StrikeThroughBoxComponent,
-     CodeEditorComponent, FocusDirective, StyleEditorComponent, ToastComponent, TitleComponent, QuickLinksComponent, LanguageSelectorComponent, SvgButtonComponent, ExpandingTextareaComponent, TagComponent, EditableTagsAreaComponent, TableOfContentsComponent],
+     CodeEditorComponent, FocusDirective, StyleEditorComponent, ToastComponent, TitleComponent, QuickLinksComponent, LanguageSelectorComponent, SvgButtonComponent, ExpandingTextareaComponent, TagComponent, EditableTagsAreaComponent, TableOfContentsComponent, ImportHelperComponent],
   imports: [BrowserModule, CommonModule, FormsModule, HttpClientModule, RouterModule.forRoot(
     appRoutes,
     {

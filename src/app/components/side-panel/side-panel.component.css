@@ -1,40 +1,30 @@
 :focus {
-    border: none;
+  border: none;
 }
 
 .panel {
-    display: flex;
-    align-items: stretch;
-    flex-direction: column;
-    row-gap: var(--margin-narrow);
-    height: 100%;
-    background-color: var(--main-bg-color);
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: stretch;
+  place-content: start;
+  row-gap: var(--margin-narrow);
+  height: 100%;
+  background-color: var(--main-bg-color);
 }
 
 button {
-    border: none;
-    min-height: fit-content;
+  border: none;
+  min-height: fit-content;
 }
 
 app-strike-through-box {
-    margin-top: var(--margin-narrow);
-    margin-bottom: 0;
+  margin-top: var(--margin-narrow);
+  margin-bottom: 0;
 }
-
-app-toast {
-    display: flex;
-    justify-self: var(--flex-align);
-}
-app-search-box, app-quick-links {
-    border: none;
+app-search-box,
+app-quick-links {
+  border: none;
 }
 app-quick-links {
-    flex-grow: 2;
-    overflow: auto;
-    max-width: 18vw;
-}
-
-app-table-of-contents {
-    overflow: auto;
-    max-width: 18vw;
+  overflow: auto;
 }

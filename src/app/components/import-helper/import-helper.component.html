@@ -1,0 +1,32 @@
+<button (click)="back()" title="Return to Snippets" i18n-title="@@returnToSnippets" i18n="@@returnToSnippets">Return to Snippets</button>
+<label for="import-snippets" i18n="@@chooseSnippetsToImport">Choose which snippets you want to import</label>
+<div class="import-snippet-table">
+  <div class="import-snippet-table__row import-snippet-table__row--header sticky">
+    <span class="import-snippet-table__cell import-snippet-table__cell--header">
+
+    </span>
+    <span class="import-snippet-table__cell import-snippet-table__cell--header" i18n="@@title">Title</span>
+    <span class="import-snippet-table__cell import-snippet-table__cell--header" i18n="@@tags">Tags</span>
+    <span class="import-snippet-table__cell import-snippet-table__cell--header  import-snippet-table__cell--action"></span>
+  </div>
+  <div *ngFor="let newSnippet of newSnippets; let i = index" class="import-snippet-table__row">
+    <span class="import-snippet-table__cell">
+      <input type="checkbox" class="checkbox" [(ngModel)]="newSnippet.checked" >
+    </span>
+    <span class="import-snippet-table__cell">{{newSnippet.snippet.title}}</span>
+    <span class="import-snippet-table__cell">{{newSnippet.snippet.tags}}</span>
+    <span class="import-snippet-table__cell import-snippet-table__cell--action">
+
+      <app-svg-button src="expand" *ngIf="!newSnippet.expanded" (click)="newSnippet.expanded = true" class="small-button svg-button"
+      title="Expand Row" i18n-title="Expand Row@@expandRow"
+      label="Expand Row" i18n-label="@@expandRow"></app-svg-button>
+      <app-svg-button src="collapse" *ngIf="newSnippet.expanded" (click)="newSnippet.expanded = false" class="small-button svg-button"
+      title="Collapse Row" i18n-title="Collapse Row@@collapseRow"
+      label="Collapse Row" i18n-label="@@collapseRow"></app-svg-button>
+    </span>
+    <app-snippet-box [snippet]="newSnippet.snippet" [disabled]="true" class="import-snippet-table__expansion" *ngIf="newSnippet.expanded"></app-snippet-box>
+  </div>
+</div>
+<button (click)="save()" title="Import and Return to Snippets"
+i18n-title="Import the snippets pasted above and return to the main screen with the list of snippets@@importAndReturn"
+i18n="@@importAndReturn" appFocus>Import and Return to Snippets</button>

@@ -3,4 +3,9 @@
     color: var(--accent-bg-color);
     font-weight: bold;
     width: 100%;
+
+    border-color: var(--accent-bg-color);
+    border-width: var(--border-width-thin);
+    border-style: solid;
+    border-radius: var(--border-radius);
 }

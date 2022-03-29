@@ -1,30 +1,35 @@
 .home {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  flex-direction: var(--flex-row-direction);
+  display: grid;
+  grid-template-areas: 'side middle';
+  grid-template-columns: 1fr 8fr;
 }
 
 app-middle-panel {
+  grid-area: middle;
+
   display: flex;
   align-items: center;
   flex-direction: column;
-  flex-grow: 2;
   background-color: var(--main-bg-color);
 }
 app-side-panel {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  background-color: var(--secondary-bg-color);
-  max-width: 18vw;
-  width: 18vw;
-  min-width: 18vw;
-  height: 100vh;
+  grid-area: side;
+  background-color: var(--main-bg-color);
+}
+
+app-toast {
+  grid-area: middle;
+  place-self: end;
+  align-self: start;
+  z-index: 2;
 }
 
 @media screen and (max-width: 750px) {
   app-side-panel {
     display: none;
+  }
+  .home {
+    grid-template-areas: 'side middle';
+    grid-template-columns: 0 8fr;
   }
 }

@@ -11,6 +11,9 @@ app-middle-panel {
   align-items: center;
   flex-direction: column;
   background-color: var(--main-bg-color);
+
+  overflow-y: scroll;
+  max-height: 100vh;
 }
 app-side-panel {
   grid-area: side;

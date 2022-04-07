@@ -1,0 +1,8 @@
+app-toast {
+  z-index: 2;
+
+  top: 0;
+  position: fixed;
+
+  margin-top: var(--margin-thick);
+}

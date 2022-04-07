@@ -35,12 +35,7 @@ export class StyleService {
   }
 
   saveStyleObject(style: Style): void {
-    for (const key in style) {
-      if (style[key] !== '') {
-        document.documentElement.style.setProperty('--' + key, style[key]);
-      }
-    }
-
+    this.activateStyle(style);
     this.storage.saveStyleObject(style, () => this.toastService.push(Toast.SAVE_SUCCEEDED), () => this.toastService.push(Toast.SAVE_FAILED));
   }
 
@@ -50,8 +45,15 @@ export class StyleService {
   }
 
   loadStyle(): void {
-    this.saveStyleObject(this.storage.getStyleObject(this.defaultStyleObject)); //start off with saved styles
+    this.activateStyle(this.storage.getStyleObject(this.defaultStyleObject)); //start off with saved styles
+  }
 
+  private activateStyle(style: Style): void {
+    for (const key in style) {
+      if (style[key] !== '') {
+        document.documentElement.style.setProperty('--' + key, style[key]);
+      }
+    }
   }
 
   /**

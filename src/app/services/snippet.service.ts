@@ -12,10 +12,10 @@ import { UndoMessage } from '../models/undo-message';
 @Injectable()
 export class SnippetService {
   private snippets: Snippet[];
-  
+
   private snippetsSubject: BehaviorSubject<Snippet[]>;
   private pinnedSnippetsSubject: BehaviorSubject<Snippet[]>;
-  
+
   private timerId: any;
   private readonly SAVE_INTERVAL = 200000;
   private readonly DEFAULT_PAGE_SIZE = 12;
@@ -25,14 +25,14 @@ export class SnippetService {
     this.sortService.sortSnippets(this.snippets);
     this.snippetsSubject = new BehaviorSubject<Snippet[]>(this.sliceSnippets());
     this.pinnedSnippetsSubject = new BehaviorSubject<Snippet[]>(this.determinePinnedSnippets());
-    
+
     this.timerId = setInterval(() => this.saveSnippets(), this.SAVE_INTERVAL);
     this.undoService.pull().pipe(
       filter(message => message.type === "snippet"),
       tap(message => this.undoDelete(message.snippet))
     ).subscribe(success => this.toastService.push(Toast.SNIPPET_RESTORED));
   }
-  
+
 
   getPinnedSnippets(): Observable<Snippet[]> {
     return this.pinnedSnippetsSubject.asObservable();

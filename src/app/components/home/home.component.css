@@ -18,13 +18,7 @@ app-middle-panel {
 app-side-panel {
   grid-area: side;
   background-color: var(--main-bg-color);
-}
-
-app-toast {
-  grid-area: middle;
-  place-self: end;
-  align-self: start;
-  z-index: 2;
+  max-height: 100vh;
 }
 
 @media screen and (max-width: 750px) {

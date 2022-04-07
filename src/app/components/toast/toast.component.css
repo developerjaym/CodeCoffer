@@ -1,11 +1,5 @@
 .toast {
-    background-color: var(--accent-fg-color);
-    color: var(--accent-bg-color);
+    color: var(--accent-fg-color);
+    background-color: var(--accent-bg-color);
     font-weight: bold;
-    width: 100%;
-
-    border-color: var(--accent-bg-color);
-    border-width: var(--border-width-thin);
-    border-style: solid;
-    border-radius: var(--border-radius);
 }

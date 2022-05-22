@@ -56,7 +56,6 @@ export class SnippetService {
   }
 
   onSnippetSelected(id: string): void {
-    window.scrollTo(0, 0);
     const selectedSnippet: Snippet = this.getSnippetById(id);
     selectedSnippet.showing = true;
     const visibleSnippets: Snippet[] = this.snippetsSubject.value.filter(snippet => snippet.id !== id);
@@ -90,7 +89,6 @@ export class SnippetService {
     snippet.id = this.createId();
     this.storage.addSnippet(snippet);
     this.snippets.unshift(snippet);
-    window.scrollTo(0, 0);
     const snippetsToDisplay = this.snippetsSubject.value;
     snippetsToDisplay.unshift(snippet);
     this.snippetsSubject.next(snippetsToDisplay);

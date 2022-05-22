@@ -9,4 +9,7 @@
 a {
     margin-left: var(--margin-narrow);
     margin-right: var(--margin-narrow);
+
+    display: flex;
+    align-items: flex-end;
 }
